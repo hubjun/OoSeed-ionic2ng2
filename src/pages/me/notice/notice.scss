@@ -1,0 +1,61 @@
+//提醒评论，点赞
+.noticePage{
+  .cusCard{
+    @include remCalc(padding,pxTorem(30px));
+    @include font-dpr(35px);
+    .avatarBox{
+      //display: -webkit-box;
+      display: flex;
+      align-items: center;
+      .avatar{
+        @include font-dpr(24px);
+        img{
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+          @include remCalc(width,pxTorem(80px));
+          @include remCalc(height,pxTorem(80px));
+        }
+      }
+      .rightBox{
+        @include remCalc(padding-left,pxTorem(20));
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+        -ms-box-flex: 1;
+        .name{
+          @include font-dpr(28px);
+          color: color($h5,c2);
+        }
+        .dateTime{
+          @include font-dpr(24px);
+          color: color($h5,c4);
+        }
+      }
+    }
+    span.disc{
+      display: inline-block;
+      @include remCalc(padding,pxTorem(20),0,pxTorem(16),0);
+      color: color($h5,c2);
+      @include font-dpr(28px);
+    }
+    .postContent{
+      @include remCalc(padding,pxTorem(20));
+      @include font-dpr(28px);
+      background-color: color($h5,c9);
+      border-radius: 8px;
+      span{
+        @include font-dpr(22px);
+        color: color($h5,c4);
+      }
+      .content{
+        p{
+          margin: 0;
+          @include font-dpr(28px);
+          color: color($h5,c4);
+          line-height: 47px;
+          @include remCalc(padding-top,pxTorem(5));
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,162 @@
+page-team-detail {
+  ion-header {
+    .toolbar-background-ios {
+      border-style: none!important;
+      background-color: transparent;
+    }
+  }
+  .avatar-wrap {
+    position: relative;
+    padding-bottom: pxTorem(30);
+  } // .avatar,.logo {
+  //   border: 1px solid #f0f0f0;
+  // }
+  .avatar-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0; //  filter: blur(5px);
+    width: auto;
+    height: auto;
+    background-size: cover;
+  }
+  .filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: .4;
+    background-color: #000;
+  }
+  .avatar-content {
+    position: relative;
+    padding-top: pxTorem(83);
+    padding-bottom: pxTorem(38);
+    text-align: center;
+    .avatar {
+      width: pxTorem(146);
+      height: pxTorem(146);
+      margin: auto;
+      border-radius: 50%;
+      background-color: #ccc;
+    }
+    h1 {
+      margin: pxTorem(20) 0;
+      @include font-dpr(34px);
+      color: color($h5, c10);
+    }
+    p {
+      margin-top: pxTorem(20);
+      @include font-dpr(26px);
+      color: color($h5, c7);
+    }
+  }
+  .switch-wrap {
+    margin-top: - pxTorem(30);
+    position: relative;
+    .switch-tab {
+      border-top-left-radius: pxTorem(30);
+      border-top-right-radius: pxTorem(30);
+      background-color: #fff;
+      ion-segment-button {
+        height: pxTorem(100);
+        line-height: pxTorem(100);
+        border: none;
+        @include font-dpr(28px);
+        color: color($h5, c3);
+        background-color: #fff;
+        &:first-of-type {
+          border-radius: 0;
+          border-top-left-radius: pxTorem(30);
+        }
+        &:last-of-type {
+          border-radius: 0;
+          border-top-right-radius: pxTorem(30);
+        }
+        span {
+          display: inline-block;
+          height: 100%;
+        }
+      }
+      .segment-activated {
+        span {
+          border-bottom: 2px solid color($h5, c1);
+        }
+        color: color($h5, c1);
+        background-color: #fff;
+      }
+    }
+  }
+} //服务
+service-channel {
+  .service-component {
+    padding-top: pxTorem(66);
+    padding-bottom: pxTorem(40);
+    text-align: center;
+    background-color: #fff;
+  }
+  b {
+    display: block;
+    width: pxTorem(500);
+    margin: auto;
+    line-height: pxTorem(66);
+    border-radius: pxTorem(44);
+    @include font-dpr(28px);
+    border: 2px solid color($h5, c12);
+    color: color($h5, c12);
+  }
+} //无数据缺省
+.no-record-wrap {
+  padding-bottom: pxTorem(64);
+  text-align: center;
+  background-color: #fff;
+  .no-record-icon {
+    margin: pxTorem(70) auto 0 auto;
+  }
+  .no-record-text {
+    @include font-dpr(28px);
+    color: color($h5, c4);
+  }
+}
+
+//模块标题
+.module {
+  margin-top: pxTorem(15);
+  padding-top: pxTorem(30);
+  background-color: #fff;
+  .module-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // padding-top: pxTorem(30);
+    margin-top: 0;
+    margin-bottom: pxTorem(50);
+    padding-left: pxTorem(20);
+    padding-right: pxTorem(50);
+    @include font-dpr(30px);
+    color: color($h5, c2);
+    border-left: 3px solid color($h5, c1);
+    &::after {
+      right: pxTorem(30);
+    }
+    span {
+      margin-top: 0;
+      @include font-dpr(24px);
+      color: color($h5, c4);
+      text-align: right; // margin-right: pxTorem(18);
+    }
+  }
+  .reset-margin {
+    margin-bottom: pxTorem(40);
+  }
+}
+
+// match-result{
+//   .team-grid-list{
+//     li{
+//       margin-bottom:pxTorem(40);
+//     }
+//   }
+// }

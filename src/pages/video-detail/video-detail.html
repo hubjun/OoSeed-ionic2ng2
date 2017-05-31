@@ -1,0 +1,83 @@
+<ion-content class="video-detail">
+
+  <div class="video-player page-list">
+    <!--<img class="vplay" src="../../assets/icon/play.png"/>-->
+    <ion-icon name="refresh-circle" class="vplay" (click)="videoSwitch()"></ion-icon>
+    <!--<video src="../../assets/video.webm" webkit-playsinline>-->
+    <video [src]="deVideoInfo.videoUrl" webkit-playsinline class="video" poster="{{deVideoInfo.videoCover}}" #player>
+      <!--<source src='video.mp4' type="video/mp4"></source>-->
+      <p>设备暂不支持</p>
+    </video>
+
+    <div class="back-pop" name="arrow-back" (click)="backToVideos()"></div>
+    <div class="controls">
+      <!--<ion-icon name="arrow-back"></ion-icon>-->
+      <!-- 播放/暂停 -->
+      <div name="play" class="switch isplay" (click)="videoSwitch()" *ngIf="isPause"></div>
+      <div name="pause" class="switch ispause" (click)="videoSwitch()" *ngIf="!isPause"></div>
+      <!-- 全屏 -->
+      <!--<a href="javascript:;" class="expand fa fa-expand"></a>-->
+      <!-- 进度条 -->
+      <div class="progress" (click)="videoSkip($event)">
+        <div class="loaded"></div>
+        <div class="line"></div>
+        <div class="bar"></div>
+      </div>
+      <div class="timer">
+        <span class="current">00:00:00</span> /
+        <span class="total">00:00:00</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-content page-list">
+    <div class="video-name">
+      <span>{{deVideoInfo.videoName}}</span>
+    </div>
+    <!--<ion-input class="input" placeholder="Text Input"></ion-input>-->
+    <div class="play-info">
+      <div class="parameter">
+        <div class="item-left">
+          <i class="play-count"></i>
+          <span>{{deVideoInfo.playCount}}次</span>
+        </div>
+        <div class="item-right" (click)="hiddenToggle()">
+          <span>简介</span>
+          <!--<i class="arrow"></i>-->
+          <ion-icon class="arrow-up" name="arrow-up" *ngIf="isTextHidden"></ion-icon>
+          <ion-icon class="arrow-up" name="arrow-down" *ngIf="!isTextHidden"></ion-icon>
+        </div>
+      </div>
+      <div class="content-text" *ngIf="isTextHidden">
+        <p>&nbsp;&nbsp;{{deVideoInfo.intro}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="button-box page-list" (click)="goHomePage(deVideoInfo.userId)">
+    <ion-list class="uploader-info item-list">
+      <button ion-item>
+        <!--<div class="portraint">-->
+        <img src="../../assets/icon/concern_default_head.png" alt="" *ngIf="isHasUserIcon">
+        <img [src]="deVideoInfo.userIcon" *ngIf="!isHasUserIcon" alt="">
+        <!--</div>-->
+        <span>{{deVideoInfo.nickName}}</span>
+      </button>
+    </ion-list>
+  </div>
+
+  <div class="recommand-list item-list gap-top" *ngIf="!isRcommend">
+    <div class="header">
+      <span class="title">列表</span>
+    </div>
+    <div class="content">
+      <ion-col *ngFor="let obj of videoCateList" width-50 class="col-list">
+        <div (click)="gotoDetail($event,obj.videoId)" class="item-info">
+          <img [src]="obj.videoCover" alt="">
+          <div class="title">
+            <span class="name">{{obj.videoName | slice: 0:23}}</span>
+          </div>
+        </div>
+      </ion-col>
+    </div>
+  </div>
+</ion-content>

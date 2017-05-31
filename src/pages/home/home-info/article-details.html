@@ -1,0 +1,47 @@
+<ion-header id="sportIp-header" *ngIf="isApp == 0">
+  <ion-navbar>
+    <ion-title>文章正文</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="article-info-details-warp">
+
+  <div class="article-info-details padding-left-right-30" *ngIf="articleStatus == true " >
+    <header class="header">
+      <div class="article-title">{{article.title}}</div>
+      <div class="article-publish-info">
+        <span class="author">{{article.authorName}}</span>
+   <!--     <span>{{article.publishTime | amDateFormat:'MM-DD HH:mm'}}</span>-->
+      </div>
+    </header>
+    <article class="article">
+         <div *ngFor="let item of article.articleContentList" [innerHtml]="item.content"></div>
+    </article>
+  </div>
+
+  <div class="background-gray" *ngIf="comments.length > 0"></div>
+
+  <div class="article-info-comments-warp padding-left-right-30" *ngIf="comments.length > 0 && isShare == 0">
+    <div class="title">推荐文章</div>
+    <div class="article-info-comment-profile border-bottom" *ngFor="let item of comments" tappable  (click)="goToArticleDetail(item.articleId)">
+          {{item.title}}
+    </div>
+  </div>
+
+
+</ion-content>
+<div class="article-info-action-bar " *ngIf="articleStatus == true  && isApp == 0">
+  <div class="inform-btn-warp">
+    <div class="inform-btn" style="visibility: hidden;"></div>
+
+  </div>
+  <div class="comment-count-btn" tappable (click)="goToCommentPage(article.articleId)">
+    <div class="comment-count-around" *ngIf="article.commentCount > 0">{{article.commentCount}}</div>
+  </div>
+  <div class="author-personal-homepage"></div>
+</div>
+
+<div class="download-banner" *ngIf="isShare == 1">
+  <a href="javascript:;"><img src="../../assets/images/download_banner.png" alt=""></a>
+  <span class="hide-btn"></span>
+</div>

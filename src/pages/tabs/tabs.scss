@@ -1,0 +1,57 @@
+
+.sportIp-tabs {
+  .tabbar {
+    padding: pxTorem(15px) 0px;
+  }
+  .bar-mine-on {
+    background: url("../../assets/images/icon_release.png") no-repeat center center;
+  }
+  .tab-button {
+    overflow: visible;
+    min-height: none;
+    max-width: none;
+    .tab-button-icon {
+      width: pxTorem(33px);
+      height: pxTorem(61px);
+      min-width: auto;
+
+    }
+    &[aria-selected='true'] .tab-button-icon {
+      width: pxTorem(38px);
+    }
+  }
+ [aria-label="sportip tabs-home-outline"] {
+    background: url("#{$images-path}/tabs_home.png") no-repeat center center/contain;
+  }
+  [aria-selected=true] [aria-label="sportip tabs-home"] {
+    background: url("#{$images-path}/tabs_home_active.png") no-repeat center center/contain;
+  }
+  [aria-label="sportip tabs-videos-outline"] {
+    background: url("#{$images-path}/tabs_videos.png") no-repeat center center/contain;
+  }
+  [aria-selected=true] [aria-label="sportip tabs-videos"] {
+    background: url("#{$images-path}/tabs_videos_active.png") no-repeat center center/contain;
+  }
+  .tab-button .tab-button-icon[aria-label="sportip tabs-release-outline"] {
+    height: pxTorem(105px);
+    width: pxTorem(90px);
+    border-radius: 50px;
+    color: black !important;
+    position: relative;
+    top: pxTorem(-20px);
+
+    background: url("#{$images-path}/tabs_release.png") no-repeat center center/contain;
+  }
+  [aria-label="sportip tabs-local-outline"] {
+    background: url("#{$images-path}/tabs_local.png") no-repeat center center/contain;
+  }
+[aria-selected=true] [aria-label="sportip tabs-local"] {
+    background: url("#{$images-path}/tabs_local_active.png") no-repeat center center/contain;
+  }
+  [aria-label="sportip tabs-me-outline"] {
+    background: url("#{$images-path}/tabs_me.png") no-repeat center center/contain;
+  }
+  [aria-selected=true] [aria-label="sportip tabs-me"] {
+    background: url("#{$images-path}/tabs_me_active.png") no-repeat center center/contain;
+  }
+}

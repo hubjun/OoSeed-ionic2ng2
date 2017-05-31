@@ -1,0 +1,478 @@
+.personal{
+  background: color($h5,c9);
+  .card-info{
+    position: relative;
+    background-color: #fff;
+    &::after{
+      right: pxTorem(30);
+    }
+    .cardFlex{
+      display: flex;
+      align-items: center;
+    }
+    display: -webkit-box;
+    -webkit-box-flex: 1;
+    @include remCalc(padding, 0, pxTorem(30), 0, pxTorem(30));
+    .avatar{
+      position: relative;
+      @include remCalc(padding, 0, 0, pxTorem(30), 0);
+      img.avatarImg{
+        //display: inline-block;
+        border-radius: 50%;
+        @include remCalc(width,pxTorem(100));
+        @include remCalc(height,pxTorem(100));
+      }
+      img.gender{
+        position: absolute;
+        @include remCalc(width,pxTorem(28));
+        @include remCalc(height,pxTorem(28));
+        //top: pxTorem(93px);
+        //left: pxTorem(72px);
+        @include remCalc(top,pxTorem(93));
+        @include remCalc(left,pxTorem(72));
+      }
+    }
+    .rightBox{
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      -ms-box-flex: 1;
+      @include remCalc(padding-left,pxTorem(30));
+      @include font-dpr(32px);
+      .name{
+        color: color($h5,c2);
+        font-size: pxTorem(32px);
+      }
+      .authenticIcon{
+        @include remCalc(width,pxTorem(80));
+        @include remCalc(height,pxTorem(28));
+      }
+      .location{
+        color: color($h5,c4);
+        font-size: pxTorem(24px);
+        @include remCalc(padding-top,pxTorem(6));
+      }
+    }
+    .iconRight{
+      position: absolute;
+      right: pxTorem(30);
+      @include remCalc(width,pxTorem(17));
+      @include remCalc(height,pxTorem(28));
+      background: url("../../assets/icon/icon_more.png") no-repeat;
+      background-size: pxTorem(17) pxTorem(28);
+    }
+  }
+  .influence{
+    display: flex;
+    align-items: center;
+    // @include remCalc(height,pxTorem(90px));
+    padding:0 pxTorem(35);
+    // line-height: pxTorem(90px);
+        background-color: #fff;
+    .line{
+      width: 1px ;
+      height: pxTorem(30);
+      background-color: color($h5,c9);
+    }
+    .item{
+      flex: 1;
+      padding: pxTorem(20) 0;
+      color: color($h5,c4);
+      @include font-dpr(24px);
+      border-top: 1px solid color($h5,c8);
+      text-align: center;
+      &:first-of-type{
+        position: relative;
+        &::before{
+           content: '';
+            position: absolute;
+           right: 0;
+           height: pxTorem(30);
+           width:1px;
+           background-color: color($h5,c9);
+        }
+      }
+      span{
+        color: color($h5,c2);
+        font-size: pxTorem(28px);
+      }
+    }
+  }
+  .operateWarp{
+    //@include remCalc(padding,pxTorem(15), 0, pxTorem(15), 0);
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    img{
+      display: inline-block;
+      @include remCalc(padding,pxTorem(33), 0, pxTorem(30), 0);
+    }
+    span{
+      display: block;
+      @include font-dpr(28px);
+      color: color($h5,c2);
+      @include remCalc(padding-bottom,pxTorem(34));
+    }
+    .cols{
+      @include font-dpr(28px);
+      text-align: center;
+    }
+    .calendar{
+      img.icon01{
+        @include remCalc(width,pxTorem(44));
+        //@include remCalc(height,pxTorem(40));
+      }
+    }
+    .create{
+      img.icon02{
+        @include remCalc(width,pxTorem(44));
+        //@include remCalc(height,pxTorem(44));
+      }
+    }
+    .ball{
+      img.icon03{
+        @include remCalc(width,pxTorem(44));
+        //@include remCalc(height,pxTorem(44));
+      }
+    }
+  }
+
+  .itemList{
+    background-color: #fff;
+    .item{
+      display: flex;
+      align-items: center;
+      height:pxTorem(88);
+      padding-left:pxTorem(30);
+      @include font-dpr(28px);
+      .iconAvatar{
+        display: flex;
+        align-items: center;
+        img{
+          @include remCalc(padding,0, pxTorem(24), 0, pxTorem(30));
+        }
+      }
+      i{
+        margin-right: pxTorem(24);
+      }
+      .icon01{
+        @include icon(34,33,'../../assets/icon/icon_myhome_message.png');
+      }
+      .icon02{
+        @include icon(30,34,'../../assets/icon/icon_myhome_myteam.png');
+      }
+       .icon02{
+
+        @include icon(30,34,'../../assets/icon/icon_myhome_myteam.png');
+      }
+       .icon03{
+
+        @include icon(31,34,'../../assets/icon/icon_myhome_content.png');
+      }
+       .icon04{
+
+        @include icon(34,34,'../../assets/icon/icon_myhome_more.png');
+      }
+       .icon05{
+
+        @include icon(34,34,'../../assets/icon/icon_myhome_set.png');
+      }
+       .icon06{
+        @include icon(34,27,'../../assets/icon/icon_myhome_feedback.png');
+      }
+
+      .message{
+        justify-content: space-between;
+         &::before{
+            content: none!important;
+            }
+         h2{
+           flex: 1;
+         }
+      }
+      div.noBorder{
+        border-bottom-width: 0;
+      }
+      .rightBox{
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        border-bottom: 1px solid color($h5,c8);
+        &::before{
+           content: '';
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            right: pxTorem(30);
+            bottom: 0;
+            margin: auto;
+            @include icon(17,28,'../../../assets/icon/icon_more.png');
+        }
+        h2{
+          @include font-dpr(28px);
+          margin: 0;
+          line-height: pxTorem(88);
+          color: color($h5,c2);
+        }
+        .totalCount{
+          width: pxTorem(30);
+           height: pxTorem(30);
+           margin-right: pxTorem(30);
+          padding-left:pxTorem(3);
+          line-height: pxTorem(30);
+          @include font-dpr(18px);
+           border-radius: 50%;
+           text-align: center;
+          color: color($h5,c10);
+          background: color($h5,c11);
+
+        }
+      }
+    }
+  }
+  .loginOut{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    @include remCalc(height,pxTorem(88));
+    @include remCalc(margin,pxTorem(30),0,pxTorem(30),0);
+    background: color($h5,c10);
+    text-align: center;
+    span{
+      @include font-dpr(28px);
+      color: color($h5,c2);
+      @include remCalc(line-height,pxTorem(88));
+    }
+  }
+}
+
+//球队历史信息
+.jobHistory{
+  background: color($h5,c9);
+  .list{
+    overflow-x: hidden;
+    overflow-y: auto;
+    @include font-dpr(26px);
+    @include remCalc(padding,pxTorem(30),pxTorem(20),pxTorem(20),pxTorem(50));
+    background: color($h5,c10);
+    .listItem{
+      position: relative;
+      @include remCalc(padding,0,0,0,pxTorem(60));
+      .itemContent{
+        @include remCalc(padding-bottom,pxTorem(50));
+        .dateItem{
+          @include font-dpr(24px);
+          color: color($h5,c1);
+        }
+        .nameItem{
+          @include font-dpr(26px);
+          @include remCalc(padding,pxTorem(19),0,0,pxTorem(39));
+          color: color($h5,c2);
+        }
+      }
+      &:before{
+        content: '';
+        display: inline-block;
+        position: absolute;
+        height: 100%;
+        top: 20%;
+        left: pxTorem(12);
+        width: pxTorem(1);
+        border-right: 1px solid color($h5,c6);
+        z-index: 99;
+      }
+      &:after{
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 5%;
+        left: pxTorem(3);
+        box-sizing: border-box;
+        width: pxTorem(20);
+        height: pxTorem(20);
+        background: color($h5,c6);
+        border: pxTorem(4) solid color($h5,c10);
+        box-shadow: 0 0 0 pxTorem(3) color($h5,c6);
+        border-radius: 50%;
+        z-index: 100;
+      }
+    }
+    .first-list{
+      &:before{
+        height: 100%;
+        top: 20%;
+      }
+    }
+    .last-list{
+      &:before{
+        height: 50%;
+      }
+    }
+    .hightLight{
+      &:after{
+        content: '';
+        display: inline-block;
+        top: 2%;
+        left: pxTorem(-2);
+        width: pxTorem(30);
+        height: pxTorem(30);
+        background-color: color($h5,c1);
+        border: pxTorem(4) solid color($h5,c10);
+        border-radius: 50%;
+        box-shadow: 0 0 0 pxTorem(3) color($h5,c1);
+        z-index: 100;
+      }
+    }
+  }
+}
+//我的内容
+  .itemList{
+    .item{
+      i,.iconAvatar {
+        margin-right: pxTorem(28);
+      }
+    }
+  }
+.myContent{
+  background: color($h5,c9);
+  .itemList{
+    background: color($h5,c10);
+     .item{
+       .icon01{
+        @include icon(34,33,'../../assets/icon/icon_myhome_post.png');
+      }
+       .icon02{
+        @include icon(30,34,'../../assets/icon/icon_myhome_information.png');
+      }
+       .icon03{
+        @include icon(31,34,'../../assets/icon/icon_myhome_photo.png');
+      }
+       .icon04{
+        @include icon(34,34,'../../assets/icon/icon_myhome_video.png');
+      }
+       .icon05{
+        @include icon(34,34,'../../assets/icon/icon_myhome_praise.png');
+      }
+     }
+  }
+}
+.noticeList{
+  background: color($h5,c9);
+  .itemList{
+    background: color($h5,c10);
+    .item{
+      height:pxTorem(110);
+      .rightBox{
+        h2{
+          line-height: pxTorem(104);
+        }
+      }
+      .icon01{
+        @include icon(80,80,'../../assets/icon/icon_message_comments.png');
+      }
+      .icon02{
+        @include icon(80,80,'../../assets/icon/icon_message_@.png');
+      }
+      .icon03{
+        @include icon(80,80,'../../assets/icon/icon_message_praise.png');
+      }
+    }
+  }
+}
+//我的球队列表
+.myTeam{
+  background: color($h5,c9);
+  //自定义ionic listItem
+  .teamWarp{
+    background: color($h5,c10);
+    .list{
+      margin-bottom: 0;
+    }
+    .item-block{
+      min-height: 1.6rem;
+      //padding-top: 0;
+      //padding-bottom: 0;
+      //@include remCalc(padding,pxTorem(30),0,pxTorem(30),0);
+      .item-inner{
+        font-size: 0.7rem;
+        background-size: 26px 26px;
+        border-bottom: 2px solid color($h5,c8);
+        @include remCalc(padding,pxTorem(30),0,pxTorem(30),0);
+        background-size: pxTorem(26) pxTorem(26);
+        background-position: right 32px center;
+        .label{
+          margin: 0;
+        }
+      }
+    }
+    .item-icon{
+      font-size: 28px;
+      @include remCalc(min-height,pxTorem(28));
+      @include font-dpr(28px);
+      margin-right: 0;
+      @include remCalc(padding,0,pxTorem(30),0,pxTorem(24));
+      img{
+        border-radius: 50%;
+        @include remCalc(width, pxTorem(110px));
+        @include remCalc(height, pxTorem(110px));
+        display: inline-block;
+      }
+    }
+    .rightContent{
+      .topName{
+        color: color($h5,c2);
+        @include font-dpr(30px);
+        img{
+          display: inline-block;
+          @include remCalc(padding-left,pxTorem(14));
+        }
+        .iconAuth{
+          @include icon(81,28,"../../assets/icon/yirenzheng.png");
+        }
+      }
+      .locationFans{
+        @include font-dpr(24px);
+        //display: inline-block;
+        @include remCalc(padding,pxTorem(15),0,pxTorem(15),0);
+        span{
+          color: color($h5,c4);
+          @include font-dpr(24px);
+        }
+        .fans{
+          display: block;
+          //@include remCalc(padding-left,pxTorem(30));
+        }
+      }
+      .captian{
+        color: color($h5,c4);
+        @include font-dpr(24px);
+      }
+    }
+    span{
+      color: color($h5,c2);
+      @include font-dpr(30px);
+    }
+  }
+}
+.show-page ion-backdrop {
+  z-index: -1;
+  visibility: visible;
+}
+.modal-wrapper .ion-page {
+  max-height: 60%; top: inherit; bottom: 0 !important;
+}
+
+
+//更多
+#more{
+  .itemList{
+    .icon1{
+      @include icon(35,36,'../../assets/icon/icon_myhome_collection.png');
+    }
+  }
+}
+
+
+.logout{
+  @include font-dpr(30px);
+}

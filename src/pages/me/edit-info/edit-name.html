@@ -1,0 +1,14 @@
+<ion-header id="user-header" style="background: #fff;">
+  <ion-navbar color="c10">
+    <ion-title>编辑昵称</ion-title>
+    <ion-buttons end>
+      <button id="save" ion-button [class.active]="nickName.value?.length > 0" (click)="save(nickName.value)">保存</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="edit-wrap gray-background">
+  <div class="edit-content top-gap">
+    <ion-input type="text" placeholder="请输入内容" #nickName></ion-input>
+  </div>
+</ion-content>

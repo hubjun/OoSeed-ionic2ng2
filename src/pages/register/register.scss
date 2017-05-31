@@ -1,0 +1,93 @@
+
+page-register{
+  #sportIp-header {
+    &.sportIp-header-register {
+      .toolbar-background {
+        border: none;
+        background: color($h5,c10);
+      }
+      .toolbar-title {
+        color: color($h5,c2);
+      }
+      .ion-ios-arrow-back {
+        font-size: 0.6rem;
+        color: color($h5,c2);
+        display: block;
+      }
+    }
+  }
+  ion-content{
+    /*background: url("../../assets/images/login_background.png") no-repeat top center/cover;*/
+    /*background: color($h5,c10);*/
+    .register-content {
+      padding:pxTorem(130px) pxTorem(48px) 0px;
+      .register-box {
+        @extend .login-box;
+        position: relative;
+        border-bottom: pxTorem(2px) solid color($h5,c8);
+        .register-box-icon {
+          @extend .login-box-icon;
+          &.register-box-icon-account {
+            background: url("../../assets/icon/register_phone.png") no-repeat center center/contain;
+          }
+          &.register-box-icon-verify-code {
+            background: url("../../assets/icon/register_verifycode.png") no-repeat center center/contain;
+          }
+        }
+        .register-box-input {
+          @include font-dpr(30px);
+          color: color($h5,c2);
+          @extend .login-box-input;
+          input{
+            text-indent:pxTorem(35px);
+          }
+          &::-webkit-input-placeholder {
+            color: color($h5,c2);
+          }
+        }
+        &.register-box-verify-code{
+          margin-top: pxTorem(80px);
+          position: relative;
+
+        }
+          .register-timer {
+            position: relative;
+            right: 0px;
+            bottom: 0px;
+            position: absolute;
+            text-align: center;
+            width: pxTorem(198px);
+            height: pxTorem(90px);
+            line-height: pxTorem(90px);
+            @include font-dpr(30px);
+            color: color($h5,c1);
+            border-radius: pxTorem(10px);
+            border:pxTorem(2px) solid color($h5,c1);
+            &:after{
+              content: ' ';
+              display: block;
+              position: absolute;
+              width: 125%;
+              height: pxTorem(2px);
+              background: #fff;
+              bottom: pxTorem(-4px);
+              right: 0px;
+            }
+        }
+      }
+      .register-button-next {
+        height: pxTorem(90px);
+        @include font-dpr(34px);
+        color: color($h5, c10);
+        margin-top: pxTorem(70px);
+        background: color($h5,c1);
+      }
+      .button-ios{
+        padding: 0;
+      }
+      .is-register{
+        background-color:color($h5,c2);
+      }
+    }
+  }
+}

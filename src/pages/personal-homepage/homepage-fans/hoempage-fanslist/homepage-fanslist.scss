@@ -1,0 +1,15 @@
+page-homepage-fanslist {
+  .warp{
+    flex-grow: 2;
+    display: flex;
+    align-items: center;
+    padding-bottom: pxTorem(20px);
+  }
+  .button-subscription {
+    position: static !important;
+    top: inherit !important;
+    &.isFollowBoth.isFollow {
+      background: url(../../../../assets/images/subscript_icon_isfollowboth.png) no-repeat center center/contain;
+    }
+  }
+}

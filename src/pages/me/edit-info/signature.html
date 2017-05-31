@@ -1,0 +1,15 @@
+<ion-header id="user-header">
+  <ion-navbar color="c10">
+    <ion-title>编辑签名</ion-title>
+    <ion-buttons end>
+      <button ion-button [class.active]="signText.value?.length > 0" (click)="save(signText.value)">保存</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="edit-wrap gray-background">
+  <div class="edit-content top-gap">
+        <ion-input type="text" placeholder="请输入内容" #signText></ion-input>
+  </div>
+</ion-content>

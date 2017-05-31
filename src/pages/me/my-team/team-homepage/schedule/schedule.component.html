@@ -1,0 +1,21 @@
+<div class="schedule-component">
+  <div class="module">
+    <h3 class="module-title reset-margin">{{currentYear}}赛季</h3>
+    <match-result></match-result>
+  </div>
+  <div class="module match-result">
+    <h3 class="module-title reset-margin" *ngIf="newMatchTotal<=2">下一场比赛</h3>
+    <h3 class="module-title reset-margin right-arrow-icon" (click)="goMatchRecord('new')" *ngIf="newMatchTotal>2">下一场比赛<span>更多</span></h3>
+    <div class="match-list">
+      <match #newMatch></match>
+    </div>
+  </div>
+  <div class="module match-result bottom-gap">
+    <h3 class="module-title reset-margin" *ngIf="oldMatchTotal<=2">历史赛程</h3>
+    <h3 class="module-title reset-margin right-arrow-icon" (click)="goMatchRecord('old')" *ngIf="oldMatchTotal>2">历史赛程<span>更多</span></h3>
+    <div class="match-list">
+      <match #oldMatch></match>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,34 @@
+<ion-header id="sportIp-header"  class="sportIp-header-login">
+  <ion-navbar>
+    <button (click)="closeLoginPage($event)"  class="back-button disable-hover bar-button bar-button-ios back-button-ios bar-button-default bar-button-default-ios show-back-button" ion-button="bar-button" ng-reflect-klass="back-button" ng-reflect-ng-class="back-button-ios"><span class="button-inner"><ion-icon class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back" role="img" ng-reflect-klass="back-button-icon" ng-reflect-ng-class="back-button-icon-ios" aria-label="arrow back" ng-reflect-name="ios-arrow-back"></ion-icon><span class="back-button-text back-button-text-ios" ng-reflect-klass="back-button-text" ng-reflect-ng-class="back-button-text-ios" style="transform: translateX(0px);"></span></span><div class="button-effect"></div></button>
+    <ion-title>登录</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <div class="login-content">
+    <form [formGroup]="loginForm" (submit)="login() " >
+      <div class="login-box login-box-account">
+        <div class="login-box-icon login-box-icon-account"></div>
+        <div class="login-box-input">
+          <input type="text" formControlName="account"  name="login-account" id="login-account" placeholder="请输入手机号">
+        </div>
+      </div>
+      <div class="login-box login-box-password">
+        <div class="login-box-icon login-box-icon-password"></div>
+        <div class="login-box-input">
+          <input type="password" formControlName="loginPwd"  name="login-password" id="login-password" placeholder="请输入密码">
+        </div>
+      </div>
+      <div class="login-button" >
+        <button  type="submit" [disabled]="!loginForm.valid" >登录</button>
+      </div>
+    </form>
+    <div class="login-correlation-box">
+      <!--  <div class="login-correlation-register" (click)="goToPage()">立即注册</div>
+    <div class="login-correlation-forgetpsw" (click)="logOut()">忘记密码</div>-->
+    </div>
+    <control-messages [control]="loginForm.controls.account"></control-messages>
+    <control-messages [control]="loginForm.controls.loginPwd"></control-messages>
+  </div>
+</ion-content>

@@ -1,0 +1,109 @@
+<ion-header id="sportIp-header">
+  <ion-navbar>
+    <ion-title>我的</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="personal gray-background" #content>
+  <div class="card-info right-arrow-icon" (click)="editInfo()">
+    <div class="cardFlex">
+      <div class="avatar">
+        <img
+          class="avatarImg"
+          *ngIf="userInfo.iconUrl"
+          [src]="userInfo.iconUrl"
+          (click)="goToPersonalPage(userInfo.userId,$event)"
+        >
+        <img
+          class="avatarImg"
+          *ngIf="!userInfo.iconUrl"
+          (click)="goToPersonalPage(userInfo.userId,$event)"
+          src="../../assets/images/placeholder_head_pic.png"
+        >
+        <img class="gender girl" *ngIf="!isMan" src="../../assets/icon/girl.png" alt="">
+        <img class="gender boy" *ngIf="isMan" src="../../assets/icon/boy.png" alt="">
+      </div>
+      <div class="rightBox">
+        <span class="name">{{userInfo.nickName}}</span>
+        <img class="authenticIcon" *ngIf="isAuthentic" src="../../assets/icon/weirenzheng.png" alt="">
+        <img class="authenticIcon" *ngIf="!isAuthentic" src="../../assets/icon/yirenzheng.png" alt="">
+        <div class="location">深圳南山</div>
+      </div>
+    </div>
+  </div>
+  <div class="influence">
+    <div class="item " (click)="goToFanslist(userInfo.userId,true)">
+      关注 <span class="count">{{userInfo.concernNum}}</span>
+    </div>
+    <div class="line"></div>
+    <div class="item" (click)="goToFanslist(userInfo.userId,false)">
+      粉丝 <span class="count">{{userInfo.followNum}}</span>
+    </div>
+  </div>
+  <div class="gap"></div>
+  <div class="operateWarp">
+    <div class="cols calendar" (click)="goToMySchedule()">
+      <img class="icon01" src="../../assets/icon/icon_myhome_schedule.png" alt="">
+      <span>个人日程</span>
+    </div>
+
+    <div class="cols ball" (click)="goToMySpell()">
+      <img class="icon03" src="../../assets/icon/icon_myhome_spell.png" alt="">
+      <span>我的拼球</span>
+    </div>
+  </div>
+  <div class="gap"></div>
+
+  <div class="itemList">
+    <div class="item" (click)="goNoticeList()">
+      <i class="icon01"></i>
+      <!--显示消息数时message-->
+      <!--<div class="rightBox message">-->
+      <div class="rightBox">
+        <h2>消息</h2>
+        <!--<span class="totalCount">99</span>-->
+      </div>
+    </div>
+
+    <div class="item" (click)="goMyteam()">
+      <i class="icon02">
+      </i>
+      <div class="rightBox">
+        <h2>我的球队</h2>
+      </div>
+    </div>
+    <div class="item" (click)="goMyContent(userInfo.userId)">
+      <i class="iconAvatar icon03">
+      </i>
+      <div class="rightBox">
+        <h2>我的内容</h2>
+      </div>
+    </div>
+<!--    <div class="item" (click)="goMore()">
+      <i class="iconAvatar icon04">
+      </i>
+      <div class="noBorder rightBox">
+        <h2>更多</h2>
+      </div>
+    </div>-->
+    <!--<div class="gap"></div>-->
+<!--    <div class="item">
+      <i class="iconAvatar icon05">
+      </i>
+      <div class="rightBox">
+        <h2>设置</h2>
+      </div>
+    </div>-->
+<!--    <div class="item">
+      <i class="iconAvatar icon06">
+      </i>
+      <div class="noBorder rightBox">
+        <h2>反馈</h2>
+      </div>
+    </div>-->
+  </div>
+
+  <div class="loginOut" (click)="loginOut()">
+    <span>退出当前帐号</span>
+  </div>
+</ion-content>

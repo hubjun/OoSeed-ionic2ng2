@@ -1,0 +1,432 @@
+page-home{
+  //推荐轮播图
+  .ip-intro{
+    .banner{
+      overflow: hidden;
+      height: pxTorem(308);
+    }
+    .name{
+      @include font-dpr(28px);
+      color: color($h5, c2);
+    }
+    .intro{
+      @include font-dpr(24px);
+      color: color($h5, c4);
+    }
+    .content{
+      @include font-dpr(24px);
+      padding: pxTorem(20);
+    }
+  }
+  .ip-slide{
+    padding-top: pxTorem(10);
+    padding-bottom: pxTorem(20);
+    .name{
+
+      display: block;
+      margin-top: pxTorem(20);
+      margin-bottom: pxTorem(10);
+      // overflow: hidden;
+      // width: 80%;
+      //text-overflow: ellipsis;
+      @include font-dpr(24px);
+      white-space: nowrap;
+      color: color($h5, c2);
+    }
+    .profession{
+      @include font-dpr(20px);
+      color: color($h5, c4);
+    }
+    img{
+      width: pxTorem(140);
+      height:pxTorem(140);
+      border-radius: 50%;
+    }
+
+  }
+  //所选中的IP
+  .slide-active{
+    .intro-text{
+      margin-top: pxTorem(-10);
+    }
+    img{
+      border: 5px solid color($h5, c1);
+    }
+    .name,.profession{
+      color: color($h5, c1);
+    }
+  }
+}
+.sportIp-home-tab {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  span {
+    width: 100%;
+    border: none;
+    height: auto;
+    line-height: normal;
+    color: color($h5, c2);
+    /* background-color:color($h5,c10);*/
+    @include font-dpr(30px);
+    @include remCalc(padding, 0px, pxTorem(6px), pxTorem(0px), pxTorem(6px));
+    span {
+      width: auto;
+      height: 100%;
+      display: inline-block;
+      /*line-height: 80px;*/
+      @include remCalc(padding, pxTorem(25px), pxTorem(0px), pxTorem(17px), pxTorem(0px))
+    }
+    &.active {
+      background: none;
+      color: color($h5, c1);
+      & span {
+        border-bottom: pxTorem(2px) solid color($h5, c1);
+      }
+    }
+  }
+}
+
+/*.home-warp-tab ion-list {
+  display: none;
+}*/
+.home-recommend.active, .home-info.active, .home-subscriptions.active {
+  display: block;
+}
+
+.home-recommend {
+
+  .recommend-personage-banner {
+    height: pxTorem(308px);
+    img {
+      width: 100%;
+      display: block;
+      height: 100%;
+    }
+  }
+  .recommend-personage-intro {
+    @include remCalc(padding, pxTorem(20px), pxTorem(20px), pxTorem(20px), pxTorem(20px));
+    h3 {
+      margin: 0px;
+      color: color($h5, c2);
+      @include font-dpr(28px);
+      @include remCalc(padding-bottom, pxTorem(20px))
+    }
+    p {
+      line-height: pxTorem(40px);
+      color: color($h5, c4);
+      @include font-dpr(24px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+  .recommend-personage-selectors {
+    background: color($h5, c9);
+    @include remCalc(height, pxTorem(320px));
+    @include remCalc(padding, pxTorem(30px), 0px, pxTorem(20px), 0px);
+    .scroll-content {
+      background: color($h5, c10);
+    }
+    ul {
+      width: 3000px;
+      overflow: hidden;
+    }
+    li {
+      float: left;
+      text-align: center;
+      @include remCalc(margin-left, pxTorem(60px));
+      .recommend-personage-selectors-icon {
+        img {
+          width: pxTorem(140px);
+          height: pxTorem(140px);
+          border-radius: 50%;
+        }
+      }
+      .recommend-personage-selectors-name {
+        @include font-dpr(24px);
+        color: color($h5, c2);
+        @include remCalc(padding-top, pxTorem(25px))
+      }
+      .recommend-personage-selectors-professional {
+        @include font-dpr(20px);
+        color: color($h5, c4);
+        @include remCalc(padding, pxTorem(10px), 0px, pxTorem(20px), 0px)
+      }
+    }
+  }
+}
+
+.recommend-modules {
+  @include remCalc(padding, pxTorem(20px));
+  border-bottom: 1px solid color($h5, c8);
+  padding: pxTorem(20) pxTorem(20) 0 pxTorem(20) ;
+  .recommend-modules-header {
+    @include remCalc(padding-bottom, pxTorem(20px));
+    display: flex;
+    justify-content: space-between;
+    .title {
+      @include font-dpr(28px);
+      color: color($h5, c1);
+    }
+    .get-more {
+      @include font-dpr(20px);
+      color: color($h5, c4);
+    }
+  }
+  .recommend-modules-content {
+    display: flex;
+    flex-wrap: wrap;
+    .item{
+      width: 50%;
+      @include font-dpr(20px);
+      color: color($h5, c4);
+      text-align: center;
+      img{
+        width:pxTorem(345);
+        height: pxTorem(196);
+      }
+      .name{
+        margin: pxTorem(20) 0;
+      }
+    }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      .name {
+        text-align: center;
+        @include remCalc(padding, pxTorem(20px), 0px, pxTorem(20px), 0px);
+      }
+    }
+  }
+}
+
+//资讯
+.home-info {
+  position: relative;
+  #scroll-horizontal-box {
+    ::-webkit-scrollbar {
+      width: 0px
+    }
+    overflow: hidden;
+    width: 100%;
+    height: pxTorem(50px);
+    max-width: 100%;
+    position: relative;
+    margin-top: pxTorem(20px);
+    padding: 0px pxTorem(20px) pxTorem(20px);
+    border-bottom: pxTorem(2px) solid color($h5, c8);
+
+    ul.info-cate-box {
+      top: pxTorem(0px);
+      left: pxTorem(20px);
+      width: 5000px;
+      position: absolute;
+
+      li {
+        float: left;
+        &.active span {
+          color: color($h5, c10);
+          background: color($h5, c1);
+        }
+        span {
+          display: block;
+          height: pxTorem(50px);
+          line-height: pxTorem(50px);
+          color: color($h5, c3);
+          @include font-dpr(24px);
+          border-radius: pxTorem(5px);
+          margin-right: pxTorem(30px);
+          padding: 0 pxTorem(40px);
+          background: color($h5, c9);
+        }
+        &.current span {
+          color: color($h5, c10);
+          background: color($h5, c1);
+        }
+      }
+    }
+  }
+  .info-news-warp {
+    .info-news-summary {
+      overflow: hidden;
+      /*display: flex;
+      justify-content: space-between;*/
+      display: -webkit-box;
+      border-bottom: pxTorem(2px) solid color($h5, c8);
+      @include remCalc(padding, pxTorem(20px));
+      .picture {
+        overflow: hidden;
+        @include remCalc(width, pxTorem(192px));
+        @include remCalc(height, pxTorem(146px));
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .content {
+        position: relative;
+        -webkit-box-flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: pxTorem(20px);
+        .title {
+          font-weight: bold;
+          align-self: flex-start;
+          @include font-dpr(28px);
+          color: color($h5, c2);
+          line-height: pxTorem(40px);
+        }
+        .source {
+          width: 100%;
+          display: flex;
+          align-self: flex-end;
+          justify-content: space-between;
+          .poster {
+            @include font-dpr(28px);
+            color: color($h5, c4);
+          }
+        }
+      }
+    }
+  }
+}
+
+//关注
+.home-subscriptions {
+  .subscriptions-item {
+    display: -webkit-box;
+    -webkit-box-flex: 1;
+    padding: pxTorem(20px);
+  }
+}
+
+.info-detail {
+
+}
+
+//资讯详情
+.article-info-details-warp {
+  &>div{
+    padding: pxTorem(20px)  0px pxTorem(150px) 0px;
+  }
+  .article-info-details {
+    .header {
+      padding: pxTorem(10px) 0px pxTorem(15px);
+      .article-title {
+        @include font-dpr(36px);
+      }
+      .article-publish-info {
+        @include font-dpr(24px);
+        color: color($h5, c4);
+        padding-top: pxTorem(30px);
+      }
+    }
+    .article {
+      &>div{
+        padding: 0px !important;
+      }
+      p,h1,h2,h3,h4,h5,h6,div {
+        width: 100%;
+        @include font-dpr(30px);
+        color: color($h5, c2);
+        padding: pxTorem(15px) 0px;
+        margin:0px;
+        line-height: normal;
+        text-align: justify;
+      }
+      p img{
+        padding: 0px;
+      }
+      img, video {
+        width: 100%;
+        display: block;
+        max-width: 100%;
+        padding: pxTorem(15px) 0px;
+      }
+    }
+  }
+}
+
+//咨询详情推荐文章
+.article-info-comments-warp {
+  background: white;
+  padding-top: pxTorem(30px);
+
+  .title {
+    font-weight: bold;
+    @include font-dpr(32px);
+    color: color($h5, c2);
+  }
+  .article-info-comment-profile {
+    padding: pxTorem(30px) 0px;
+    @include font-dpr(28px);
+    color: color($h5, c2);
+  }
+}
+
+//资讯详情推荐文章评论
+.modal-wrapper {
+  article-comments-page.ion-page{
+    max-height: none;
+  }
+}
+
+.article-info-action-bar {
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width:100%;
+  z-index:999;
+  padding: pxTorem(30px) pxTorem(40px);
+  border-top: pxTorem(2px) solid color($h5, c8);
+  border-bottom: pxTorem(2px) solid color($h5, c8);
+  .inform-btn-warp {
+    flex-grow: 1;
+    ion-spinner {
+      width: 0.5rem !important;
+      height: 0.5rem !important;
+    }
+    .inform-btn {
+      width: pxTorem(95px);
+      height: pxTorem(42px);
+      background: url("../../assets/images/icon_infor_read.png") no-repeat center center/contain;
+    }
+  }
+
+  .comment-count-btn {
+    height: pxTorem(44px);
+    position: relative;
+    width: pxTorem(44px);
+    margin-right: pxTorem(85px);
+    background: url("../../assets/images/icon_comment_read.png") no-repeat center center/contain;
+    .comment-count-around {
+      top: -32%;
+      left: 80%;
+      font-size: pxTorem(20px);
+      position: absolute;
+      line-height: pxTorem(20px);
+      border-radius: pxTorem(10px);
+      color: color($h5, c10);
+      background: color($h5, c11);
+      word-break: normal !important;
+      padding: pxTorem(5px) pxTorem(7px);
+    }
+  }
+  .author-personal-homepage {
+    width: pxTorem(50px);
+    height: pxTorem(50px);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-image: url("../../assets/images/subscript_pic.png");
+  }
+}
+

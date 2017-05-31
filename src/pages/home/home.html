@@ -1,0 +1,73 @@
+<ion-header id="sportIp-header" text-center>
+  <ion-navbar>
+    <ion-title>首页</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content #container>
+  <header class="sportIp-home-tab">
+    <ion-segment [(ngModel)]="homeTabs" class="">
+<!--      <ion-segment-button value="recommend" >
+        <span>推荐</span>
+      </ion-segment-button>-->
+      <ion-segment-button value="info" (ionSelect)="getInfoData()">
+        <span>资讯</span>
+      </ion-segment-button>
+      <ion-segment-button value="feed" (ionSelect)="getFeedData()">
+        <span>关注</span>
+      </ion-segment-button>
+    </ion-segment>
+  </header>
+
+  <content class="home-warp-tab" >
+    <div [ngSwitch]="homeTabs">
+
+
+
+<!--      <ion-list *ngSwitchCase="'recommend'" class="home-recommend">
+        <div class="recommend-personage-info">
+          <div class="ip-intro">
+            <div class="banner" [style.background]=" 'url('+ activeIP.showImage+') no-repeat center center/cover ' | safeStyle "></div>
+            <div class="content">
+              <span class="name">{{activeIP.nickName}}</span>
+              <div class="intro">{{activeIP.intro}}</div>
+            </div>
+          </div>
+          <ion-slides [options]="slideOptions" class="ip-slide" slidesPerView="4">
+            <ion-slide *ngFor="let IP of IPs; let i = index;" (click)="selectSlide(i)" [ngClass]="{'slide-active': selectedIndex === i}">
+              <img src="{{IP.iconUrl}}" alt="">
+              <div class="intro-text">
+                <span class="name">{{IP.nickName}}</span>
+                <span class="profession">{{IP.intro}}</span>
+              </div>
+            </ion-slide>
+          </ion-slides>
+          <div class="gap"></div>
+          <channel [channels]="channels"></channel>
+        </div>
+      </ion-list>-->
+
+      <ion-list *ngSwitchCase="'info'" [ngClass]="{active:isActive == 1}" class="home-info">
+        <gallery-slides *ngIf="gallerys" [gallerys]="gallerys"></gallery-slides>
+        <info-cate *ngIf="articles" [content]="content" [scrolls]="scrolls" [article]="articles" (cate)="cate($event)"></info-cate>
+        <ion-infinite-scroll (ionInfinite)="doInfiniteForArticle($event)">
+          <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'feed'" [ngClass]="{active:isActive == 2}" class="home-subscriptions">
+        <feed-card *ngIf="feeds" [content]="content" [feeds]="feeds"></feed-card>
+        <ion-infinite-scroll (ionInfinite)="doInfiniteForFeed($event)">
+          <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="加载更多...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ion-list>
+    </div>
+
+  </content>
+</ion-content>

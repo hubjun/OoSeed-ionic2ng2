@@ -1,0 +1,56 @@
+
+
+<div class="changePdding" *ngIf="teamDataDetialPub.length>0">
+  <div class="local-team-detail-clum"  id="local-team-detail-clum-id" (click)="goToSpellDetail(item.fightId)" *ngFor="let item of teamDataDetialPub">
+    <div class="team-detail-header">
+      <img class="team-detail-img" src="{{item.iconUrl}}" (click)="goPersonalPage(item.userId);$event.stopPropagation();"/>
+      <div class="team-detail-font">
+        <div class="team-detail-font-text">{{item.leaderUserName}}</div>
+        <img src="{{item.appImgtxtUrl}}" alt="" *ngIf="item.appImgtxtUrl">
+      </div>
+      <!--<img src="{{item.appImgtxtUrl}}" alt="">-->
+      <!--<div class="team-detail-mark">{{item.placeRemark}}</div>-->
+      <span></span>
+    </div>
+
+    <div class="team-detail-spell">
+        <p class="team-spell">拼球：{{item.title}}</p>
+        <div class="team-time">
+          <i></i>
+          <span>{{item.startTime|amDateFormat:'YY-MM-DD '}}  周{{item.startTime|timestampToChineseDay }} {{item.startTime|amDateFormat:'HH:mm'}}-{{item.endTime|amDateFormat:'HH:mm'}}</span>
+          <!--<span>{{item.startTime.getDate()}}</span>-->
+          <!--<p>周六18:30-20：00</p>-->
+        </div>
+
+        <div class="team-location">
+          <i></i>
+          <span>{{item.place||'暂无'}}</span>
+          <span class="team-distance" >{{locationDistance!='未知'?(item.distance>1000?(item.distance/1000).toFixed(1)+'km':item.distance.toFixed(0)+'m'):'未知'}}</span>
+        </div>
+
+        <p class="team-expense">
+          <i></i>
+          <span>{{item.payMethod==1?'AA':'免费'}}</span>
+        </p>
+    </div>
+    <div class="team-icon">
+      <div class="team-icon-img" [class.teamSpell1]="item.status==1"
+                                    [class.teamSpell2]="item.status==2"
+                                    [class.teamSpell3]="item.status==3"
+                                    [class.teamSpell4]="item.status==4"
+                                    [class.teamSpell5]="item.status==5"
+      >{{item.status==1?'报名中':(item.status==2?'拼球成功':(item.status==3?'拼球失败':(item.status==4?'已关闭':'已结束'))) }}</div>
+    </div>
+  </div>
+  <div class="contentLook" (click)="TipCommon()" *ngIf="teamDataDetialPub.length==10">
+    <div class="lookMore">下载球苗App，看更多精彩内容</div>
+  </div>
+</div>
+<div class="spellMissingPage" *ngIf="noData==0">
+  <div class="missingBg">
+    <p></p>
+  </div>
+  <p *ngIf="myActivities=='spellAll'">暂时没有该类拼球信息，去看看其他吧~</p>
+  <p *ngIf="myActivities=='activities'">尚未参加过拼球活动，快去参加拼球吧~</p>
+  <div class="clickLaunch" (click)="TipCommon()" *ngIf="myActivities=='activities'">点击前往~</div>
+</div>

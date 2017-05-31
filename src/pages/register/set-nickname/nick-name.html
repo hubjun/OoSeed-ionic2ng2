@@ -1,0 +1,23 @@
+<ion-header id="sportIp-header"  class="sportIp-header-register">
+  <ion-navbar >
+    <ion-title>设置昵称</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <form [formGroup]="nickNameForm" (submit)="setNickName()">
+    <div class="set-password-content">
+      <div class="prompt-text">
+        设置您的昵称(长度在24个字符以内)
+      </div>
+      <div class="register-box register-box-account">
+        <div class="register-box-input">
+          <input formControlName="nickName" type="text"   name="set-password" id="set-password" placeholder="请输入您的昵称">
+        </div>
+      </div>
+      <button ion-button block class="register-button-next" [disabled]="!nickNameForm.valid">完成</button>
+      <control-messages [control]="nickNameForm.controls.nickName"></control-messages>
+
+    </div>
+  </form>
+</ion-content>

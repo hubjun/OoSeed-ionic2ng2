@@ -1,0 +1,274 @@
+.video-detail {
+  background: color($h5,c9);
+  .page-list{
+    background: color($h5,c10);
+  }
+  .gap-top{
+    @include remCalc(margin-top,pxTorem(15));
+  }
+  .video-player{
+    @include remCalc(width,pxTorem(750px));
+    @include remCalc(height,pxTorem(422px));
+    position: relative;
+    overflow: hidden;
+    background-color: #CCCCCC;
+    video{
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: fill;
+    }
+    .video{
+      //width: 100%;
+      //height: 100%;
+      background:transparent url('1.jpg') 50% 50% no-repeat;
+      -webkit-background-size:cover;
+      -moz-background-size:cover;
+      -o-background-size:cover;
+      background-size:cover;
+    }
+    .vplay{
+      position: absolute;
+      //width: 15%;
+      width: 84px;
+      height: 84px;
+      display: none;
+      //color: color($h5,c10);
+      color: rgba(0, 0, 0, .55);
+      @include font-dpr(75px);
+      z-index: 99;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+    .videoRefresh{
+      display: block;
+    }
+    .back-pop{
+      top: pxTorem(38);
+      left: pxTorem(29);
+      position: absolute;
+      font-size: 0.8rem;
+      color: #fff;
+      z-index: 99;
+      width: pxTorem(21);
+      height: pxTorem(40);
+      background: url("../../assets/icon/fanhui_video.png") no-repeat;
+      background-size: pxTorem(21) pxTorem(40);
+    }
+    .controls{
+      width: 100%;
+      //height: 2rem;
+      @include remCalc(height,pxTorem(88px));
+      line-height: pxTorem(88px);
+      @include font-dpr(22px);
+      color: color($h5,c10);
+      display: block;
+      position: absolute;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, .55);
+      display: -webkit-flex;
+      display: flex;
+      /*进度条*/
+      .switch {
+        //font-size: 46px;
+        color: #FFF;
+        position: absolute;
+      }
+      .isplay{
+        display: block;
+        top: pxTorem(23);
+        //left: pxTorem(36);
+        left: pxTorem(56);
+        width: pxTorem(25);
+        height: pxTorem(40);
+        background: url("../../assets/icon/icon_suspended_01.png") no-repeat;
+        background-size: pxTorem(25) pxTorem(40);
+      }
+      .ispause{
+        //display: none;
+        top: pxTorem(23);
+        //left: pxTorem(31);
+        left: pxTorem(51);
+        width: pxTorem(32);
+        height: pxTorem(40);
+        background: url("../../assets/icon/iconfont-bofang.png") no-repeat;
+        background-size: pxTorem(32) pxTorem(40);
+      }
+      .progress {
+        width: 55%;
+        height: 3px;
+        border-radius: 3px;
+        overflow: hidden;
+        background-color: #fff;
+        cursor: pointer;
+        position: absolute;
+        top: pxTorem(40px);
+        //left: pxTorem(89);
+        left: pxTorem(109);
+        /*下载进度*/
+        .loaded {
+          width: 0;
+          height: 100%;
+          background-color: #21CBBF;
+        }
+        /*播放进度*/
+        .line {
+          width: 0;
+          height: 100%;
+          color: color($h5,c10);
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        .bar {
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          position: absolute;
+          left: 0;
+          top: 0;
+          z-index: 1;
+        }
+      }
+      .timer {
+        @include font-dpr(21px);
+        color: color($h5,c10);
+        //height: 20px;
+        //line-height: 20px;
+        @include remCalc(height,pxTorem(88px));
+        @include remCalc(line-height,pxTorem(88px));
+        position: absolute;
+        //left: pxTorem(533);
+        left: pxTorem(553);
+        color: #FFF;
+        @include font-dpr(22px);
+      }
+      .expand {
+        display: block;
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+        color: #FFF;
+        position: absolute;
+        right: 11px;
+        top: 34px;
+      }
+    }
+  }
+  .video-content{
+    @include remCalc(padding,pxTorem(15px),pxTorem(15),pxTorem(22),pxTorem(15));
+    .video-name{
+      @include font-dpr(32px);
+      @include remCalc(padding,pxTorem(11px), pxTorem(5px), pxTorem(30px), pxTorem(5px));
+      span{
+        color: color($h5,c2);
+      }
+    }
+    .play-info{
+      @include remCalc(padding,pxTorem(0), pxTorem(5px), pxTorem(0), pxTorem(5px));
+      .parameter{
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        @include font-dpr(24px);
+        span{
+          color: color($h5,c4);
+        }
+        .item-left{
+          i.play-count{
+            //@include remCalc(width, pxTorem(20px));
+            //@include remCalc(height, pxTorem(20px));
+            //display: inline-block;
+            //background: url("../../assets/icon/icon_play_02.png") center center/contain;
+            @include icon(20,20,"../../assets/icon/icon_play_02.png");
+          }
+        }
+        .item-right{
+          /*i{
+            @include remCalc(width, pxTorem(80px));
+            @include remCalc(height, pxTorem(80px));
+            display: inline-block;
+            //background: url("../../assets/icon/icon_play_02.png") left center no-repeat;
+          }*/
+          .arrow-up{
+            color: #999;
+          }
+        }
+      }
+      .content-text{
+        @include remCalc(padding,pxTorem(22px), pxTorem(0px), pxTorem(5px), pxTorem(0px));
+        p{
+          color: color($h5,c2);
+          line-height: 46px;
+          @include font-dpr(24px);
+        }
+      }
+    }
+  }
+  .button-box{
+    .item-list{
+      @include remCalc(padding,0,pxTorem(15px),0,pxTorem(15px));
+    }
+    .uploader-info{
+      margin-bottom: 0;
+      .item-block{
+        min-height: 1.6rem;
+        padding: 0;
+        border-bottom: 0;
+        .item-inner{
+          //@include remCalc(width, pxTorem(26px));
+          //@include remCalc(height, pxTorem(26px));
+          font-size: 0.7rem;
+          background-size: pxTorem(26) pxTorem(26);
+        }
+      }
+      img{
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        @include remCalc(width, pxTorem(80px));
+        @include remCalc(height, pxTorem(80px));
+        display: inline-block;
+      }
+      span{
+        color: color($h5,c2);
+        @include font-dpr(30px);
+      }
+    }
+    .video-gap{
+      @include remCalc(height,pxTorem(15));
+      background: color($h5,c9);
+    }
+  }
+  .recommand-list{
+    @include font-dpr(28px);
+    background: color($h5,c10);
+    .header {
+      @include font-dpr(28px);
+      @include remCalc(padding,pxTorem(18), pxTorem(5), pxTorem(18), pxTorem(20));
+      .title {
+        color: color($h5, c2);
+      }
+    }
+    .content{
+      display: inline-block;
+      @include remCalc(padding,pxTorem(0),pxTorem(15),0,pxTorem(15));
+      img{
+        @include remCalc(width, pxTorem(347px));
+        @include remCalc(height, pxTorem(196px));
+      }
+      .title{
+        //display: flex;
+        //flex-direction: row;
+        @include remCalc(padding,pxTorem(18px),0px,0,0px);
+        @include font-dpr(28px);
+        span.name{
+          color: color($h5, c2);
+        }
+      }
+      //}
+    }
+  }
+}

@@ -1,0 +1,176 @@
+//球队主页公用样式
+.team-grid-list {
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    width: 33.33%;
+    margin-bottom: pxTorem(40);
+    align-items: center;
+    text-align: center;
+    @include font-dpr(24px);
+    color: color($h5, c4);
+    background-color: #fff;
+  }
+  canvas {
+    display: block;
+    margin: 0 auto pxTorem(10) auto;
+  }
+  span {
+    display: block;
+    margin-bottom: pxTorem(5);
+    @include font-dpr(38px);
+    color: color($h5, c2);
+  }
+  .chinese-text {
+    @include font-dpr(32px);
+  }
+}
+
+//球队栏目
+team-channel {
+  .players-module {
+    .list {
+      display: flex;
+      padding-bottom: pxTorem(10);
+    }
+    li {
+      width: 20%;
+      padding: 0 pxTorem(30);
+      margin-bottom: 0;
+      text-align: center;
+    }
+    .avatar {
+      display: inline-block;
+      width: pxTorem(90);
+      height: pxTorem(90);
+      border-radius: 50%;
+      background-color: #ccc;
+    }
+    span {
+      margin-top: pxTorem(10);
+      @include font-dpr(24px);
+      @include text-overflow-ellipsis(90);
+      color: color($h5, c4);
+    }
+  }
+} //球队球员列表
+page-team-player {
+  ul {
+    @include font-dpr(24px);
+    color: color($h5, c4);
+  }
+  li {
+    display: flex;
+    position: relative;
+    background-color: #fff;
+    &:last-of-type {
+      .basic-info {
+        border-bottom: none;
+      }
+    }
+  }
+  .bottom-gap {
+    .basic-info {
+      border-bottom: none;
+    }
+  }
+  p {
+    margin-right: pxTorem(20);
+  }
+  .avatar {
+    width: pxTorem(80);
+    height: pxTorem(80);
+    border-radius: 50%;
+    margin: pxTorem(30) pxTorem(30) pxTorem(35) pxTorem(20);
+  }
+  .basic-info {
+    flex: 1;
+    padding: pxTorem(35) pxTorem(40) pxTorem(30) 0;
+    .name {
+      display: flex;
+      align-items: center;
+      margin-bottom: pxTorem(10);
+    }
+    .number {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: pxTorem(40);
+      margin: auto;
+      padding-top: pxTorem(5);
+      text-align: center;
+      font-style: normal;
+      @include icon(56, 47, '../../../assets/icon/player_shirt.png');
+      color: #fff;
+    }
+    em {
+      display: inline-block;
+      overflow: hidden;
+      max-width: 40%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      @include font-dpr(30px);
+      color: color($h5, c2);
+    }
+    i {
+      margin-left: pxTorem(14);
+      padding: pxTorem(2) pxTorem(10);
+      border-radius: pxTorem(4);
+      font-style: normal;
+      @include font-dpr(24px);
+    }
+    .captain {
+      color: #fff;
+      background-color: #fb7373;
+    }
+    .member {
+      color: #ffba2c;
+      border: 1px solid #ffba2c;
+    }
+  }
+} //球队球员列表详情
+page-team-player-detail {
+  .player-card {
+    padding-top: pxTorem(110);
+    padding-bottom: pxTorem(30);
+    text-align: center;
+    @include font-dpr(34px);
+    color: #fff;
+    background-color: color($h5, c1);
+    .avatar {
+      display: block;
+      width: pxTorem(146);
+      height: pxTorem(146);
+      margin: 0 auto pxTorem(20) auto;
+      border-radius: 50%;
+    }
+    strong {
+      display: block;
+    }
+    span {
+      display: block;
+      margin-top: pxTorem(20);
+      @include font-dpr(24px);
+    }
+    i {
+      padding: 0 pxTorem(15);
+      border-radius: 4px;
+      border: 2px solid #fff;
+      @include font-dpr(20px);
+      font-style: normal;
+    }
+  }
+  .list {
+    padding: pxTorem(80) pxTorem(20) 0 pxTorem(20);
+    background-color: #fff;
+    li {
+      margin-bottom: pxTorem(80);
+    }
+    .chinese-text {
+      @include font-dpr(32px);
+    }
+  }
+  .number-text{
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,111 @@
+ //个人信息页
+.normal-list {//与球队个人信息公用
+  .list {
+    @include font-dpr(28px);
+    color: color($h5, c2);
+    padding-left: pxTorem(20);
+    background-color: #fff;
+    .item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: pxTorem(88);
+      padding-right: pxTorem(57);
+      border-bottom: 1px solid color($h5, c8);
+      &:last-of-type {
+        border-bottom: none;
+      }
+      &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: pxTorem(20);
+        bottom: 0;
+        margin: auto;
+        @include icon(17, 28, '(../../../assets/icon/icon_more.png');
+      }
+    }
+    //头像
+    .avatar {
+      height: pxTorem(163);
+      input[type='file'] {
+        position: absolute;
+        opacity: 0;
+      }
+      label {
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+      em {
+        flex: 1;
+      }
+      .avatarImg {
+        width: pxTorem(110);
+        height: pxTorem(110);
+        border-radius: 50%;
+        background-color: #fafafa;
+      }
+    }
+  }
+  .ageSelectWarp,
+  .multi-picker {
+    .input-wrapper {
+      .label {
+        @include font-dpr(28px);
+      }
+      .ng-valid {
+        .multi-picker-text {
+          @include font-dpr(28px);
+          @include remCalc(padding-right, pxTorem(30px));
+        }
+      }
+    }
+  }
+  //使用dateTime功能样式的item样式
+  .ionicDateItem {
+    .item-block {
+      .item-inner {
+        @include font-dpr(28px);
+        .input-wrapper {
+          .datetime-ios {
+            @include remCalc(padding-right, pxTorem(20px));
+          }
+        }
+      }
+    }
+  }
+}
+ //编辑签名
+ .edit-wrap {
+   .edit-content {
+     @include font-dpr(35px);
+     background-color: #fff;
+     .text-input {
+       margin: 0;
+       @include font-dpr(28px);
+       background: color($h5, c10);
+       @include remCalc(padding, pxTorem(35), pxTorem(30), pxTorem(35), pxTorem(30));
+     }
+   }
+ }
+ //足球个人信息
+ .ball-info {
+    .list{
+      padding-left: 0;
+      .item{
+        padding-left: pxTorem(20);
+      }
+      .auth{
+        padding-right: pxTorem(20);
+        &::after{
+          content: none;
+        }
+        span{
+          color:color($h5, c6);
+        }
+      }
+    }
+ }

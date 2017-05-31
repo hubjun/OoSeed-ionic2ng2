@@ -1,0 +1,78 @@
+//赛程详情
+page-match-detail,
+page-booking-match-detail {
+  .match-card {
+    padding-top: pxTorem(148);
+    background: url('../../assets/images/war_background.jpg') no-repeat center center/cover;
+    .end-time {
+      color: #fff;
+      p {
+        &:last-of-type {
+          margin-top: pxTorem(5);
+        }
+        span {
+          margin-right: pxTorem(17);
+          margin-right: pxTorem(17);
+        }
+      }
+    }
+    .score {
+      color: #fff;
+    }
+    .team-name {
+      // margin-top: pxTorem(36);
+      padding-bottom: pxTorem(102);
+      color: #fff;
+    }
+    .end {
+      background: rgba(193, 193, 193, .7);
+    }
+    .ing {
+      background: rgba(1, 168, 124, .7);
+    }
+    .success {
+      background: rgba(137, 208, 53, .7);
+    }
+    .fail {
+      background: rgba(255, 16, 82, .7);
+    }
+  }
+  .match-info {
+    padding-left: pxTorem(20);
+    @include font-dpr(28px);
+    color: color($h5, c3);
+    background-color: #fff;
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: pxTorem(88);
+      padding-right:pxTorem(20);
+      border-bottom: 1px solid #e5e5e5;
+      &:last-of-type {
+        border-bottom: none;
+      }
+      span {
+        margin-left: pxTorem(20);
+        color: color($h5, c2);
+      }
+    }
+    .clother {
+      .icon {
+        display: inline-block;
+        width: pxTorem(40);
+        height: pxTorem(43);
+      }
+      div,
+      p {
+        display: flex;
+        align-items: center;
+        margin-left:pxTorem(10);
+      }
+      span {
+        display: inline-block;
+        margin-left: pxTorem(10);
+      } // margin-right: pxTorem(10);
+    }
+  }
+}

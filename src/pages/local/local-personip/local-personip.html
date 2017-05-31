@@ -1,0 +1,30 @@
+
+
+  <div class="teamslist">
+
+    <div class="item"*ngFor="let personip of personIpList;let i=index;">
+      <div class="imgavatar"(click)="goPersonalPage(personip.userId)">
+        <img [src]="personip.iconUrl">
+      </div>
+      <div class="rightcontent">
+          <div class="left">
+            <div class="teamname" >
+              <span>{{personip.nickName}}</span>
+              <img [src]="personip.appImgtxtUrl"*ngIf="!personip.seeIcon">
+            </div>
+            <!--<div class="imglogo" ></div>-->
+          </div>
+          <div class="right">
+            <div class="long">{{personip.distance}}{{personip.mUnit}}</div>
+            <div class="follow"(click)="ToFollow(i,personip.userId)">
+              <img [src]="personip.FollowIcon">
+            </div>
+          </div>
+      </div>
+    </div>
+
+  </div>
+  <local-default-content [text]="'暂无该类推荐信息，先去看看其它的吧~'" *ngIf="ifnull"></local-default-content>
+
+
+

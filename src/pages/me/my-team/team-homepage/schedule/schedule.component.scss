@@ -1,0 +1,25 @@
+//赛程
+schedule-channel {
+  .match-record {
+    margin-bottom: pxTorem(20)!important;
+  }
+  .match-list {
+    @include font-dpr(28px);
+    color: color($h5, c2);
+  }
+  .match-result{
+    .module-title{
+       margin-bottom: pxTorem(25)!important;
+    }
+  }
+}
+
+//全部赛程列表
+match-record {
+  
+  .item {
+    padding-top: pxTorem(30);
+  }
+}
+
+

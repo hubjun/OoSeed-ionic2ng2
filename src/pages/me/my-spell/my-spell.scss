@@ -1,0 +1,49 @@
+
+  .my-spell-page{
+      width:100%;
+      margin-top:pxTorem(15);
+      background:color($h5,c7);
+      .scroll-content{
+        background:color($h5,c10);
+      }
+      .my-spell-clum{
+        width:100%;
+        // padding:pxTorem(53) 0 pxTorem(30);
+        overflow: hidden;
+        background:color($h5,c10);
+          >div{
+          width:50%;
+          float:left;
+          @include font-dpr(32px);
+          color:color($h5,c3);
+          text-align: center;
+          span{
+              display: inline-block;
+              height:100%;
+              padding-top:pxTorem(53);
+              padding-bottom:pxTorem(30);
+          }
+          }
+          .my-spell-current{
+              color:color($h5,c1);
+              span{
+                  border-bottom:pxTorem(5) solid color($h5,c1);
+              }
+          }
+      }
+      .my-launch-page{
+          width:100%;
+          height:100%;
+          background: color($h5,c10);
+          display:block;
+          padding-bottom:pxTorem(30);
+      }
+      .my-activities-page{
+          width:100%;
+          height:100%;
+          display:none;
+          padding-bottom:pxTorem(30);
+          background:color($h5,c10);
+      }
+  }
+

@@ -1,0 +1,84 @@
+<!--
+  Generated template for the PersonalHomepage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content #container>
+  <ion-header id="sportIp-header" class="transparent-header">
+    <ion-navbar>
+      <div
+        class="user-verify-icon "
+        (click)="follow(userInfo.userId,$event)"
+        *ngIf="userInfo.userId != user.getUserid()"
+        [class.isFollow]="userInfo.isFollowed ==1"
+        [class.isFollowBoth]="userInfo.isFollowedMe == 1 && userInfo.isFollowed == 1"
+      >
+
+      </div>
+    </ion-navbar>
+  </ion-header>
+
+  <div class="profile-card">
+    <div class="user-icon-warp border profile-gap">
+      <div class="user-icon"
+           *ngIf="userInfo.iconUrl"
+           [style.background-image]=" 'url('+ userInfo.iconUrl +')' | safeStyle "
+      >
+
+
+        <div [class.boy]="userInfo.sex == 1 " [class.girl]="userInfo.sex == 2" class="user-sex ">
+
+        </div>
+      </div>
+
+      <div
+        class="user-icon"
+        *ngIf="!userInfo.iconUrl"
+        style="background-image:url('../../assets/images/placeholder_head_pic.png')"
+      >
+        <div [class.boy]="userInfo.sex == 1 " [class.girl]="userInfo.sex == 2" class="user-sex ">
+
+        </div>
+      </div>
+    </div>
+    <div class="user-name profile-gap">{{userInfo.nickName}}</div>
+    <div class="user-signature profile-gap" *ngIf="userInfo.appImgtxtUrl">
+      <img class="icon-type" [src]="userInfo.appImgtxtUrl || ' '"/>
+    </div>
+  </div>
+  <div class="sportIp-home-tab">
+    <ion-segment [(ngModel)]="UserProfile">
+      <ion-segment-button value="share"><span>分享</span></ion-segment-button>
+      <ion-segment-button value="groups"><span>圈子</span></ion-segment-button>
+      <ion-segment-button value="fans"><span>粉丝</span></ion-segment-button>
+      <ion-segment-button value="service"><span>服务</span></ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div class="gap"></div>
+
+  <content class="user-profile-container">
+    <div [ngSwitch]="UserProfile">
+
+      <ion-list *ngSwitchCase="'share'">
+        <page-homepage-share [content]="content" ></page-homepage-share>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'groups'">
+        <page-homepage-groups [content]="content" ></page-homepage-groups>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'fans'">
+        <page-homepage-fans [content]="content" ></page-homepage-fans>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'service'">
+        <page-homepage-service [content]="content" ></page-homepage-service>
+      </ion-list>
+
+    </div>
+  </content>
+</ion-content>

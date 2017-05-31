@@ -1,0 +1,79 @@
+ <ion-list class="user-profile-warp">
+          <div class="share-header">
+            <span>{{userId == user.getUserid() ? '我' : '他'}}的关注<label>({{fansTotal || 0}})</label></span>
+            <a
+              class="arrow-right"
+              href="javascript:;"
+              (click)="goToFanslist(true)"
+              *ngIf="fans.length > 0"
+            >
+              更多
+            </a>
+          </div>
+           <div class="no-content" *ngIf="fans.length == 0">
+             <img src="../../../assets/images/image_nomore.png"/>
+           </div>
+          <div class="fans-warp" *ngIf="fans.length > 0">
+            <ul class="team-grid-list">
+              <li
+                *ngFor="let item of fans"
+                (click)="goToOtherPage(item)"
+              >
+                <div class="content">
+                  <div class="avatar-wrap">
+                    <div
+                      class="avatar"
+                      [lazyLoad]="item.iconUrl"
+                      [defaultImage]="'/assets/images/placeholder_head_pic.png'"
+                      [errorImage]="'/assets/images/placeholder_head_pic.png'"
+                      [scrollObservable]="content.ionScroll"
+                    >
+                    </div>
+                  </div>
+                  <span class="nickname">{{item.nickName}}</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </ion-list>
+
+        <div class="gap"></div>
+
+        <ion-list class="user-profile-warp">
+          <div class="share-header">
+            <span>{{userId == user.getUserid() ? '我' : '他'}}的粉丝<label>({{followsTotal || 0}})</label></span>
+            <a
+              class="arrow-right"
+              href="javascript:;"
+              (click)="goToFanslist(false)"
+              *ngIf="follows.length > 0"
+            >
+              更多
+            </a>
+          </div>
+          <div class="no-content" *ngIf="follows.length == 0">
+            <img src="../../../assets/images/image_nomore.png"/>
+          </div>
+          <div class="fans-warp">
+            <ul class="team-grid-list">
+              <li
+                *ngFor="let item of follows"
+                (click)="goToOtherPage(item)"
+              >
+                <div class="content">
+                  <div class="avatar-wrap">
+                    <div
+                      class="avatar"
+                      [lazyLoad]="item.iconUrl"
+                      [defaultImage]="'/assets/images/placeholder_head_pic.png'"
+                      [errorImage]="'/assets/images/placeholder_head_pic.png'"
+                      [scrollObservable]="content.ionScroll"
+                    >
+                    </div>
+                  </div>
+                  <span class="nickname">{{item.nickName}}</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </ion-list>

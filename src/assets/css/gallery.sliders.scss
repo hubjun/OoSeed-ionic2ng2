@@ -1,0 +1,54 @@
+/**
+ *@author chenwenhao
+ *@data 20170214
+ *@description 此css是用做轮播效果图的专用css文件
+ */
+.gallery-slides-warp {
+  position: relative;
+}
+.gallery-slides-warp .gallery-slides {
+  height: pxTorem(420px);
+}
+.gallery-slides-warp .gallery-slides img {
+  width: 100%;
+}
+.gallery-slides-warp .gallery-slides .gallery {
+  @extend .gallery-slides;
+}
+.gallery-slides-warp .gallery-slides .swiper-pagination {
+  bottom: 0px;
+  z-index: 9999;
+  text-align: right;
+}
+.gallery-slides-warp .gallery-slides .swiper-pagination button {
+  background: #f0f0f0;
+  width: pxTorem(13px);
+  height: pxTorem(13px);
+}
+.gallery-slides-warp .gallery-slides-title {
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  z-index: 999;
+  position: absolute;
+  font-size: pxTorem(28px);
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0px pxTorem(20px);
+  height: pxTorem(70px);
+  line-height: pxTorem(70px);
+}
+
+.gallery-slides-warp .gallery-slides-title div {
+  display: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 80%;
+}
+.gallery-slides-warp .gallery-slides-title div.active {
+  display: block;
+}
+
+
+

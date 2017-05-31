@@ -1,0 +1,46 @@
+<ion-header id="sportIp-header">
+  <ion-navbar>
+	<ion-title>同城</ion-title>
+  </ion-navbar>
+  <div class="locationSelect" (click)='goLocalLocation()'>
+	<span>{{!cityStr ? '定位中...' : cityStr}}</span>
+	<i></i>
+  </div>
+</ion-header>
+
+<ion-content (scroll)="onScroll($event)">
+  <header>
+	<local-nav (onSelect)="handleSelectNav($event)"></local-nav>
+	<local-filter (onChangeAreaText)="changeAreaText($event)"></local-filter>
+  </header>
+  <div id="channels" class="channels" [ngSwitch]="channel">
+    <spell-ball-channel *ngSwitchCase="'spellBall'" [myActivities]="activities"></spell-ball-channel>
+    <!--约战 start-->
+     <booking-match-channel *ngSwitchCase="'bookingMatch'"></booking-match-channel>
+    <!--约战 end-->
+
+    <div class="personalIp" *ngSwitchCase="'teamIp'">
+      <!--球队ip-->
+      <local-team-ip></local-team-ip>
+      <!--<div class="goapp"*ngIf="tCanSee"> 加载完毕,更多请查看APP~！</div>-->
+      <view-more-tip [text]="'加载完毕,下载球苗App，查看更多信息~'" *ngIf="tCanSee"></view-more-tip>
+      <ion-infinite-scroll (ionInfinite)="getteam($event)">
+        <ion-infinite-scroll-content [loadingSpinner]="spinner" [loadingText]="ifloding">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+
+    <recruitment-list *ngSwitchCase="'recruit'"></recruitment-list>
+
+    <!--个人ip-->
+    <div class="personalIp" *ngSwitchCase="'personalIp'">
+      <local-person-ip></local-person-ip>
+      <!--<div class="goapp"*ngIf="pCanSee"> 加载完毕,更多请查看APP~！</div>-->
+      <view-more-tip [text]="'加载完毕,下载球苗App，查看更多信息~'" *ngIf="pCanSee"></view-more-tip>
+      <ion-infinite-scroll (ionInfinite)="getperson($event)" *ngIf="true">
+        <ion-infinite-scroll-content [loadingSpinner]="p_spinner" [loadingText]="p_ifloding">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header id="sportIp-header" class="sub-header">
+  <ion-navbar>
+    <ion-title>个人日程</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="gray-background">
+  <div class="channel newest">
+    <div class="channel-title">当天日程</div>
+    <schedule [schedules]="newestSchedule" *ngIf="newestSchedule.length>0"></schedule>
+    <div class="no-record-wrap" *ngIf="newestSchedule.length===0">
+      <div class="no-record-icon"></div>
+      <div class="no-record-text">暂无日程安排哦，快去发起拼球吧！</div>
+    </div>
+  </div>
+  <div class="channel history">
+    <div class="channel-title">最近日程</div>
+    <schedule [schedules]="latestSchedule" *ngIf="latestSchedule.length>0"></schedule>
+    <div class="no-record-wrap" *ngIf="latestSchedule.length===0">
+      <div class="no-record-icon"></div>
+      <div class="no-record-text">暂无日程安排哦，快去发起拼球吧！</div>
+    </div>
+  </div>
+</ion-content>

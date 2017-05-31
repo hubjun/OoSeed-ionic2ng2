@@ -1,0 +1,39 @@
+page-feedback{
+    .text-area{
+        position: relative;
+         color: color($h5, c6);
+    }
+    .input-length{
+        position: absolute;
+        bottom: pxTorem(20);
+        right: pxTorem(30);
+        @include font-dpr(24px);
+    }
+    ion-textarea{
+        width: 100%;
+        height: pxTorem(387);
+        padding: pxTorem(30);
+        resize: none;
+        border: none;
+       @include font-dpr(30px);
+
+        background-color: #fff;
+    }
+    .contact-info{
+        margin-top:pxTorem(40);
+        span{
+            display: block;
+            margin-bottom: pxTorem(22);
+            padding-left: pxTorem(30);
+             @include font-dpr(28px);
+              color: color($h5, c4);
+        }
+    }
+    ion-input{
+
+
+        padding:   pxTorem(10) pxTorem(30);
+         @include font-dpr(30px);
+        background-color: #fff;
+    }
+}

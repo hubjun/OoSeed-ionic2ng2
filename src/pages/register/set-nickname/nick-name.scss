@@ -1,0 +1,55 @@
+
+page-nick-name{
+  #sportIp-header {
+    &.sportIp-header-register {
+      .toolbar-background {
+        background: color($h5,c10);
+      }
+      .toolbar-title {
+        color: color($h5,c2);
+      }
+      .ion-ios-arrow-back {
+        font-size: 0.6rem;
+        color: color($h5,c2);
+        display: block;
+      }
+    }
+  }
+  ion-content{
+    /*background: url("../../assets/images/login_background.png") no-repeat top center/cover;*/
+    /*background: color($h5,c10);*/
+    .set-password-content {
+      padding:pxTorem(60px) pxTorem(48px) 0px;
+      .register-box {
+        @extend .login-box;
+        position: relative;
+        border-bottom: pxTorem(2px) solid color($h5,c8);
+        margin-top:pxTorem(47px);
+        padding: pxTorem(30px) 0px;
+        .register-box-icon {
+          @extend .login-box-icon;
+        }
+        .register-box-input {
+          @include font-dpr(30px);
+          color: color($h5,c2);
+          @extend .login-box-input;
+          input{
+            text-indent:0px;
+          }
+          &::-webkit-input-placeholder {
+            color: color($h5,c2);
+          }
+        }
+      }
+      .register-button-next {
+        height: pxTorem(90px);
+        @include font-dpr(34px);
+        color: color($h5, c10);
+        margin-top: pxTorem(70px);
+        background: color($h5,c1);
+      }
+    }
+  }
+
+
+}

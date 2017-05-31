@@ -1,0 +1,38 @@
+schedule {
+  .module {
+    margin-top: 0;
+  }
+  li {
+    display: flex;
+    padding: pxTorem(30) pxTorem(60) pxTorem(30) 0;
+    &::after {
+      border-bottom: none;
+    }
+  }
+  .time {
+    margin-right: pxTorem(60);
+    font-size: 0;
+  }
+  .other {
+    width: 100%;
+  }
+  .title {
+    overflow: hidden;
+    width: 80%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .start-time,
+  .title {
+    @include font-dpr(30px);
+    color: color($h5, c2);
+  }
+  .end-time,
+  .date {
+    @include font-dpr(24px);
+    color: color($h5, c4);
+  }
+  .start-time {
+    font-weight: bold;
+  }
+}

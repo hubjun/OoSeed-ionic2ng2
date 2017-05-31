@@ -1,0 +1,48 @@
+<div class="recruitment-list" *ngIf="recruitObj.length > 0">
+  <div class="local-team-detail-clum"  id="local-team-detail-clum-id" (click)="goRecruitDetail(item.id)" *ngFor="let item of recruitObj">
+    <div class="team-detail-header">
+      <img class="team-detail-img" src="{{item.iconFileUrl || defaulticon}}"/>
+      <div class="team-detail-font">
+        <div class="team-detail-font-text">{{item.orgName}}</div>
+        <!--<img src="{{item.iconFileUrl}}" alt="" *ngIf="item.iconFileUrl">-->
+      </div>
+      <span></span>
+    </div>
+
+    <div class="team-detail-spell">
+      <div class="team-time">
+        <i></i>
+        <span>{{ item.weekSet | recruitWeek}}</span>
+      </div>
+
+      <div class="team-location">
+        <i></i>
+        <span>{{!item.place1 ? '场地待定' : item.place1}}</span>
+        <span class="team-distance">{{!item.distance ? '距离未知' : (item.distance > 1000 ? (item.distance / 1000).toFixed(1)+'km' : item.distance.toFixed(0)+'m')}}</span>
+      </div>
+
+      <p class="team-expense">
+        <i></i>
+        <span>{{item.formatName}}</span>
+      </p>
+    </div>
+    <div class="team-icon">
+      <div class="team-icon-img" [class.teamSpell1]="item.status == 1"
+           [class.teamSpell1]="item.status == 1"
+           [class.teamSpell2]="item.status == 2"
+           [class.teamSpell3]="item.status == 3">
+        {{item.status == 1 ? '招募中' : (item.status == 2 ? '招募成功' : (item.status == 3 ? '招募失败':(item.status == 4 ? '已关闭':'已结束'))) }}
+      </div>
+    </div>
+  </div>
+  <view-more-tip [text]="'下载球苗App，看更多精彩内容'"></view-more-tip>
+</div>
+
+<!--<local-default-content [text]="'无推荐信息或在加载中...，先去看看其它的吧~~'" *ngIf="recruitObj.length == 0"></local-default-content>-->
+<div class="spellMissingPage" *ngIf="noData">
+  <div class="missingBg">
+    <p></p>
+  </div>
+  <p>暂时没有该类拼球信息，去看看其他吧~</p>
+  <div class="clickLaunch" (click)="tips()">点击前往~</div>
+</div>

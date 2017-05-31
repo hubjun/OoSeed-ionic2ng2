@@ -1,0 +1,96 @@
+
+page-login{
+  &.ion-page{
+    max-height: 100% !important;
+  }
+  #sportIp-header {
+    &.sportIp-header-login {
+      background: none;
+      .toolbar-background {
+        background: none;
+        border:0px;
+      }
+      .ion-ios-arrow-back {
+        font-size: 0.6rem;
+        color: white;
+        display: block;
+      }
+    }
+  }
+  ion-content{
+    background: url("../../assets/images/login_background.png") no-repeat top center/cover;
+  }
+
+  .login-content {
+    padding: pxTorem(47px);
+    /* background: transparent;*/
+    .login-box {
+      background: url("../../assets/images/login_hr.png") bottom center/contain repeat-x;
+      &.login-box-password {
+        padding-top:pxTorem(60px);
+      }
+      .login-box-icon {
+        width: pxTorem(30px);
+        height:pxTorem(40px);
+        display: flex;
+        align-items: center;
+        &.login-box-icon-account{
+          background: url("../../assets/icon/login_phone.png") no-repeat left center/contain;
+        }
+        &.login-box-icon-password{
+          background: url("../../assets/icon/login_lock.png") no-repeat left center/contain;
+        }
+      }
+      .login-box-input{
+        color: color($h5,c10);
+        @include font-dpr(30px);
+        &::-webkit-input-placeholder {
+          color: color($h5,c10) !important;
+        }
+      }
+    }
+    .login-button {
+      width: 100%;
+      height: pxTorem(90px);
+      margin-top: pxTorem(70px);
+      border-radius: pxTorem(10px);
+      border: 1px solid color($h5,c10);
+      background: rgba(255,255,255,0.2);
+      button {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        background: transparent;
+        @include font-dpr(34px);
+        color:color($h5,c10)
+      }
+    }
+  }
+  .login-correlation-box {
+    display: flex;
+    @include font-dpr(28px);
+    color: color($h5,c10);
+    padding-top: pxTorem(30px);
+    justify-content: space-between;
+  }
+  .third-party-login-box {
+    display: flex;
+    padding-top: pxTorem(145px);
+    align-content: space-between;
+    justify-content: space-around;
+    div {
+      width: pxTorem(114px);
+      height:pxTorem(139px);
+      &.for-wechat {
+        background: url("../../assets/icon/login_wechat.png") no-repeat center center/contain;
+      }
+      &.for-weibo {
+        background: url("../../assets/icon/login_weibo.png") no-repeat center center/contain;
+      }
+      &.for-qq {
+        background: url("../../assets/icon/login_qq.png") no-repeat center center/contain;
+      }
+    }
+  }
+}

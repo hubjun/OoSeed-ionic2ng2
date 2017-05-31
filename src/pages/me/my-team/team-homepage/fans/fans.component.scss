@@ -1,0 +1,62 @@
+ //粉丝
+ fans-channel {
+   .module-title {
+     margin-bottom: pxTorem(40)!important;
+     justify-content: initial!important;
+     em {
+       @include font-dpr(28px);
+       color: color($h5, c4);
+     }
+     span{
+       flex: 1;
+     }
+   }
+   ul {
+     padding: 0 pxTorem(22) pxTorem(10) pxTorem(22)!important;
+   }
+   li {
+     width: 25%!important;
+     text-align: initial!important;
+     padding: 0 pxTorem(38) pxTorem(25) pxTorem(38)!important;
+     margin-bottom: 0!important;
+     .content {
+       position: relative;
+       text-align: center;
+     }
+     .avatar {
+       width: pxTorem(100);
+       height: pxTorem(100);
+       border-radius: 50%;
+     }
+     .nickname {
+       margin-top: pxTorem(15);
+       margin-bottom: 0!important;
+       @include font-dpr(24px);
+       @include text-overflow-ellipsis(100);
+     }
+     .identity {
+       position: absolute;
+       right: pxTorem(-10);
+       top: pxTorem(10);
+       padding: 0 pxTorem(8);
+       @include font-dpr(16px);
+       border-radius: pxTorem(26);
+       font-style: normal;
+       color: #fff;
+     }
+     .team {
+       background-color: #23b891;
+     }
+     .user {
+       background-color: #fea961;
+     }
+   }
+   .no-record-wrap {
+     .no-record-icon {
+       @include icon(164, 165, '../../../assets/icon/image_01_fans.png');
+     }
+   }
+   .no-record {
+     display: none;
+   }
+ }

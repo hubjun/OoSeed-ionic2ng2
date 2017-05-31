@@ -1,0 +1,14 @@
+view-more-tip {
+  .view-more-tip {
+    padding: pxTorem(40) pxTorem(30);
+  }
+  a {
+    display: block;
+    line-height: pxTorem(86);
+    border: pxTorem(2) solid color($h5, c1)!important;
+    border-radius: pxTorem(5);
+    text-align: center;
+    @include font-dpr(30px);
+    color: color($h5, c1);
+  }
+}

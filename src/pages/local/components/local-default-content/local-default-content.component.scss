@@ -1,0 +1,35 @@
+local-default-content {
+  .spellMissingPage {
+    width: 100%;
+    padding-top: pxTorem(150);
+    text-align: center; // height: 100%;
+    background: color($h5, c10);
+    .missingBg {
+      width: 100%;
+      text-align: center;
+      p {
+        display: inline-block;
+        width: pxTorem(200);
+        height: pxTorem(200);
+        background: url('../../../assets/icon/image_ddress.png') center center no-repeat;
+        background-size: pxTorem(160) pxTorem(160);
+      }
+    }
+    >p {
+      @include font-dpr(24px);
+      color: color($h5, c4);
+    }
+    .clickLaunch {
+      display: inline-block;
+      margin-top: pxTorem(40);
+      width: pxTorem(218);
+      height: pxTorem(62);
+      line-height: pxTorem(62);
+      text-align: center;
+      border: pxTorem(1) solid color($h5, c1);
+      border-radius: pxTorem(6);
+      @include font-dpr(28px);
+      color: color($h5, c1);
+    }
+  }
+}

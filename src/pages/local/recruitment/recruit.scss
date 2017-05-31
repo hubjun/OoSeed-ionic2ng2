@@ -1,0 +1,547 @@
+.recruitment-list{
+  background:color($h5,c10);
+  overflow:hidden;
+  .local-team-detail-clum{
+    width: 100%;
+    background: color($h5, c10);
+    border-bottom: 1px solid color($h5, c9);
+    padding: pxTorem(30);
+    padding-right: 0;
+    position: relative;
+
+    .team-detail-header {
+      width: 100%;
+      overflow: hidden;
+      height: pxTorem(85);
+      line-height: pxTorem(85);
+      margin-bottom: pxTorem(40);
+      .team-detail-img {
+        float: left;
+        width: pxTorem(85);
+        height: pxTorem(85);
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: pxTorem(20);
+        //background:url('../../../assets/images/subscript_gallery.png') no-repeat;
+        background-size: pxTorem(194) pxTorem(194);
+      }
+      .team-detail-font {
+        float: left;
+        @include font-dpr(30px);
+        color: color($h5, c2);
+        height: pxTorem(85);
+        line-height: pxTorem(85);
+        display: inline-block;
+        .team-detail-font-text {
+          float: left;
+          max-width: pxTorem(300);
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          margin-right: pxTorem(10);
+        }
+        img{
+          //width:23px;
+          height:pxTorem(30);
+          margin-top:pxTorem(-5);
+        }
+      }
+    }
+    .team-detail-spell {
+      width: 100%;
+      .team-spell {
+        @include font-dpr(30px);
+        margin-bottom: pxTorem(30);
+        max-width: pxTorem(550);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .team-time {
+        width: 100%;
+        margin-bottom: pxTorem(30);
+        overflow: hidden;
+        i {
+          float: left;
+          display: inline-block;
+          width: pxTorem(30);
+          height: pxTorem(30);
+          margin-right: pxTorem(20);
+          margin-top: pxTorem(3);
+          background: url('../../../assets/icon/my_Spell_time.png') no-repeat;
+          background-size: pxTorem(26) pxTorem(26);
+        }
+        span {
+          float: left;
+          @include font-dpr(26px);
+          color: color($h5, c3);
+          margin-right: pxTorem(20);
+        }
+        p {
+          float: left;
+          display: inline-block;
+          @include font-dpr(26px);
+          color: color($h5, c3);
+        }
+      }
+      .team-location {
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: pxTorem(30);
+        position: relative;
+        i {
+          float: left;
+          display: inline-block;
+          width: pxTorem(30);
+          height: pxTorem(30);
+          margin-right: pxTorem(20);
+          margin-top: pxTorem(2);
+          background: url('../../../assets/icon/my_Spell_address.png') no-repeat;
+          background-size: pxTorem(26) pxTorem(29);
+        }
+        span {
+          float: left;
+          @include font-dpr(26px);
+          color: color($h5, c3);
+          margin-right: pxTorem(20);
+          max-width: pxTorem(500);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .team-distance {
+          @include font-dpr(24px);
+          color: color($h5, c4);
+          float: left;
+          position: absolute;
+          top: 0;
+          right: pxTorem(50);
+        }
+      }
+      .team-expense {
+        width: 100%;
+        overflow: hidden;
+        i {
+          float: left;
+          display: inline-block;
+          width: pxTorem(30);
+          height: pxTorem(30);
+          margin-right: pxTorem(20);
+          //margin-top:pxTorem(6);
+          background: url('../../../assets/icon/my_Spell_money.png') no-repeat;
+          background-size: pxTorem(26) pxTorem(26);
+        }
+        span {
+          float: left;
+          @include font-dpr(26px);
+          color: color($h5, c3);
+          margin-right: pxTorem(20);
+        }
+      }
+    }
+    .team-icon {
+      position: absolute;
+      top: 0;
+      right: pxTorem(30);
+      .team-icon-img {
+        width: pxTorem(91);
+        height: pxTorem(94);
+        @include font-dpr(20px);
+        color: color($h5, c10);
+        text-align: center;
+        line-height: pxTorem(94);
+        //background:url('../../../assets/icon/ing_bg.png') no-repeat;
+        //background-size:pxTorem(91) pxTorem(94);
+      }
+      .teamSpell1 {
+        background: url('../../../assets/icon/ing_bg.png') no-repeat;
+        background-size: pxTorem(91) pxTorem(94);
+      }
+      .teamSpell2 {
+        background: url('../../../assets/icon/complete_bg.png') no-repeat;
+        background-size: pxTorem(91) pxTorem(94);
+      }
+      .teamSpell3 {
+        background: url('../../../assets/icon/success_bg.png') no-repeat;
+        background-size: pxTorem(91) pxTorem(94);
+      }
+      //.teamSpell4 {
+      //  background: url('../../../assets/icon/end_bg.png') no-repeat;
+      //  background-size: pxTorem(91) pxTorem(94);
+      //  color: color($h5, c4);
+      //}
+    }
+  }
+  // .lookMore{
+  //   width:100%;
+  //   height:pxTorem(100);
+  //   line-height: pxTorem(100);
+  //   @include font-dpr(26px);
+  //   text-align: center;
+  // }
+}
+
+.recruit-detail{
+  background: color($h5, c10);
+  //margin-top:pxTorem(20);
+  width: 100%;
+  .spellDetailGrayBg {
+    background: color($h5, c9);
+    .spellCardInfo {
+      background: color($h5, c10);
+      width: 100%;
+      position: relative;
+      padding-left: pxTorem(30);
+      padding-top: pxTorem(30);
+      margin-top: pxTorem(20);
+      overflow: hidden;
+      > div {
+        margin-bottom: pxTorem(60);
+        //width:100%;
+        @include font-dpr(28px);
+        color: color($h5, c2);
+        overflow: hidden;
+        p {
+          float: left;
+          margin-right: pxTorem(15);
+        }
+        > span {
+          float: left;
+        }
+      }
+      .spellExpense {
+        margin-bottom: 0;
+      }
+      .spellToggle {
+        margin-bottom: 0;
+        > div {
+          margin-bottom: pxTorem(60);
+          width: 100%;
+          @include font-dpr(28px);
+          color: color($h5, c2);
+          overflow: hidden;
+          p {
+            float: left;
+            margin-right: pxTorem(15);
+          }
+          span {
+            float: left;
+          }
+        }
+        .spellSystem {
+          margin-top: pxTorem(60);
+        }
+        .spellMark {
+          margin-bottom: 0;
+        }
+        > .spellNotes {
+          margin-bottom: 0;
+          overflow: hidden;
+          p {
+            float: left;
+          }
+          span {
+            display: inline-block;
+            max-width: pxTorem(600);
+            float: left;
+          }
+        }
+      }
+      .spellArrow {
+        text-align: center;
+        line-height: pxTorem(85);
+        margin-bottom: 0;
+        i {
+          display: inline-block;
+          width: pxTorem(20);
+          height: pxTorem(11);
+          background: url('../../../assets/icon/arrow.png') no-repeat;
+          background-size: pxTorem(20) pxTorem(11);
+        }
+      }
+      .spellArrowRevise {
+        i {
+          background: url('../../../assets/icon/arrow.png') no-repeat;
+          background-size: pxTorem(20) pxTorem(11);
+          transform: rotate(180deg);
+        }
+      }
+      .spellTeamIntroduce {
+        overflow: hidden;
+        margin-bottom: pxTorem(20);
+        > img {
+          width: pxTorem(85);
+          height: pxTorem(85);
+          border-radius: 50%;
+          float: left;
+          margin-right: pxTorem(15);
+        }
+        .spellName {
+          float: left;
+          @include font-dpr(28px);
+          height: pxTorem(85);
+          line-height: pxTorem(85);
+          color: color($h5, c2);
+          div {
+            float: left;
+            max-width: pxTorem(300);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          .spellLittleUrlImg {
+            height: pxTorem(30);
+            margin-top: pxTorem(-5);
+            margin-left: pxTorem(10);
+          }
+        }
+      }
+    }
+  }
+  .spellCardInfo .spellClass p {
+    float: left;
+    @include font-dpr(28px);
+    color: color($h5, c2);
+    font-weight: bold;
+  }
+  .spellCardInfo .spellClass span {
+    float: left;
+    max-width: pxTorem(550);
+    @include font-dpr(28px);
+    color: color($h5, c2);
+    font-weight: bold;
+  }
+  .spellCardInfo .spellMark {
+    position: absolute;
+    top: 0;
+    right: pxTorem(30);
+    .spellMarkInner > div .spellMarkPs i {
+      display: inline-block;
+      width: pxTorem(26);
+      height: pxTorem(26);
+      vertical-align: bottom;
+      margin-right: pxTorem(2);
+      background: url('../../../assets/icon/time.png') no-repeat;
+      background-size: pxTorem(26) pxTorem(26);
+    }
+    .spellMarkInner > div > .spellMarkPs > span:nth-child(2) {
+      @include font-dpr(24px);
+      color: color($h5, c10);
+    }
+    .spellMarkInner > div > .spellMarkPs > span:nth-child(3) {
+      @include font-dpr(20px);
+    }
+    .spellMarkInner {
+      position: relative;
+      text-align: center;
+      .spellMarkBg {
+        width: pxTorem(121);
+        height: pxTorem(131);
+      }
+      .spellMarkBgSpe1 {
+        background: url('../../../assets/icon/ing_bgxq.png') no-repeat;
+        background-size: pxTorem(121) pxTorem(131);
+      }
+      .spellMarkBgSpe2 {
+        background: url('../../../assets/icon/complete_bgxq.png') no-repeat;
+        background-size: pxTorem(121) pxTorem(131);
+      }
+      .spellMarkBgSpe3 {
+        background: url('../../../assets/icon/success_bgxq.png') no-repeat;
+        background-size: pxTorem(121) pxTorem(131);
+      }
+      .spellMarkBgSpe4 {
+        background: url('../../../assets/icon/end_bgxq.png') no-repeat;
+        background-size: pxTorem(121) pxTorem(131);
+        p {
+          i {
+            background: url('../../../assets/icon/my_Spell_time.png') no-repeat;
+            background-size: pxTorem(26) pxTorem(26);
+          }
+          color: color($h5, c4) !important;
+          span {
+            color: color($h5, c4) !important;
+          }
+        }
+      }
+    }
+    .spellMarkInner > div .spellMarkPf {
+      width: 100%;
+      text-align: center;
+      margin-top: pxTorem(34);
+      //margin-left:pxTorem(17);
+      margin-right: 0;
+      @include font-dpr(24px);
+      color: color($h5, c10);
+    }
+    .spellMarkInner > div .spellMarkPs {
+      //margin-left:pxTorem(15);
+      width: 100%;
+      text-align: center;
+      margin-top: pxTorem(5);
+      @include font-dpr(24px);
+      color: color($h5, c10);
+      .spellMarkPsSpe {
+        display: inline-block;
+        margin-left: pxTorem(2);
+        @include font-dpr(22px);
+      }
+    }
+  }
+  .spellLocation {
+    margin-bottom: pxTorem(20);
+    width: 100%;
+    margin-top: pxTorem(20);
+    padding: pxTorem(30) 0 pxTorem(30) pxTorem(30);
+    overflow: hidden;
+    background: color($h5, c10);
+    .spellLocationPlace {
+      float: left;
+      .spellLocationName {
+        @include font-dpr(28px);
+        color: color($h5, c2);
+        font-weight: bold;
+        max-width: pxTorem(630);
+        margin-bottom: pxTorem(20);
+      }
+      .spellLocationMap {
+        overflow: hidden;
+        max-width: pxTorem(450);
+        i {
+          display: inline-block;
+          width: pxTorem(24);
+          height: pxTorem(29);
+          float: left;
+          background: url('../../../assets/icon/my_Spell_address.png') no-repeat;
+          background-size: pxTorem(24) pxTorem(29);
+          margin-right: pxTorem(10);
+        }
+        span {
+          float: left;
+          max-width: pxTorem(400);
+          @include font-dpr(24px);
+          color: color($h5, c4);
+        }
+      }
+    }
+    .spellLocationNav {
+      float: right;
+      margin-right: pxTorem(30);
+      span {
+        @include font-dpr(24px);
+        color: color($h5, c4);
+        float: left;
+        margin-right: pxTorem(15);
+      }
+      i {
+        float: left;
+        display: inline-block;
+        vertical-align: middle;
+        width: pxTorem(30);
+        height: pxTorem(30);
+        background: url('../../../assets/icon/arrow.png') no-repeat;
+        background-size: pxTorem(24) pxTorem(11);
+        -webkit-transform: rotate(-90deg);
+      }
+    }
+  }
+
+  .spellTeamPending {
+    background: color($h5, c10);
+    width: 100%;
+    overflow: hidden;
+    padding: pxTorem(30) 0;
+    margin-bottom: pxTorem(20);
+    > p {
+      margin-left: pxTorem(30);
+      @include font-dpr(24px);
+      color: color($h5, c4);
+      margin-bottom: pxTorem(20);
+    }
+    ul {
+      border-bottom: pxTorem(1) solid #ededed;
+      padding-left: pxTorem(30);
+    }
+    ul li {
+      border-bottom: pxTorem(1) solid #ededed;
+      padding-bottom: pxTorem(20);
+      padding-top: pxTorem(20);
+      height: pxTorem(60);
+      box-sizing: content-box;
+      overflow: hidden;
+      > img {
+        float: left;
+        display: inline-block;
+        margin-right: pxTorem(20);
+        width: pxTorem(60);
+        height: pxTorem(60);
+        border-radius: 50%;
+        margin-bottom: pxTorem(20);
+      }
+      p {
+        float: left;
+        height: pxTorem(60);
+        line-height: pxTorem(60);
+        @include font-dpr(26px);
+        color: color($h5, c2);
+        overflow: hidden;
+        span {
+          float: left;
+          max-width: pxTorem(300);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        img {
+          float: left;
+          margin-left: pxTorem(5);
+          margin-top: pxTorem(8);
+        }
+      }
+    }
+    ul li:last-child {
+      border-bottom: 1px solid transparent;
+    }
+  }
+
+  .spellTeamMember {
+    background: color($h5, c10);
+    width: 100%;
+    overflow: hidden;
+    padding: pxTorem(30) 0 pxTorem(30);
+    .applyJoin {
+      background: color($h5, c1);
+      color: color($h5, c10);
+      margin: pxTorem(20) pxTorem(30);
+      margin-left: pxTorem(30);
+      text-align: center;
+      height: pxTorem(90);
+      line-height: pxTorem(90);
+      @include font-dpr(30px);
+    }
+  }
+
+  .hadJoinMissing {
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    background: color($h5, c10);
+    margin-bottom: pxTorem(30);
+    .missingBg {
+      width: 100%;
+      text-align: center;
+      p {
+        display: inline-block;
+        width: pxTorem(200);
+        height: pxTorem(200);
+        background: url('../../../assets/icon/image_ddress.png') center center no-repeat;
+        background-size: pxTorem(160) pxTorem(160);
+      }
+    }
+    > p {
+      @include font-dpr(24px);
+      color: color($h5, c4);
+    }
+  }
+
+}

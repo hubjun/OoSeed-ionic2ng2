@@ -1,0 +1,23 @@
+<ion-header id="select-modal-header">
+  <ion-navbar color="c10">
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">取消</button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button (click)="onInfoSubmit()">完成</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="modal-select">
+  <div class="contentWarp">
+    <div class="tips">（可选2个）</div>
+    <div class="locationTypeWarp">
+      <ul class="typesCategory">
+        <li *ngFor="let item of abilityObj;let i = index" (click)="selectItems($event,item)" [ngClass]="{active:containsId(item.id)}">
+          <span class="items">{{item.title}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</ion-content>

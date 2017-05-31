@@ -1,0 +1,35 @@
+<ion-header id="user-header"  >
+  <ion-navbar>
+    <ion-title>我的视频</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content #container>
+
+  <div class="row padding-gap" *ngIf="video.length > 0">
+    <div class="gap"></div>
+    <ion-grid class="seed-gallery">
+      <ion-row>
+        <ion-col class="icon-live" col-4 *ngFor="let item of video;"  (click)="galleryViewer(item.fileName)">
+          <div
+            [offset]="2500"
+            [lazyLoad]="item.fileName +'&width=100&second=1' "
+            [defaultImage]="'/assets/images/user_default.png'"
+            [errorImage]="'/assets/images/user_default.png'"
+            [scrollObservable]="content.ionScroll"
+          >
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class="no-content middle" *ngIf="video.length == 0">
+    <img src="../../../assets/images/image_nomore.png"/>
+  </div>
+
+  <div class="downApp-seeMore">
+    <a href="http://h5.oooseed.com/app/activity/index.html">
+      下载app查看更多
+    </a>
+  </div>
+</ion-content>

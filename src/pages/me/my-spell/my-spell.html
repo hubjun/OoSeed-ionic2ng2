@@ -1,0 +1,22 @@
+<ion-header class="spellDetailPageHeader" id="sportIp-header">
+  <ion-navbar>
+    <ion-title>我的拼球</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="my-spell-page">
+  <div class="my-spell-clum">
+    <div class="my-launch-spell my-spell-current" (click)="myLaunch()" [class.my-spell-current]="classTag=='LaunchClass'">
+      <span>我发起的</span>
+      </div>
+    <div class="my-activities-spell" (click)="myActivities()" [class.my-spell-current]="classTag=='activitiesClass'">
+      <span>我参与的</span>
+      </div>
+  </div>
+  <div class="my-launch-page" >
+     <spell-ball-channel-sep></spell-ball-channel-sep>
+  </div>
+  <div class="my-activities-page">
+     <spell-ball-channel [myActivities]="activities"></spell-ball-channel>
+  </div>
+</ion-content>

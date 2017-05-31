@@ -1,0 +1,44 @@
+<ion-header id="sportIp-header" *ngIf="isApp == 0">
+  <ion-navbar>
+    <ion-title>文章正文</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="article-info-details-warp">
+
+  <div class="article-info-details" *ngIf="articleStatus">
+    <header class="header">
+      <div class="article-title">{{article.title}}</div>
+      <div class="article-publish-info">
+        <span class="author">{{article.authorName}}</span>
+        <span>{{article.publishTime | date:'MM-dd HH:mm'}}</span>
+      </div>
+    </header>
+    <article class="article" [innerHTML]="article.articleContentList[0].content">
+    </article>
+
+  </div>
+
+  <div class="background-gray" *ngIf="comments.length > 0"></div>
+
+  <div class="article-info-comments-warp" *ngIf="comments.length > 0">
+    <div class="title">推荐文章</div>
+    <div class="article-info-comment-profile" *ngFor="let item of comments" tappable  (click)="goToArticleDetail(item.articleId)">
+          {{item.title}}
+    </div>
+  </div>
+
+  <div class="article-info-action-bar" *ngIf="article">
+    <div class="inform-btn-warp">
+      <div class="inform-btn"></div>
+    </div>
+    <div class="comment-count-btn" tappable (click)="goToCommentPage(article.articleId)">
+      <div class="comment-count-around" *ngIf="article.commentCount > 0">{{article.commentCount}}</div>
+    </div>
+    <div class="author-personal-homepage"></div>
+  </div>
+
+  <div class="download-banner" *ngIf="isShare == 1">
+    <a href="javascript:;"><img src="../../assets/images/download_banner.png" alt=""></a>
+    <span class="hide-btn"></span>
+  </div>
+</ion-content>

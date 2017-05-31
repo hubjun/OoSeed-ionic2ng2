@@ -1,0 +1,5 @@
+ion-page{
+  max-height: 60%;
+  top: inherit;
+  bottom: 0 !important;
+}

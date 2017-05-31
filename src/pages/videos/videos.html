@@ -1,0 +1,112 @@
+<ion-header id="sportIp-header">
+  <ion-navbar>
+    <ion-title>视频</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <header class="sportIp-home-tab" style="display: none">
+    <ion-segment [(ngModel)] = "videoTab">
+      <ion-segment-button value="tvLive">
+        <span>电视直播</span>
+      </ion-segment-button>
+
+      <ion-segment-button value="tvDemand">
+        <span>节目点播</span>
+      </ion-segment-button>
+
+      <ion-segment-button value="tvShow">
+        <span>个人秀</span>
+      </ion-segment-button>
+    </ion-segment>
+  </header>
+
+  <content [ngSwitch]="videoTab">
+    <!--电视直播-->
+    <ion-list *ngSwitchCase="'tvLive'" class="tvLive">
+      <ion-item>
+        电视直播
+      </ion-item>
+    </ion-list>
+    <!--节目点播-->
+    <ion-list *ngSwitchCase="'tvDemand'" class="tvDemand">
+      <div class="tvLive-warp">
+        <div class="banner-slider">
+          <ion-slides #videoSlider [options]="videoSliderOption">
+            <ion-slide *ngFor="let item of tvSlides | slice: 0:4">
+              <div (click)="gotoDetail($event,item.resId)"><img [src]="item.resUrl" alt=""></div>
+              <!--<div><img src="{{item.resUrl}}" alt=""></div>-->
+            </ion-slide>
+          </ion-slides>
+        </div>
+      </div>
+
+      <!--滑动分类栏目-->
+      <ion-scroll scrollX="true" class="video-category">
+        <ul class="category-ul">
+          <li class="itemLi" *ngFor="let item of tvCateObj">
+            <div class="select-item" (click)="toggleCateMore($event,item.cateId)">
+              <!--<i class="icon video_hot"></i>-->
+              <img class="icon" [src]="item.cateIcon" alt="">
+              <span>{{item.cateName | slice: 0:5}}</span>
+            </div>
+          </li>
+          <li [hidden]="videoLibrary">
+            <div class="select-item" (click)="goVideoStorage()">
+              <i class="icon video_video"></i>
+              <span>视频库</span>
+            </div>
+          </li>
+        </ul>
+      </ion-scroll>
+
+      <!--视频列表-->
+      <div class="wrapper">
+        <div class="list-item top-gap" *ngFor="let v of tvCateObj">
+          <!--<span class="icon-hot"></span>-->
+          <div class="header">
+            <span class="title">
+              <!--<label class="icon-hot"></label>-->
+              <img [src]="v.cateIcon" class="icon-hot" alt="">{{v.cateName}}
+            </span>
+            <span (click)="toggleCateMore($event,v.cateId)" class="get-more">更多></span>
+          </div>
+          <div class="content">
+            <!--<ion-grid class="grid">-->
+              <!--<ion-row class="row">-->
+                <ion-col width-50 *ngFor="let l of v.videoRespVOList" class="col-list">
+                  <div (click)="gotoDetail($event,l.videoId,v.cateId)">
+                    <img [src]="l.videoCover" alt="">
+                    <div class="item-info">
+                      <div class="title">
+                        <span class="name">{{l.videoName}}</span>
+                      </div>
+                      <div class="detail">
+                        <div class="left-item">
+                          <i class="icon1"></i>
+                          <span>{{l.nickName}}</span>
+                        </div>
+                        <div class="right-item">
+                          <i class="icon2"></i>
+                          <span>{{l.playCount}}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ion-col>
+              <!--</ion-row>-->
+            <!--</ion-grid>-->
+          </div>
+        </div>
+      </div>
+    </ion-list>
+
+    <!--个人秀-->
+    <ion-list *ngSwitchCase="'tvShow'" class="tvShow">
+      <ion-item>
+        个人秀
+      </ion-item>
+    </ion-list>
+  </content>
+</ion-content>

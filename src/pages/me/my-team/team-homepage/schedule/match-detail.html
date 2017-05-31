@@ -1,0 +1,48 @@
+<ion-content class="gray-background">
+  <ion-header id="sportIp-header" class="transparent-header">
+    <ion-navbar>
+      <ion-title>比赛详情</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <div class="detail-content bottom-gap">
+    <div class="match-card">
+      <div class="team-logo">
+        <div class="logo-box">
+          <div class="logo" [class.team-logo-default]="!match.homeTeamIconUrl" [style.background]="'url('+ match.homeTeamIconUrl+')  no-repeat center center/cover '| safeStyle "></div>
+        </div>
+        <!--约战中-->
+        <p class="center" *ngIf="match.matchState===0">
+          VS
+        </p>
+        <!--比赛中或比赛结束显示实时比分-->
+        <p class="score" *ngIf="match.matchState ===-1 && match.matchState !== 0">
+          <span *ngIf="match.teamMatchFootballExtraVO">{{match.teamMatchFootballExtraVO.homeScore?match.teamMatchFootballExtraVO.homeScore:'-'}}<i>:</i>{{match.teamMatchFootballExtraVO.guestScore?match.teamMatchFootballExtraVO.guestScore:'-'}}</span>
+          <span *ngIf="!match.teamMatchFootballExtraVO">0<i>:</i>0</span>
+        </p>
+        <div class="logo-box">
+          <div class="logo" [class.team-logo-default]="!match.guestTeamIconUrl " [style.background]="'url('+ match.guestTeamIconUrl +')  no-repeat center center/cover '| safeStyle "></div>
+        </div>
+      </div>
+      <div class="team-name">
+        <p class="name"><span>{{match.homeTeamName}}</span></p>
+        <p>
+          <b *ngIf="match.matchState===-1" class="match-state end">比赛结束</b>
+          <b *ngIf="match.matchState===0" class="match-state success">约战成功</b>
+          <b *ngIf="match.matchState!==-1&&match.matchState!==0" class="match-state ing">比赛中</b>
+        </p>
+        <p class="name"><span>{{match.guestTeamName}}</span></p>
+      </div>
+    </div>
+    <ul class="match-info top-gap">
+      <li><em>时间</em>
+        <p><span>{{match.startDate|amDateFormat:'YYYY-MM-DD'}}</span><span>周{{match.startDate|timestampToChineseDay}}{{match.beginTime}}-{{match.endTime}}</span></p>
+      </li>
+      <li><em>场地</em><span>{{match.fieldName?match.fieldName:'待定'}}</span></li>
+      <li><em>赛制</em><span>{{match.formatName}}</span></li>
+      <li><em>费用</em><span>{{match.costTypeName}}</span></li>
+    </ul>
+    <ul class="match-info top-gap">
+      <li><em>主队队服</em><span><img src="{{match.clotherIconUrl}}" alt="" class="clother" *ngIf="match.clotherName">{{match.clotherName?match.clotherName:'待定'}}</span></li>
+    </ul>
+  </div>
+</ion-content>

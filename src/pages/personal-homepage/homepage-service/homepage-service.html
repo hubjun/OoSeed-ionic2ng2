@@ -1,0 +1,35 @@
+<ion-list class="user-profile-warp">
+  <div class="no-content br-gap service" *ngIf="servers.authStatus == 2">
+    <img src="../../../assets/images/default_service_unverify.png"/>
+  </div>
+
+  <div class="no-content br-gap service" *ngIf="servers.authStatus == 1">
+    <img src="../../../assets/images/default_service_verifying.png"/>
+  </div>
+
+  <ul class="user-service-contain" *ngIf="servers.authStatus == 3">
+    <li class="border-bottom">
+      <span class="item-name">名字</span>
+      <span class="item-info">{{servers.authName}}</span>
+    </li>
+    <li class="border-bottom">
+      <span class="item-name">身份</span>
+      <span class="item-info"><img class="icon-type" [src]="servers.appImgtxtUrl || '' "></span>
+    </li>
+    <li class="border-bottom" *ngIf="servers.intro">
+      <span class="item-name">简介</span>
+      <span class="item-info">{{servers.intro}}</span>
+    </li>
+    <li class="border-bottom" *ngIf="servers.showImage">
+      <span class="item-name">宣传图</span>
+      <span class="item-info img">
+        <img
+          [lazyLoad]="servers.showImage "
+          [defaultImage]="'/assets/images/placeholder_article_pic.png'"
+          [errorImage]="'/assets/images/placeholder_article_pic.png'"
+          [scrollObservable]="content.ionScroll"
+        >
+      </span>
+    </li>
+  </ul>
+</ion-list>

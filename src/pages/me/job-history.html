@@ -1,0 +1,17 @@
+<ion-header id="user-header">
+  <ion-navbar color="c10">
+    <ion-title>曾效力球队</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="edit-userInfo jobHistory">
+  <div class="gap"></div>
+  <div class="list">
+    <div class="listItem" *ngFor="let v of jobObj">
+      <div class="itemContent">
+        <div class="dateItem">{{v.joinDate}}&nbsp;&nbsp;——&nbsp;&nbsp;{{(v.outTeamTime == null || '' || 'undefined') ? '至今' : v.outDate}}</div>
+        <div class="nameItem">{{v.orgName}}</div>
+      </div>
+    </div>
+  </div>
+</ion-content>

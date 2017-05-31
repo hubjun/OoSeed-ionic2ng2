@@ -1,0 +1,234 @@
+spell-ball-channel-sep {
+    .local-team-detail-clum {
+      width: 100%;
+      background: color($h5, c10);
+      border-bottom: 1px solid color($h5, c9);
+      padding: pxTorem(30);
+      padding-right: 0;
+      position: relative;
+
+      .team-detail-header {
+        width: 100%;
+        overflow: hidden;
+        height: pxTorem(85);
+        line-height: pxTorem(85);
+        margin-bottom: pxTorem(40);
+        .team-detail-img {
+          float: left;
+          width: pxTorem(85);
+          height: pxTorem(85);
+          border-radius: 50%;
+          display: inline-block;
+          margin-right: pxTorem(20);
+          background-size: pxTorem(194) pxTorem(194);
+        }
+        .team-detail-font {
+          float: left;
+          @include font-dpr(30px);
+          color: color($h5, c2);
+          height: pxTorem(85);
+          line-height: pxTorem(85);
+          display: inline-block;
+          .team-detail-font-text {
+            float: left;
+            max-width: pxTorem(300);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            margin-right: pxTorem(10);
+          }
+          img{
+            //width:23px;
+            height:pxTorem(30);
+            margin-top:pxTorem(-5);
+          }
+        }
+      }
+
+      .team-detail-spell {
+        width: 100%;
+        .team-spell {
+          @include font-dpr(30px);
+          margin-bottom: pxTorem(30);
+          max-width: pxTorem(550);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .team-time {
+          width: 100%;
+          margin-bottom: pxTorem(30);
+          overflow: hidden;
+          i {
+            float: left;
+            display: inline-block;
+            width: pxTorem(30);
+            height: pxTorem(30);
+            margin-right: pxTorem(20);
+            margin-top: pxTorem(3);
+            background: url('../../../../assets/icon/my_Spell_time.png') no-repeat;
+            background-size: pxTorem(26) pxTorem(26);
+          }
+          span {
+            white-space: nowrap;
+            float: left;
+            @include font-dpr(26px);
+            color: color($h5, c3);
+            margin-right: pxTorem(20);
+          }
+          p {
+            float: left;
+            display: inline-block;
+            @include font-dpr(26px);
+            color: color($h5, c3);
+          }
+        }
+        .team-location {
+          width: 100%;
+          overflow: hidden;
+          margin-bottom: pxTorem(30);
+          position: relative;
+          i {
+            float: left;
+            display: inline-block;
+            width: pxTorem(30);
+            height: pxTorem(30);
+            margin-right: pxTorem(20);
+            margin-top: pxTorem(2);
+            background: url('../../../../assets/icon/my_Spell_address.png') no-repeat;
+            background-size: pxTorem(26) pxTorem(29);
+          }
+          span {
+            float: left;
+            @include font-dpr(26px);
+            color: color($h5, c3);
+            margin-right: pxTorem(20);
+            max-width: pxTorem(500);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          .team-distance {
+            @include font-dpr(24px);
+            color: color($h5, c4);
+            float: left;
+            position: absolute;
+            top: 0;
+            right: pxTorem(50);
+          }
+        }
+        .team-expense {
+          width: 100%;
+          overflow: hidden;
+          i {
+            float: left;
+            display: inline-block;
+            width: pxTorem(30);
+            height: pxTorem(30);
+            margin-right: pxTorem(20);
+            background: url('../../../../assets/icon/my_Spell_money.png') no-repeat;
+            background-size: pxTorem(26) pxTorem(26);
+          }
+          span {
+            float: left;
+            @include font-dpr(26px);
+            color: color($h5, c3);
+            margin-right: pxTorem(20);
+          }
+        }
+      }
+      .team-icon {
+        position: absolute;
+        top: 0;
+        right: pxTorem(30);
+        .team-icon-img {
+          width: pxTorem(91);
+          height: pxTorem(94);
+          @include font-dpr(20px);
+          color: color($h5, c10);
+          text-align: center;
+          line-height: pxTorem(94);
+        }
+        .teamSpell1 {
+          background: url('../../../../assets/icon/ing_bg.png') no-repeat;
+          background-size: pxTorem(91) pxTorem(94);
+        }
+        .teamSpell2 {
+          background: url('../../../../assets/icon/complete_bg.png') no-repeat;
+          background-size: pxTorem(91) pxTorem(94);
+        }
+        .teamSpell3 {
+          background: url('../../../../assets/icon/success_bg.png') no-repeat;
+          background-size: pxTorem(91) pxTorem(94);
+        }
+        .teamSpell4 {
+          background: url('../../../../assets/icon/end_bg.png') no-repeat;
+          background-size: pxTorem(91) pxTorem(94);
+          color: color($h5, c4);
+        }
+        .teamSpell5 {
+          background: url('../../../../assets/icon/end_bg.png') no-repeat;
+          background-size: pxTorem(91) pxTorem(94);
+          color: color($h5, c4);
+        }
+      }
+    }
+  }
+  .myLaunchMissing {
+    width: 100%;
+    text-align: center;
+    padding-top: pxTorem(170);
+    background:color($h5,c10);
+    padding-bottom:pxTorem(30);
+    .LaunchBg {
+      width: 100%;
+      text-align: center;
+      p {
+        display: inline-block;
+        width: pxTorem(200);
+        height: pxTorem(200);
+        background: url('../../../../assets/icon/image_spell.png') center center no-repeat;
+        background-size: pxTorem(166) pxTorem(169);
+      }
+    }
+    p {
+      text-align: center;
+      @include font-dpr(24px);
+      color: color($h5, c4);
+    }
+    .clickLaunch {
+      display: inline-block;
+      margin-top: pxTorem(40);
+      width: pxTorem(218);
+      height: pxTorem(62);
+      line-height: pxTorem(62);
+      text-align: center;
+      border: 1px solid color($h5, c1);
+      border-radius: pxTorem(6);
+      @include font-dpr(28px);
+      color: color($h5, c1);
+    }
+  }
+
+.contentLook{
+  width:100%;
+  height:pxTorem(90);
+  margin-bottom:pxTorem(40);
+  .lookMore{
+    box-sizing: content-box;
+    margin:pxTorem(40) pxTorem(30);
+    border: 2px solid #01a87c;
+    border-radius: pxTorem(5);
+    height:pxTorem(90);
+    line-height: pxTorem(90);
+    @include font-dpr(30px);
+    color: color($h5,c1);
+    text-align: center;
+  }
+}
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+<ion-content class="gray-background">
+  <ion-header id="sportIp-header" class="transparent-header">
+    <ion-navbar>
+    </ion-navbar>
+  </ion-header>
+  <div class="avatar-wrap">
+    <div class="avatar-background" [class.team-logo-default]="!basicInfo.iconFileUrl" [style.background]=" 'url('+ basicInfo.iconFileUrl+') no-repeat center center/cover ' | safeStyle "></div>
+    <div class="filter"></div>
+    <div class="avatar-content">
+       <div class="avatar" [class.team-logo-default]="!basicInfo.iconFileUrl" [style.background]="'url('+ basicInfo.iconFileUrl+') no-repeat center center/cover'| safeStyle " ></div>
+      <h1>{{basicInfo.name}}</h1>
+      <p>
+        <span>{{basicInfo.areaCityName}}</span>
+        <span>{{basicInfo.areaDistName}}</span>
+      </p>
+    </div>
+  </div>
+  <div class="switch-wrap">
+    <ion-segment [(ngModel)]="channel" class="switch-tab">
+      <!--<ion-segment-button value="share">
+        <span>分享</span>
+      </ion-segment-button>-->
+      <ion-segment-button value="team">
+       <span> 球队</span>
+      </ion-segment-button>
+      <ion-segment-button value="schedule">
+        <span>赛程</span>
+      </ion-segment-button>
+      <ion-segment-button value="fans">
+        <span>粉丝</span>
+      </ion-segment-button>
+      <!--<ion-segment-button value="service">
+        <span>服务</span>
+      </ion-segment-button>-->
+    </ion-segment>
+    <div class="switch-content top-gap" [ngSwitch]="channel">
+      <div *ngSwitchCase="'share'">
+        <h1>分享</h1>
+      </div>
+      <team-channel [basicInfo]="basicInfo" *ngSwitchCase="'team'"></team-channel>
+      <schedule-channel [basicInfo]="basicInfo" *ngSwitchCase="'schedule'"> </schedule-channel>
+      <fans-channel [basicInfo]="basicInfo" *ngSwitchCase="'fans'"></fans-channel>
+      <!--<service-channel [basicInfo]="basicInfo" *ngSwitchCase="'service'"></service-channel>-->
+    </div>
+  </div>
+</ion-content>

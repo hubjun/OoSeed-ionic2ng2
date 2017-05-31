@@ -1,0 +1,46 @@
+<div class="team-component">
+  <div class="module">
+    <h3 class="module-title reset-margin">基本信息</h3>
+    <ul class="team-grid-list" *ngIf="basicInfo">
+      <li>
+        <span>{{basicInfo.avgAge}}</span>
+        <em> 平均年龄(岁)</em>
+      </li>
+      <li>
+        <span>{{basicInfo.avgHeight}}</span>
+        <em>平均身高(cm)</em>
+      </li>
+      <li>
+        <span>{{basicInfo.avgWeight}}</span>
+        <em>平均体重(kg)</em>
+      </li>
+      <li>
+        <span class="chinese-text">{{basicInfo.formatName}}</span>
+        <em>人制(人数)</em>
+      </li>
+      <li>
+        <span *ngIf="basicInfo.gradeName" class="chinese-text">{{basicInfo.gradeName}}</span>
+        <span *ngIf="!basicInfo.gradeName" class="chinese-text">无</span>
+        <em>水平</em>
+      </li>
+      <li>
+        <span *ngIf="basicInfo.sportAttrName" class="chinese-text">{{basicInfo.sportAttrName}}</span>
+        <span *ngIf="!basicInfo.sportAttrName" class="chinese-text">无</span>
+        <em>单位</em>
+      </li>
+    </ul>
+  </div>
+  <div class="module">
+    <h3 class="module-title reset-margin">近10场战绩</h3>
+    <match-result></match-result>
+  </div>
+  <div class="module players-module bottom-gap">
+    <h3 class="module-title right-arrow-icon" (click)="goTeamPlayer(player)"><em>阵容</em><span>更多</span></h3>
+    <ul class="list team-grid-list" *ngIf="players">
+      <li *ngFor="let player of players" (click)="goTeamPlayerDetail(player)">
+        <div class="avatar" [class.avatar-default]="!player.userIconUrl" [style.background]=" 'url('+ player.userIconUrl+') no-repeat center center/cover ' | safeStyle "></div>
+        <span>{{player.userName}}</span>
+      </li>
+    </ul>
+  </div>
+</div>

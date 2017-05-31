@@ -1,0 +1,43 @@
+<ion-header id="user-header">
+  <ion-navbar color="c10">
+    <ion-title>足球个人信息</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="normal-list gray-background ball-info">
+  <div class="list top-gap">
+    <div class="item ageSelectWarp">
+      <!--<span>球龄</span>-->
+      <!--<span class="info">{{ballInfo.ballAge}}</span>-->
+      <em>年龄</em>
+      <ion-multi-picker item-content [(ngModel)]="ageArray" [multiPickerColumns]="ageArrays" (ionChange)="ageChange($event)" doneText="确定"
+        cancelText="取消"></ion-multi-picker>
+    </div>
+    <div class="item auth">
+      <em>认证身份</em>
+      <span class="info grayFont">{{authDesc}}</span>
+    </div>
+  </div>
+
+  <div class="list top-gap">
+    <div class="item" (click)="selectLeg($event)">
+      <span>惯用脚</span>
+      <span class="info">{{hahit}}</span>
+    </div>
+    <div class="item" (click)="openModal()">
+      <span>场上位置</span>
+      <span class="info">{{location}}</span>
+    </div>
+    <div class="item" (click)="openAbilityModal()">
+      <span>能力特点</span>
+      <span class="info">{{ability}}</span>
+    </div>
+  </div>
+
+  <div class="list top-gap">
+    <div class="item" (click)="checkJobHistory()">
+      <span>曾效力球队</span>
+      <span class="info"></span>
+    </div>
+  </div>
+</ion-content>

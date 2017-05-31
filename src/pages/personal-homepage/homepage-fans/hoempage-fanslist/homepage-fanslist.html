@@ -1,0 +1,52 @@
+<ion-header id="user-header"  >
+  <ion-navbar>
+    <ion-title>{{satates ? '关注' : '粉丝'}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content #container>
+  <div class="gap"></div>
+  <div class="gap" *ngIf="fans?.length > 0"></div>
+  <div class="no-content middle" *ngIf="fans?.length == 0">
+    <img src="../../../assets/images/image_nomore.png"/>
+  </div>
+  <div
+    class=" article-template article-template-summary padding-left-right-30"
+    *ngFor="let item of fans"
+    (click)="goToOtherPage(item)"
+  >
+    <header class="header">
+      <div class="subscriptions-posters-icon article-template-icon">
+        <img
+          [lazyLoad]="item.iconUrl"
+          [defaultImage]="'/assets/images/placeholder_head_pic.png'"
+          [errorImage]="'/assets/images/placeholder_head_pic.png'"
+          [scrollObservable]="content.ionScroll"
+        >
+      </div>
+      <div class="warp border-bottom">
+        <div class=" article-template-content ">
+          <div class="poster-name">
+            <span>{{item.nickName}}</span>
+            <span
+              class="icon-type"
+              *ngIf="item.appImgtxtUrl"
+              style="background-image: url('{{item.appImgtxtUrl | safeStyle}}')">
+            </span>
+          </div>
+          <div class="source" >
+            <time class="date">粉丝：{{item.followNum}}</time>
+          </div>
+        </div>
+        <div
+          *ngIf="item.userId != user.getUserid()"
+          tappable
+          (click)="follow(item.userId,$event)"
+          [ngClass]="{isFollow: item.isFollowed == 1}"
+          [ngClass]="{isFollowBoth: item.isFollowed == 1 && item.isFollowedMe}"
+          class="button-subscription"
+        >
+        </div>
+      </div>
+    </header>
+  </div>
+</ion-content>

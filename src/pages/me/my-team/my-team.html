@@ -1,0 +1,43 @@
+<ion-header id="user-header" class="sub-header">
+  <ion-navbar>
+    <ion-title>我的球队</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="myTeam">
+  <div class="gap"></div>
+  <div class="no-content" (click)="downApp()" style="background: #fff;padding-top: 60px;height: 100%;" *ngIf="!myTeamsObj || myTeamsObj.length == 0">
+    <img src="../../../assets/images/default_groups_createteam.png"/>
+  </div>
+  <div class="teamWarp">
+    <ion-list no-lines *ngFor="let v of myTeamsObj" (click)="goTeamDetail(v)">
+      <button icon-left ion-item>
+        <ion-icon item-left>
+          <img [src]="v.iconFileUrl" alt="">
+        </ion-icon>
+        <div class="rightContent">
+          <div class="topName">
+            <span class="name">{{v.name}}</span>
+            <!--<i class="iconAuth"></i>-->
+            <!--<img src="../../../assets/icon/yirenzheng.png" alt="">-->
+          </div>
+          <div class="locationFans">
+            <div *ngIf="v.areaDistName">
+              <span class="location">{{v.areaProvName}}</span>
+              <span class="location">{{v.areaCityName}}</span>
+              <span class="location">{{v.areaDistName}}</span>
+            </div>
+            <span class="location" *ngIf="v.areaDistName == '' || v.areaDistName == undefined ">暂无地址</span>
+            <span class="fans">粉丝{{(v.countFans == null || '' ? ' 0 ' : v.countFans)}}人</span>
+          </div>
+          <div class="captian">队长：{{!v.captainNickName ? '暂无队长' : v.captainNickName}}</div>
+        </div>
+      </button>
+    </ion-list>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="infiniteStatus">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="正在加载...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

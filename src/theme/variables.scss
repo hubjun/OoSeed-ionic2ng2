@@ -1,0 +1,250 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/v2/theming/
+$font-path: "../assets/fonts";
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary:    #01a87c,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222,
+);
+$h5:(
+  c1:         #01a87c,
+  c2:         #333333,
+  c3:         #666666,
+  c4:         #999999,
+  c5:         #b5b5b5,
+  c6:         #c1c1c1,
+  c7:         #eeeeee,
+  c8:         #e5e5e5,
+  c9:         #f0f0f0,
+  c10:        #ffffff,
+  c11:        #e94141,
+  c12:        #ff7452,
+  c13:        #4192f3,
+  c14:        #000000,
+  c15:        #ff8e00,
+  c16:        #89d035
+);
+//App Custom Variables 公共变量
+//---------------------------------------------------
+
+//Global variables
+$browser-default-font-size: 62.5%;
+
+$app-default-font-size: 75px !default;
+$images-path: "../assets/images"; //Global image path
+$toolbar-ios-title-font-size:pxTorem(34px) !default;
+$toolbar-ios-title-text-color:color($h5,c10);
+//$font-size-base: 0.1866rem !default; // 1.4rem == 14px
+//tabs
+$tabs-background:                   color($h5,c10) !default;
+$tabs-border-color:                 color($h5, c9) !default;
+$toolbar-background:                color($h5, c1) !default;
+$modal-inset-width:                 100% !default;
+$modal-inset-height-large:          100% !default;
+//ActionSheet dialog
+//-----------------------------------------------------
+$action-sheet-ios-button-min-height: 0.74rem !default;
+$action-sheet-ios-button-font-size:  0.26rem !default;
+$action-sheet-ios-title-font-size:   0.173rem !default;
+$action-sheet-ios-title-padding:     0.2rem !default;
+
+$list-ios-border-color: color($h5,c8);
+//modal dialog
+//-----------------------------------------------------
+//$modal-bg-color:                  #fff !default;
+//$modal-backdrop-bg-active:        #000 !default;
+//$modal-backdrop-bg-inactive:      rgba(0,0,0,0) !default;
+//
+//$modal-inset-mode-break-point:    0px;  // @media min-width
+//$modal-inset-mode-top: 50% !default;
+
+$modal-inset-height-small:      600px !default;
+$modal-inset-box-shadow-color:  rgba(0, 0, 0, .4) !default;
+//buttom
+$button-ios-background-color:color($h5,c10);
+
+//loading
+$loading-ios-content-font-weight:normal;
+/*$loading-ios-max-width:40%;*/
+
+//Global function
+/*@mixin font-dpr($font-size){//为设置fontsize而写的函数，根据ps效果图750分辨率上面的标注的fontsize来调用此函数，@include font-dpr(30px);
+  font-size: $font-size / 2;
+
+  [data-dpr="2"] & {
+    font-size: $font-size ;
+  }
+
+  [data-dpr="3"] & {
+    font-size: ($font-size / 2) * 3;
+  }
+}*/
+@mixin font-dpr($font-size){//为设置fontsize而写的函数，根据ps效果图750分辨率上面的标注的fontsize来调用此函数，@include font-dpr(30px);
+  font-size: $font-size / 2;
+
+  [data-dpr="2"] & {
+    font-size: $font-size ;
+  }
+
+  [data-dpr="3"] & {
+    font-size: ($font-size / 2) * 3;
+  }
+}
+/*@mixin font-dpr($font-size){//为设置fontsize而写的函数，根据ps效果图750分辨率上面的标注的fontsize来调用此函数，@include font-dpr(30px);
+  font-size: strip-units($font-size) /11.7 * 1rem;
+
+}*/
+@mixin mix-dpr($type,$value) {
+  #{$type}: $value / 2 + px;
+  [data-dpr="2"] & {
+    #{$type}: $value  + px;
+  }
+
+  [data-dpr="3"] & {
+    #{$type}: ($value / 2) * 3 + px;
+  }
+}
+
+
+
+@function strip-units($number){
+  @return $number / ($number * 0 + 1);
+}
+
+//$px为需要转换的字号
+@function pxTorem($px){
+  @if unitless($px){
+    @return pxTorem($px + 0px);
+  }
+  @return $px / $app-default-font-size * 1rem;
+}
+/*@function pxTorem($px){
+  @if unitless($px){
+    @return pxTorem($px + 0px);
+  }
+  @return strip-units($px) / 11.7 * 1rem;
+}*/
+
+@mixin remCalc($property, $values...) { //调用方式：@include remCalc(padding,pxTorem(25px),pxTorem(0px),pxTorem(25px),pxTorem(0px))
+  $max: length($values);//返回$values列表的长度值
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-units(nth($values, $i));//返回$values列表中的第$i个值，并将单位值去掉
+    $app-default-font-size: strip-units($app-default-font-size);
+    $pxValues: #{$pxValues + $value * $app-default-font-size}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  }
+
+  @for $i from 1 through $max {
+    $value: strip-units(nth($values, $i));
+    $remValues: #{$remValues + ($value)}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  }
+
+  /* #{$property}: $pxValues;*/
+  #{$property}: $remValues;
+}
+/*
+* icon
+* @param:icon 路径
+*/
+@mixin icon($width,$height,$url){
+  display: inline-block;
+  width: pxTorem($width);
+  height: pxTorem($height);
+  background: url($url) no-repeat center center/contain;
+}
+/*
+* text-overflow-ellipsis
+* @param:width 文字超过指定宽度显示省略号
+*/
+@mixin text-overflow-ellipsis($width){
+  overflow: hidden;
+  display: inline-block;
+  width: pxTorem($width);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/v2/ionicons/
+
+@import "ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";
+//雪碧图样式
+//@import "../assets/css/sprite.css";
+//自定义的公共文件
+@import "../assets/css/common";
+//gallery sliders 文件
+@import "../assets/css/gallery.sliders";
+//@import "../assets/css/customModal";
+

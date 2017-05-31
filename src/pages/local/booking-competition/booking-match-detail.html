@@ -1,0 +1,69 @@
+<ion-content class="gray-background">
+  <ion-header id="sportIp-header" class="transparent-header">
+    <ion-navbar>
+      <ion-title>约战详情</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <div class="detail-content bottom-gap">
+    <div class="match-card">
+      <div class="team-logo">
+        <div class="logo-box">
+          <div class="logo" [class.team-logo-default]="!match.homeTeamIconUrl" [style.background]="'url('+ match.homeTeamIconUrl+')  no-repeat center center/cover '| safeStyle "></div>
+        </div>
+        <p class="center" *ngIf="match.status===0||match.status===3">
+          VS
+        </p>
+        <div class="center" *ngIf="match.status===1||match.status===2">
+          <div class="end-time">
+            <p>截止时间</p>
+            <p><span>{{match.endDate|amDateFormat:'MM/DD'}}</span>{{match.endTime}}</p>
+          </div>
+        </div>
+        <p class="score" *ngIf="match.matchState===-1">
+          <span *ngIf="match.homeScore">{{match.homeScore}}</span><span *ngIf="!match.homeScore">0</span><i>:</i>
+          <span *ngIf="match.guestScore">{{match.guestScore}}</span><span *ngIf="!match.guestScore">0</span>
+        </p>
+        <div class="logo-box">
+          <div class="logo" [class.team-logo-default]="!match.guestTeamIconUrl " [style.background]="'url('+ match.guestTeamIconUrl +')  no-repeat center center/cover '| safeStyle "></div>
+        </div>
+      </div>
+      <div class="team-name">
+        <p class="name"><span>{{match.homeTeamName}}</span></p>
+        <p>
+          <!-- 约战状态 start-->
+          <b *ngIf="match.status===0" class="match-state end">已取消</b>
+          <b *ngIf="match.status===1" class="match-state ing">约战中</b>
+          <b *ngIf="match.status===2" class="match-state success">约战成功</b>
+          <b *ngIf="match.status===3" class="match-state fail">约战失败</b>
+          <!-- 约战状态 end-->
+        </p>
+        <p class="name"> <span *ngIf="match.status===2">{{match.guestTeamName}}</span><span *ngIf="match.status===1||match.status===3">等待对手出现</span></p>
+      </div>
+    </div>
+    <ul class="match-info top-gap">
+      <li><em>时间</em>
+        <p><span>{{match.matchDate|amDateFormat:'YYYY-MM-DD'}}</span><span>周{{match.matchDate|timestampToChineseDay}}{{match.beginTime}}-{{match.endTime}}</span></p>
+      </li>
+      <!--<li><em>场地</em><span><a href="http://uri.amap.com/search?keyword={{match.fieldName}}&view=map">{{match.fieldName?match.fieldName:'待定'}}</a></span></li>-->
+      <li><em>场地</em><span>{{match.fieldName?match.fieldName:'待定'}}</span></li>
+      <li><em>赛制</em><span>{{match.formatName}}</span></li>
+      <li><em>费用</em><span>{{match.costTypeName}}</span></li>
+    </ul>
+    <ul class="match-info top-gap">
+      <li class="clother">
+        <em>主队队服</em>
+        <div *ngIf="!match.clothers">
+          <i class="icon" [style.background]="'url('+ match.homeTeamColorUrl +')  no-repeat center center/cover '| safeStyle "></i>
+         <span> {{match.homeTeamColorName?match.homeTeamColorName:'待定'}}</span>
+        </div>
+        <div *ngIf="match.clothers">
+          <p *ngFor="let icon of match.clothers">  
+           <i class="icon" [style.background]="'url('+ icon.url +')  no-repeat center center/cover '| safeStyle "></i>
+           <span> {{icon.text}}</span>
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</ion-content>

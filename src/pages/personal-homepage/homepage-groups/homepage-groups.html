@@ -1,0 +1,81 @@
+<ion-list class="user-profile-warp">
+  <div class="share-header">
+    <span>创建的球队</span>
+  </div>
+  <div class="no-content " *ngIf="createTeam.length == 0">
+    <img src="../../../assets/images/image_nomore.png"/>
+  </div>
+
+  <div
+    class="team-warp"
+    (click)="goToTeamHomepage(item.id)"
+    *ngFor="let item of createTeam | slice: 0:1"
+  >
+    <div class="thumbnail">
+      <img
+        [lazyLoad]="item.iconFileUrl"
+        [defaultImage]="'/assets/images/user_default.png'"
+        [errorImage]="'/assets/images/user_default.png'"
+        [scrollObservable]="content.ionScroll"
+      >
+    </div>
+    <div class="right-box">
+      <div class="team-name">{{item.name}}</div>
+      <div class="info">
+        <div class="item">队长</div>
+        <div class="explain border-bottom">{{item.creator}}</div>
+      </div>
+      <div class="info">
+        <div class="item">人数</div>
+        <div class="explain border-bottom">{{item.countPlayer}}</div>
+      </div>
+      <div class="info" *ngIf="item.sign">
+        <div class="item">简介</div>
+        <div class="explain border-bottom">{{item.sign}}</div>
+      </div>
+    </div>
+  </div>
+
+</ion-list>
+
+<div class="gap"></div>
+
+<ion-list class="user-profile-warp">
+  <div class="share-header">
+    <span>加入的球队</span>
+  </div>
+  <div class="no-content" *ngIf="joinTeam.length == 0">
+    <img src="../../../assets/images/image_nomore.png"/>
+  </div>
+  <div
+    class="team-warp join-warp"
+    (click)="goToTeamHomepage(item.id)"
+    *ngFor="let item of joinTeam | slice: 0:2"
+  >
+    <div class="thumbnail">
+      <img
+        [lazyLoad]="item.iconFileUrl"
+        [defaultImage]="'/assets/images/user_default.png'"
+        [errorImage]="'/assets/images/user_default.png'"
+        [scrollObservable]="content.ionScroll"
+      >
+    </div>
+    <div class="right-box">
+      <div class="team-name">{{item.name}}</div>
+      <div class="info">
+        <div class="item">队长</div>
+        <div class="explain border-bottom">{{item.creator}}</div>
+      </div>
+      <div class="info">
+        <div class="item">人数</div>
+        <div class="explain border-bottom">{{item.countPlayer}}</div>
+      </div>
+      <div class="info" *ngIf="item.sign">
+        <div class="item">简介</div>
+        <div class="explain border-bottom">{{item.sign}}</div>
+      </div>
+    </div>
+  </div>
+
+
+</ion-list>

@@ -1,0 +1,46 @@
+page-my-schedule {
+  .module-title {
+    margin-bottom: pxTorem(20)!important;
+  }
+  .channel-title {
+    padding: pxTorem(30) 0 pxTorem(20) pxTorem(30);
+    @include font-dpr(24px);
+    color: color($h5, c2);
+    display: flex;
+    align-items: center;
+    padding-left: pxTorem(27);
+    &::before {
+      content: '';
+      margin-right: pxTorem(20);
+    }
+  }
+  ul {
+    padding-left: pxTorem(30);
+  }
+  li {
+    border-bottom: 1px solid color($h5, c8);
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+  .newest {
+    .channel-title {
+      &::before {
+        @include icon(27, 27, '../../../assets/icon/today_rc.png');
+      }
+    }
+    .no-record-icon {
+      @include icon(164, 163, '../../../assets/icon/image_day.png');
+    }
+  }
+  .history {
+    .channel-title {
+      &::before {
+        @include icon(27, 27, '../../../assets/icon/lately_rc.png');
+      }
+    }
+    .no-record-icon {
+      @include icon(165, 154, '../../../assets/icon/image_recently.png');
+    }
+  }
+}

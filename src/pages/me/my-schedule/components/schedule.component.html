@@ -1,0 +1,18 @@
+<div class="module" *ngIf="schedules.length>0">
+  <div class="module-title">
+    拼球
+  </div>
+  <ul>
+    <li *ngFor="let schedule of schedules" (click)="goToSpellDetail(schedule)">
+      <div class="time">
+        <time class="start-time">{{schedule.startTime}}</time>
+        <time class="end-time">{{schedule.endTime}}</time>
+      </div>
+      <div class="other">
+        <div class="title">{{schedule.title}}</div>
+        <div class="date">{{schedule.scheduleDate}}</div>
+      </div>
+    </li>
+  </ul>
+</div>
+

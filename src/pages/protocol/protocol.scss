@@ -1,0 +1,19 @@
+#protocol{
+  padding: pxTorem(40px) pxTorem(30px);
+  .protocol-title,.title {
+    font-weight: bold;
+    @include font-dpr(30px);
+    color:color($h5,c2);
+    padding-bottom: pxTorem(40px);
+  }
+  .title{
+    padding-top: pxTorem(20px);
+  }
+  p {
+    @include font-dpr(28px);
+    color: color($h5,c2);
+    line-height: pxTorem(40px);
+    padding-bottom: pxTorem(20px);
+    text-align: justify;
+  }
+}

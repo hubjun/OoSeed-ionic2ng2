@@ -1,0 +1,119 @@
+local-filter {
+  #local-filter {
+    height: 100%; // margin-top: pxTorem(15);
+  } // .fixed-filter {
+  //   position: fixed;
+  //   z-index: 11;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  // }
+  .entry {
+    display: flex;
+    height: pxTorem(78);
+    @include font-dpr(26px);
+    color: color($h5, c3);
+    background-color: #fff;
+    li {
+      flex: 1;
+      position: relative; // padding: pxTorem(30) 0;
+      line-height: pxTorem(78);
+      text-align: center;
+      &::after {
+        position: absolute;
+        content: '';
+        top: 0;
+        bottom: 0;
+        margin: auto 0 auto pxTorem(5);
+        @include icon(15, 15, '../../assets/icon/arrow.png');
+      }
+      &:nth-child(2) {
+        overflow: hidden;
+        display: inline-block;
+        max-width: 70%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        span {
+          overflow: hidden;
+          display: inline-block;
+          max-width: 70%;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+    .line {
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        display: inline-block;
+        width: 1px;
+        height: pxTorem(38);
+        margin: auto;
+        background-color: color($h5, c8);
+      }
+      &::before {
+        left: 0;
+      }
+    }
+  }
+  .open-filter {
+    // position: fixed;
+    position: absolute;
+    z-index: 11;
+    top: 0;
+    left: 0;
+    right: 0; //遮罩
+    .local-mask {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .filter-container {
+      position: relative;
+      height: 100%;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    .entry {
+      position: relative;
+      .active {
+        color: color($h5, c1);
+        &::after {
+          @include icon(15, 15, '../../assets/icon/table_closed_show.png');
+        }
+      }
+    }
+    .filter-content {
+      position: relative;
+      overflow-y: scroll;
+      max-height: 65%;
+      ul {
+        @include font-dpr(28px);
+        color: color($h5, c4);
+        background-color: #fff;
+        .active {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          color: color($h5, c1);
+          background-color: #f5f5f5;
+          &::after {
+            content: '';
+            margin-right: pxTorem(-20);
+            @include icon(24, 18, '../../assets/icon/gou.png');
+          }
+        }
+        li {
+          padding: pxTorem(35) pxTorem(60);
+        }
+      }
+    }
+  }
+}

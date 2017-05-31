@@ -1,0 +1,61 @@
+<ion-header id="user-header"  class="sub-header">
+  <ion-navbar>
+    <ion-title>编辑资料</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="normal-list gray-background">
+  <div class="list  top-gap">
+    <div class="item avatar">
+      <input  type="file" (change)="selectFileOnchanged($event)" />
+      <label for="avatar">
+        <em class="name">头像</em>
+       <img class="avatarImg" [src]="userObj.iconUrl" alt="">
+    </label>
+    </div>
+    <div class="item" (click)="setNickName()">
+      <em>昵称</em>
+      <span class="info">{{userObj.nickName}}</span>
+    </div>
+    <div class="item" (click)="setGender()">
+      <em>性别</em>
+      <span class="info">{{userObj.genderDesc}}</span>
+    </div>
+    <div class="item" (click)="setSignature()">
+      <em>签名</em>
+      <span class="info">{{signText}}</span>
+    </div>
+    <div class="item">
+      <em>所在地</em>
+      <span class="info">{{userObj.areaProvName}}<span>{{userObj.areaCityName}}</span><span>{{userObj.areaDistName}}</span>      </span>
+    </div>
+
+  </div>
+  <div class="gap"></div>
+
+  <div class="list ionicDateItem ageSelectWarp">
+    <div class="item">
+      <em>年龄</em>
+      <ion-multi-picker item-content [(ngModel)]="fruit" [multiPickerColumns]="fruits" (ionChange)="ageChange($event)" doneText="确定"
+        cancelText="取消"></ion-multi-picker>
+    </div>
+    <div class="item">
+      <em>身高</em>
+      <ion-multi-picker item-content [(ngModel)]="height" [multiPickerColumns]="heights" (ionChange)="heightChange($event)" doneText="确定"
+        cancelText="取消"></ion-multi-picker>
+    </div>
+    <div class="item">
+      <em>体重</em>
+      <ion-multi-picker item-content [(ngModel)]="weight" [multiPickerColumns]="weights" (ionChange)="weightChange($event)" doneText="确定"
+        cancelText="取消"></ion-multi-picker>
+    </div>
+
+  </div>
+  <div class="gap"></div>
+  <div class="list">
+    <div class="item" (click)="setBallInfo()">
+      <em>足球个人信息</em>
+      <span class="info"></span>
+    </div>
+  </div>
+</ion-content>

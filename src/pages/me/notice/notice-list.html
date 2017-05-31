@@ -1,0 +1,32 @@
+<ion-header id="user-header"  class="sub-header">
+  <ion-navbar>
+    <ion-title>消息</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="personal noticeList">
+  <div class="gap"></div>
+  <div class="itemList">
+    <div class="item" (click)="goNotice()">
+      <i class="icon01"></i>
+      <div class="rightBox">
+        <h2>评论</h2>
+        <i class="iconRight"></i>
+      </div>
+    </div>
+    <div class="item" (click)="goAtMe()">
+      <i class="icon02"></i>
+      <div class="rightBox">
+        <h2>@我</h2>
+        <i class="iconRight"></i>
+      </div>
+    </div>
+    <div class="item" (click)="goDiggMe()">
+      <i class="icon03"></i>
+      <div class="rightBox">
+        <h2>赞</h2>
+        <i class="iconRight"></i>
+      </div>
+    </div>
+  </div>
+</ion-content>

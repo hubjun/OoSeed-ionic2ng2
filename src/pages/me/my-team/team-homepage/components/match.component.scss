@@ -1,0 +1,112 @@
+//赛程组件
+match,
+page-match-detail .match-card,
+page-booking-match-detail .match-card {
+  .item {
+    padding-top: pxTorem(20);
+    background-color: #fff;
+    border-bottom: 1px solid color($h5, c8);
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+  .basic-info {
+    padding-left: pxTorem(30);
+    margin-bottom: pxTorem(50);
+    @include font-dpr(24px);
+    color: color($h5, c3);
+  }
+  em {
+    padding-left: pxTorem(30);
+    @include font-dpr(24px);
+    color: color($h5, c3);
+  }
+  .logo {
+    flex: initial!important;
+    width: pxTorem(85);
+    height: pxTorem(85);
+    border-radius: 50%;
+    margin: 0 pxTorem(85);
+  }
+  .team-logo,
+  .team-name {
+    .logo,
+    .center,
+    .score,
+    p {
+      flex: 1;
+      text-align: center;
+    }
+  }
+  .team-logo,
+  .team-name {
+    display: flex; // align-content: center;
+    justify-content:space-between; // padding: 0 pxTorem(85);
+    .name {
+      span {
+        overflow: hidden;
+        display: inline-block;
+        max-width: pxTorem(150);
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: center;
+      }
+    }
+  }
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+    text-align: center;
+    @include font-dpr(26px);
+    color: color($h5, c6);
+  }
+  .score {
+    text-align: center;
+    @include font-dpr(60px);
+    i {
+      padding: 0 pxTorem(20);
+      font-style: normal;
+    }
+  }
+  .team-name {
+    align-items: center;
+    margin-top: pxTorem(20);
+    padding-bottom: pxTorem(30);
+    @include font-dpr(28px);
+    color: color($h5, c2);
+  }
+  .match-state {
+    display: inline-block;
+    width: pxTorem(180);
+    height: pxTorem(54);
+    line-height: pxTorem(54);
+    text-align: center;
+    border-radius: pxTorem(54);
+    font-weight: normal;
+    @include font-dpr(26px);
+  }
+  .end {
+    // border: 1px solid color($h5, c8);
+    color: color($h5, c6);
+    background-color: color($h5, c8);
+  }
+  .ing,
+  .success {
+    color: #fff;
+  }
+  .ing {
+    // background-color: #01a87c;
+    background-color: color($h5, c1);
+  }
+  .success {
+    background-color: color($h5, c16);
+  } //没有赛程记录
+  .no-record-wrap {
+    .no-record-icon {
+      margin: pxTorem(70) auto 0 auto;
+      @include icon(150, 150, '../../../assets/icon/image_event.png');
+    }
+  }
+}

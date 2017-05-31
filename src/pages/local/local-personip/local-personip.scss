@@ -1,0 +1,82 @@
+
+.teamslist{
+  // background: #fff;
+
+  .item{
+    display: flex;
+    align-items: center;
+    @include remCalc(padding,0,0,0,pxTorem(30));
+    //justify-content:flex-start;
+    .rightcontent{
+      display: flex;
+      align-items: center;
+      justify-content:space-between;
+      flex:1;
+      border-bottom: 1px solid #ddd;
+      @include remCalc(padding,pxTorem(40),pxTorem(20),pxTorem(40),0);
+    .right{
+      display: flex;
+      align-items: center;
+    }
+    }
+    //@include remCalc(padding,pxTorem(30),0,0,pxTorem(30));
+    //border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    .imgavatar{
+      width:pxTorem(80);
+      height:pxTorem(80);
+      @include remCalc(margin-right,pxTorem(20));
+      img{
+        width:100%;
+        height: 100%;
+        vertical-align: text-top;
+        border-radius: 50%;
+
+      }
+    }
+    .teamname{
+      display: flex;
+      align-items: center;
+      span{
+        display: inline-block;
+        @include font-dpr(30px);
+        color: color($h5,c2);
+        @include remCalc(max-width,pxTorem(150));
+        overflow: hidden;
+        text-overflow:ellipsis;
+        -o-text-overflow:ellipsis;
+        -webkit-text-overflow:ellipsis;
+        -moz-text-overflow:ellipsis;
+        white-space:nowrap;
+      }
+
+      img{
+        display: inline-block;
+        @include remCalc(height,pxTorem(33));
+        @include remCalc(margin-left,pxTorem(10));
+      }
+    }
+    .long{@include font-dpr(24px);}
+  }
+.follow{
+  @include font-dpr(24px);
+  width:pxTorem(180);
+  text-align: right;
+  //button{
+  //  flex: 1;
+  //  font-size: pxTorem(24);
+  //  @include remCalc(padding,0,pxTorem(15));
+  //  @include remCalc(border-radius,pxTorem(8));
+  //  height:pxTorem(60)
+  //}
+  img{
+    @include remCalc(height,pxTorem(52));
+  }
+}
+  .long{
+    color: #999;
+    @include font-dpr(24px);
+  }
+}

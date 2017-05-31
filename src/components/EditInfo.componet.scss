@@ -1,0 +1,14 @@
+edit-info {
+  #user-header .toolbar .bar-buttons {
+    //@include font-dpr(30px);
+  }
+  ion-input {
+    @include font-dpr(30px);
+    margin-top: pxTorem(15);
+    padding: pxTorem(35) pxTorem(30);
+    background-color: #fff;
+    input {
+      margin: 0;
+    }
+  }
+}

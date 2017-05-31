@@ -1,0 +1,65 @@
+page-video-more {}
+.videoContent{
+  width: 100%;
+  display: inline-block;
+  @include remCalc(padding, pxTorem(20),pxTorem(15),0,pxTorem(15));
+  .col-list{
+    max-width: 50%;
+    padding-bottom: 0;
+  }
+  img {
+    @include remCalc(width, pxTorem(347px));
+    @include remCalc(height, pxTorem(196px));
+  }
+  .item-info{
+    //text-align: left;
+    @include remCalc(width, pxTorem(347px));
+    @include remCalc(height, pxTorem(126));
+    @include remCalc(padding,pxTorem(18px),0px,pxTorem(22px),0px);
+    .title{
+      display: flex;
+      flex-direction: row;
+      //@include remCalc(height,pxTorem(74));
+      span.name{
+        @include font-dpr(28px);
+        color: color($h5, c2);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+    .detail{
+      display: flex;
+      justify-content: space-between;
+      @include font-dpr(22px);
+      color: color($h5, c5);
+      @include remCalc(padding-top,pxTorem(20px));
+      i{
+        display: inline-block;
+      }
+      .left-item{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        i.icon1{
+          @include remCalc(width, pxTorem(18px));
+          @include remCalc(height, pxTorem(20px));
+          @include icon(18,20,'../../assets/icon/icon_personal_02.png');
+        }
+        span{
+          @include remCalc(padding-left,pxTorem(7px));
+        }
+      }
+      .right-item{
+        display: flex;
+        align-items:center;
+        i.icon2{
+          @include remCalc(margin-right,pxTorem(7));
+          @include remCalc(width, pxTorem(20px));
+          @include remCalc(height, pxTorem(20px));
+          @include icon(20,20,'../../assets/icon/icon_play_02.png');
+        }
+      }
+    }
+  }
+}

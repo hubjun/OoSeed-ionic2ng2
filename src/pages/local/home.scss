@@ -1,0 +1,137 @@
+page-local {
+  ion-content {
+    position: relative;
+    background-color: #fff;
+  }
+  .stop-scroll {
+    overflow-y: visible!important;
+    overflow-x: visible!important;
+  }
+  .channels {
+      // height:72%;
+      // background-color: #fff;
+  }
+  .locationSelect {
+    position: absolute;
+    left: pxTorem(20);
+    top: 0;
+    height: 1.22667rem;
+    width: auto;
+    overflow: hidden;
+    span {
+      @include font-dpr(30px);
+      color: color($h5, c10);
+      display: inline-block;
+      float: left;
+      height: 1.22667rem;
+      line-height: 1.22667rem;
+    }
+    i {
+      display: inline-block;
+      float: left;
+      margin-top: pxTorem(30);
+      width: pxTorem(30);
+      height: pxTorem(30);
+      background: url('../../assets/icon/arrow_w.png') center center no-repeat;
+      background-size: pxTorem(20) pxTorem(12);
+    }
+  }
+  ion-content {
+    // background-color: color($h5, c9)!important;
+    .backgroundSilve {
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: color($h5, c14);
+      opacity: 0.5;
+      width: 100%;
+      height: 100%;
+      z-index: 99;
+    }
+    .local-body-header {
+      background-color: color($h5, c10);
+      margin: pxTorem(20) 0;
+      width: 100%;
+      overflow-x: auto;
+      margin: pxTorem(20) 0;
+      padding: pxTorem(20) 0;
+    }
+    .page-body {
+      width: 100%;
+      overflow: hidden;
+      page-team-detail {
+        width: 100%;
+      }
+    }
+  } // .booking-match-channel{
+  //   ion-infinite-scroll{
+  //       background-color: color($h5, c9);
+  //     }
+  // }
+}
+
+
+/*local common*/
+
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.bottom-mask {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.default-hidden {
+  display: none;
+}
+
+.make-visible {
+  display: block!important;
+}
+
+.bottom-tips {
+  padding: pxTorem(30) 0;
+  text-align: center;
+  @include font-dpr(24px);
+  color: color($h5, c3);
+  background-color: color($h5, c9);
+}
+
+.bottom-mask {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.default-hidden {
+  display: none;
+}
+
+.make-visible {
+  display: block!important;
+}
+
+.bottom-tips {
+  padding: pxTorem(30) 0;
+  text-align: center;
+  @include font-dpr(24px);
+  color: color($h5, c3);
+  background-color: color($h5, c9);
+}
+.goapp{
+  @include font-dpr(30px);
+  text-align: center;
+  padding: pxTorem(15) 0 0 0;
+  color: color($h5, c3);
+}

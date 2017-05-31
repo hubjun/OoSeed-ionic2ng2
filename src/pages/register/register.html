@@ -1,0 +1,34 @@
+<script src="../../../node_modules/.2.4.0@ng2-lazyload-image/src/lazyload-image.directive.d.ts"></script>
+<ion-header id="sportIp-header" class="sportIp-header-register">
+  <ion-navbar>
+    <ion-title>用户注册</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="register-content">
+    <form [formGroup]="registerForm" (ngSubmit)="goSetPassword()">
+      <div class="register-box register-box-account">
+        <div class="register-box-icon register-box-icon-account"></div>
+        <div class="register-box-input">
+          <input type="text" formControlName="account" name="register-account" id="register-account" placeholder="请输入手机号">
+        </div>
+      </div>
+      <div class="register-box register-box-verify-code">
+        <div class="register-box-icon register-box-icon-verify-code"></div>
+        <div class="register-box-input">
+          <input type="text" formControlName="verifyCode" name="register-verify-code" id="register-verify-code" placeholder="短信验证码">
+        </div>
+        <div class="register-timer" (click)="getSMSCode($event)">
+          <span>{{timer}}</span>
+        </div>
+      </div>
+      <button type="submit" ion-button block [disabled]="!registerForm.valid" class="register-button-next">下一步</button>
+     <!-- <button type="submit" ion-button block *ngIf="isRegister" class="register-button-next is-register">用户已注册</button>-->
+      <div id="user-agreement" text-center>
+        注册既表示您同意花海乐盈的<a>用户协议</a>
+      </div>
+    </form>
+    <control-messages [control]="registerForm.controls.account"></control-messages>
+  </div>
+</ion-content>

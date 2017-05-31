@@ -1,0 +1,21 @@
+<div id="local-filter" [class.open-filter]="open">
+  <div class="filter-container">
+    <div class="local-mask" tappable (click)="hideFilter($event)"></div>
+    <ul class="entry border-bottom" tappable (click)="openFilter($event)">
+      <li data-type="sportType" [class.active]="currentFilter==='sportType'">{{filterResult.sportType.text}}</li>
+      <li data-type="rangType" class="line" [class.active]="currentFilter==='rangType'">{{filterResult.rangType.text}}</li>
+      <li data-type="sortType" class="line" [class.active]="currentFilter==='sortType'">{{filterResult.sortType.text}}</li>
+    </ul>
+    <div class="filter-content" [ngSwitch]="currentFilter">
+      <ul *ngSwitchCase="'sportType'">
+        <li *ngFor="let type of filterType.sportType;let i=index" tappable (click)="orderBySportType(type,i)" [class.active]="i===filterResult.sportType.index">{{type.title||type.cateName}}</li>
+      </ul>
+      <ul *ngSwitchCase="'rangType'">
+        <li *ngFor="let type of filterType.rangType;let i=index" tappable (click)="orderByRangType(type,i)" [class.active]="i===filterResult.rangType.index">{{type.title}}</li>
+      </ul>
+      <ul *ngSwitchCase="'sortType'">
+        <li *ngFor="let type of filterType.sortType;let i=index" tappable (click)="orderBySortType(type,i)" [class.active]="i===filterResult.sortType.index">{{type.title}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

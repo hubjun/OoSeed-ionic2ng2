@@ -1,0 +1,90 @@
+<div class="user-profile-warp user-profile-feed">
+  <div class="album-info">
+    <div class="share-header">
+      <span>帖子</span>
+      <a
+        class="arrow-right"
+        href="javascript:;"
+        (click)="goToFeed()"
+        *ngIf="article?.length > 0"
+      >
+        更多
+      </a>
+    </div>
+    <div class="no-content" *ngIf="article?.length == 0">
+      <img src="../../../assets/images/image_nomore.png"/>
+    </div>
+    <feed-card *ngIf="article.length >0 " [content]="content" [feeds]="article"></feed-card>
+
+  </div>
+
+  <div class="gap"></div>
+
+  <div class="album-videos">
+    <div class="share-header">
+      <span>相册</span>
+      <a
+        class="arrow-right"
+        href="javascript:;"
+        (click)="goToGallery()"
+        *ngIf="gallery.length > 0"
+      >
+        更多
+      </a>
+    </div>
+    <div class="row padding-gap">
+      <div class="no-content" *ngIf="gallery.length == 0">
+        <img src="../../../assets/images/image_nomore.png"/>
+      </div>
+      <ion-grid *ngIf="gallery.length > 0" class="seed-gallery">
+        <ion-row>
+          <ion-col col-4 *ngFor="let item of gallery | slice:0:6; let i = index" >
+            <div
+              (click)="galleryViewer(i)"
+              [lazyLoad]="item.fileName"
+              [defaultImage]="'/assets/images/user_default.png'"
+              [errorImage]="'/assets/images/user_default.png'"
+              [scrollObservable]="content.ionScroll"
+            >
+            </div>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+  <div class="gap"></div>
+
+  <div class="album-videos">
+    <div class="share-header">
+      <span>视频</span>
+      <a
+        (click)="goToVideo()"
+        *ngIf="video.length > 0"
+        class="arrow-right"
+        href="javascript:;"
+      >
+        更多
+      </a>
+    </div>
+    <div class="no-content" *ngIf="video?.length == 0">
+      <img src="../../../assets/images/image_nomore.png"/>
+    </div>
+    <div class="row padding-gap" *ngIf="video.length > 0">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="icon-live" col-4 *ngFor="let item of video | slice:0:6" (click)="videoViewer(item.fileName)">
+            <div
+              [lazyLoad]="item.fileName +'&width=100&second=1' "
+              [defaultImage]="'/assets/images/user_default.png'"
+              [errorImage]="'/assets/images/user_default.png'"
+              [scrollObservable]="content.ionScroll"
+            >
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</div>

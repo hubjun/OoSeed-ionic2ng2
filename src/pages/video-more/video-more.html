@@ -1,0 +1,36 @@
+<ion-header id="sportIp-header">
+  <ion-navbar>
+    <ion-title>更多分类视频</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="video-more">
+    <!--<div class="header">-->
+          <!--<span class="title">-->
+            <!--<img [src]="v.cateIcon" class="icon-hot" alt="">{{v.cateName}}-->
+          <!--</span>-->
+      <!--<span class="get-more">更多></span>-->
+    <!--</div>-->
+    <div class="videoContent">
+      <ion-col width-50 *ngFor="let l of videoListObj" class="col-list">
+        <div (click)="gotoDetail($event,l.videoId)">
+          <img [src]="l.videoCover" alt="">
+          <div class="item-info">
+            <div class="title">
+              <span class="name">{{l.videoName}}</span>
+            </div>
+            <div class="detail">
+              <div class="left-item">
+                <i class="icon1"></i>
+                <span>{{l.nickName | slice: 0:7}}</span>
+              </div>
+              <div class="right-item">
+                <i class="icon2"></i>
+                <span>{{l.playCount}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </div>
+</ion-content>

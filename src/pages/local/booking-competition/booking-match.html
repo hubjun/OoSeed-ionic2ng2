@@ -1,0 +1,38 @@
+<div class="booking-list" *ngIf="matchs.length>0">
+  <div class="local-team-detail-clum" id="local-team-detail-clum-id"  *ngFor="let item of matchs">
+    <div class="team-detail-header">
+      <div class="team-detail-img" [class.team-logo-default]="!item.iconUrl" [style.background]=" 'url('+ item.iconUrl+') no-repeat center center/cover ' | safeStyle "  (click)="goToTeamHomePage(item.orgId)"></div>
+      <div class="team-detail-font">
+        <div class="team-detail-font-text">{{item.nickName}}</div>
+        <!--<img src="{{item.appImgtxtUrl}}" alt="">-->
+      </div>
+      <span></span>
+    </div>
+    <div class="team-detail-spell" (click)="goToMatchDetail(item.id)">
+      <p class="team-spell">约战：{{item.sportType}}<span *ngIf="item.sportForm">，{{item.sportForm}}</span><span *ngIf="item.fightArea">，{{item.fightArea}}</span></p>
+      <div class="team-time">
+        <i></i>
+        <span>{{item.startTime |amDateFormat:'YYYY-MM-DD'}}</span> <span>周{{item.startTime |timestampToChineseDay }}{{item.startTime|amDateFormat:'HH:mm'}}-{{item.endTime | amDateFormat:'HH:mm'}}</span>
+      </div>
+      <div class="team-location">
+        <i></i>
+        <span>{{item.fightArea?item.fightArea:'待定'}}</span>
+         <span class="team-distance" *ngIf="item.distance">{{item.distance|distance}}</span>
+         <span class="team-distance" *ngIf="!item.distance">未知</span>
+      </div>
+      <p class="team-expense">
+        <i></i>
+        <span>{{item.fightCost}}</span>
+      </p>
+    </div>
+    <div class="team-icon">
+      <div class="team-icon-img" [class.teamSpell4]="item.fightStatus===0" [class.teamSpell1]="item.fightStatus===1" [class.teamSpell2]="item.fightStatus===2"
+        [class.teamSpell3]="item.fightStatus===3">{{item.fightStatus==1?'约战中':(item.fightStatus==2?'约战成功':(item.fightStatus==3?'约战失败':'已取消')) }}
+      </div>
+    </div>
+  </div>
+
+  <view-more-tip [text]="'下载球苗App，看更多精彩内容'" *ngIf="haveMore"></view-more-tip>
+</div>
+
+<local-default-content [text]="'暂时没有同城约战信息，去看看其它的吧~'" *ngIf="!haveData"></local-default-content>

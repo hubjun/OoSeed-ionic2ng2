@@ -1,0 +1,282 @@
+page-personal-homepage {
+  .padding-gap {
+    padding: 0px pxTorem(20px) pxTorem(20px)
+  }
+  .user-verify-icon {
+    width: pxTorem(40px);
+    height: pxTorem(40px);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    float: right;
+    margin-right: pxTorem(20px);
+    background-image: url("../../assets/images/user_states_1.png");
+    &.isFollow {
+      background-image: url("../../assets/images/user_states_2.png");
+    }
+    &.isFollowBoth{
+      background-image: url("../../assets/images/user_states_3.png") !important;
+    }
+  }
+  .profile-card {
+    height: pxTorem(424px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: url("../../assets/images/personal_bannerbg.png") no-repeat center center/cover;
+    .profile-gap {
+      margin-bottom: pxTorem(18px);
+    }
+    .user-icon-warp {
+      width: pxTorem(164px);
+      height: pxTorem(164px);
+      border-radius: pxTorem(82px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      .user-icon {
+        width: pxTorem(150px);
+        height: pxTorem(150px);
+        border-radius: pxTorem(75px);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url("../../assets/images/recommend_personage.png");
+        position: relative;
+        .user-sex {
+          position: absolute;
+          bottom: pxTorem(2px);
+          right: pxTorem(10px);
+          width: pxTorem(28px);
+          height: pxTorem(28px);
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: contain;
+          z-index: 9;
+          &.boy {
+            background-image: url("../../assets/images/boy.png");
+          }
+          &.girl {
+            background-image: url("../../assets/images/girl.png");
+          }
+        }
+      }
+    }
+    .user-name {
+      color: color($h5, c10);
+      @include font-dpr(34px);
+    }
+    .user-signature {
+      color: color($h5, c10);
+      @include font-dpr(24px);
+     /* img {
+        width: pxTorem(128px);
+      }*/
+    }
+  }
+
+  .user-profile-warp {
+    background: color($h5, c10);
+    padding: 0px 0px pxTorem(20px);
+    margin: 0px;
+    .share-header {
+      padding: 0px pxTorem(20px);
+      margin: pxTorem(30px) 0px;
+      border-left: pxTorem(6px) solid color($h5, c1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        @include font-dpr(30px);
+        color: color($h5, c2);
+      }
+      a {
+        @include font-dpr(20px);
+        color: color($h5, c4);
+        padding-right:pxTorem(30px);
+        &:before {
+          position: absolute;
+          content: '';
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          right: 0;
+          display: inline-block;
+          width: 0.22667rem;
+          height: pxTorem(20px);
+          background: url(../../assets/icon/icon_more.png) no-repeat center center/contain;
+        }
+      }
+    }
+
+    ion-row {
+      margin-bottom: pxTorem(6px);
+      ion-col {
+        padding: pxTorem(5px) !important;
+      }
+      &:last-child {
+        margin-bottom: 0px;
+      }
+      div {
+        background-repeat:no-repeat;
+        background-size:cover;
+        width:100%;
+        height:0;
+        padding-top:100%
+      }
+    }
+    ion-col {
+      position: relative;
+      &.icon-live:before {
+        content: ' ';
+        width: 100%;
+        height: 100%;
+        display: block;
+        top: 0px;
+        left: 0px;
+        position: absolute;
+        z-index: 3;
+        background: url("../../assets/images/icon_play.png") no-repeat center center/35%;
+      }
+    }
+
+    .team-warp {
+      &.join-warp {
+        padding: pxTorem(10px) pxTorem(20px) pxTorem(50px);
+      }
+      display: -webkit-box;
+      padding: pxTorem(10px) pxTorem(20px) 0px;
+      .thumbnail {
+        width: pxTorem(100px);
+        height: pxTorem(100px);
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: pxTorem(20px);
+        img {
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
+      }
+      .right-box {
+        -webkit-box-flex: 1;
+        .team-name {
+          @include font-dpr(30px);
+          color:color($h5,c2);
+          padding-bottom: pxTorem(30px);
+        }
+        .info {
+          display: flex;
+          align-items: baseline;
+          padding-bottom: pxTorem(25px);
+          .item {
+            display:block;
+            @include font-dpr(28px);
+            color: color($h5, c4);
+            padding-right: pxTorem(20px);
+          }
+          div.explain {
+            -webkit-flex: 1;
+            @include font-dpr(24px);
+            color: color($h5, c2);
+            line-height: 38px;
+            text-align: justify;
+            padding-bottom: pxTorem(20px);
+          }
+          &:last-child {
+            padding-bottom: 0px;
+            .explain{
+              border-bottom: none;
+              padding-bottom: 0px;
+            }
+          }
+        }
+      }
+    }
+
+    .team-grid-list {
+      padding: 0rem .13333rem;
+      li {
+        width: 25% !important;
+        margin-bottom: .4rem !important;
+
+        .avatar-wrap {
+          text-align: center;
+          padding-bottom: 0;
+        }
+        .avatar {
+          width: 1.33333rem;
+          height: 1.33333rem;
+          margin: auto;
+          border-radius: 50%;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center center;
+        }
+        .avatar-default {
+          width: 1.06667rem;
+          height: 1.06667rem;
+          background-image: url(../../assets/icon/concern_default_head.png) !important;
+        }
+        .nickname {
+          @include font-dpr(24px);
+          margin-top: .26667rem;
+          margin-bottom: 0!important;
+          overflow: hidden;
+          display: inline-block;
+          width: 1.33333rem;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    .user-service-contain {
+      overflow: hidden;
+      padding:0px pxTorem(20px) pxTorem(40px);
+      li {
+        padding: pxTorem(30px) 0px;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        @include font-dpr(28px);
+        .item-name {
+          min-width: pxTorem(120px);
+          padding-right: pxTorem(25px);
+          float: left;
+          color: color($h5, c4);
+        }
+        .item-info {
+          flex: 1;
+          float: right;
+          color: color($h5,c2);
+          text-align: justify;
+          line-height: pxTorem(36px);
+        }
+        &:last-child{
+          border-bottom:none;
+        }
+      }
+
+    }
+  }
+}
+
+//下载app查看更多
+.downApp-seeMore {
+  background-color: color($h5, c10);
+  @include font-dpr(30px);
+  color: color($h5,c1);
+  border: 1px solid color($h5,c1);
+  padding: pxTorem(30px) 0px;
+  margin: pxTorem(40px) pxTorem(30px);
+  border-radius: pxTorem(5px);
+  text-align: center;
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}

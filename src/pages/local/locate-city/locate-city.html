@@ -1,0 +1,74 @@
+<ion-header id="sportIp-header">
+  <ion-navbar>
+    <ion-title>城市定位</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="locate-city">
+  <!--<div class="topLocation">-->
+    <!--<span>当前位置：深圳全城</span>-->
+  <!--</div>-->
+  <!--省市区域选择框-->
+  <div id="cityAreaModal" class="areaContent" [hidden]="!isShowTop">
+    <div class="locationWrap">
+      <ul class="cityItem">
+        <!--<div *ngFor="let item of cityObj">-->
+          <li>
+            <span class="items" (click)="getAllCityArea(cityObj)">全城</span>
+          </li>
+          <li *ngFor="let area of cityObj.dictTreeNodeList">
+            <span class="items" (click)="getLocate(area.latitude,area.longitude,area.title,area.areaId,area.parentId)">{{area.title}}</span>
+          </li>
+          <!--<li><span class="items cur">宝安区</span></li>-->
+        <!--</div>-->
+      </ul>
+    </div>
+  </div>
+
+  <!--热门城市区域选择框-->
+  <div id="cityAreaModal2" class="areaContent" [hidden]="!isShowHotTop">
+    <div class="locationWrap">
+      <ul class="cityItem">
+        <!--<div *ngFor="let item of cityObj">-->
+        <li>
+          <span class="items" (click)="getHotCityAllArea(hotCityArea)">全城</span>
+        </li>
+        <li *ngFor="let item of hotCityAreaObj">
+          <span class="items" (click)="getHotLocate(item.latitude,item.longitude,item.title,item.areaId,item.parentId)">{{item.title}}</span>
+        </li>
+        <!--<li><span class="items cur">宝安区</span></li>-->
+        <!--</div>-->
+      </ul>
+    </div>
+  </div>
+
+  <!--推荐热门城市列表-->
+  <div class="hotCity">
+    <span class="title">热门城市</span>
+    <div class="locationWrap">
+      <ul class="cityItem">
+        <li *ngFor="let item of hot" (click)="queryHotArea(item.areaId,item.title,item)"><span class="items">{{item.title}}</span></li>
+        <!--<li><span class="items active">中场</span></li>-->
+      </ul>
+    </div>
+  </div>
+
+  <div class="categoryWarp">
+    <div *ngFor="let obj of newSortCityObj">
+      <span id="city_{{obj.iniData}}" class="indexs">{{obj.iniData}}</span>
+      <div class="listItem" *ngFor="let item of obj.cityAreaList" (click)="queryArea(item.areaId,item.title,item)">
+        <span>{{item.title}}</span>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<div class="rightNav">
+  <div class="single" *ngFor="let index of indexs">
+    <div (click)="mTouch($event)">{{index}}</div>
+  </div>
+</div>
+<!--<div class="hint" ng-show="showMiddle">-->
+  <!--{{hint}}-->
+<!--</div>-->
+<div class="hint" [hidden]="showHint">{{hint}}</div>

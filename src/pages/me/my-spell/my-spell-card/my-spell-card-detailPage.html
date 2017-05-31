@@ -1,0 +1,147 @@
+<ion-header class="mySpellDataDetailPageHeaderoo" id="sportIp-header">
+  <ion-navbar>
+    <ion-title>{{mySpellDataDetail.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="mySpellDataDetailPageBodyoo">
+  <div class="mySpellDataDetailGrayBg">
+    <div class="spellCardInfo">
+      <div class="spellTeamIntroduce">
+        <img src="{{mySpellDataDetail.iconUrl||defaulticon}}" (click)="goPersonalPage(mySpellDataDetail.userId)">
+        <div class="spellName">
+          <div class="spellNameText">
+            {{mySpellDataDetail.userId||''}}
+          </div>
+          <img src="{{mySpellDataDetail.appImgtxtUrl?mySpellDataDetail.appImgtxtUrl:' '}}" class="spellLittleUrlImg">
+        </div>
+      </div>
+      <div class="spellClass">
+        <p>拼球：</p>
+        <span>{{mySpellDataDetail.title}}</span>
+      </div>
+      <div class="spellTime">
+        <p>时间：</p>
+        <span>{{mySpellDataDetail.startTime|amDateFormat:'YY-MM-DD '}}  周{{mySpellDataDetail.startTime|timestampToChineseDay }} {{mySpellDataDetail.startTime|amDateFormat:'HH:mm'}}-{{mySpellDataDetail.endTime|amDateFormat:'HH:mm'}}</span>
+      </div>
+      <!--<div class="spellWeather">-->
+      <!--<p>天气：</p>-->
+      <!--<span>20 阵雨</span>-->
+      <!--</div>-->
+      <div class="spellNumber">
+        <p>人数：</p>
+        <span>{{mySpellDataDetail.minNumber||0}}-{{mySpellDataDetail.maxNumber||0}}人</span>
+      </div>
+      <div class="spellExpense">
+        <p>费用：</p>
+        <span>{{mySpellDataDetail.payMethod==1?'AA':'免费'}}</span>
+      </div>
+      <div class="spellToggle" *ngIf="spellToggle">
+        <div class="spellSystem">
+          <p>赛制：</p>
+          <span>{{mySpellDataDetail.formatName||'无'}}</span>
+        </div>
+        <!--<div class="spellNumber">-->
+        <!--<p>人数：</p>-->
+        <!--<span>{{mySpellDataDetail.minNumber}}-{{mySpellDataDetail.maxNumber}}人</span>-->
+        <!--</div>-->
+        <div class="spellOnTime">
+          <p>上场时间保障：</p>
+          <span>{{mySpellDataDetail.playTime||0}}分钟</span>
+        </div>
+        <div class="spellContact">
+          <p>联系方式：</p>
+          <span>{{mySpellDataDetail.phone||'无'}}</span>
+        </div>
+        <div class="spellNotes">
+          <p>备注：</p>
+          <span>{{mySpellDataDetail.remarks||'无'}}</span>
+        </div>
+      </div>
+      <div class="spellMark">
+        <div class="spellMarkInner">
+          <div class="spellMarkBg" [class.spellMarkBgSpe1]="mySpellDataDetail.status==1"
+               [class.spellMarkBgSpe2]="mySpellDataDetail.status==2"
+               [class.spellMarkBgSpe3]="mySpellDataDetail.status==3"
+               [class.spellMarkBgSpe4]="mySpellDataDetail.status==4"
+               [class.spellMarkBgSpe5]="mySpellDataDetail.status==5"
+          >
+            <p class="spellMarkPf">{{mySpellDataDetail.status==1?'报名中':(mySpellDataDetail.status==2?'拼球成功':(mySpellDataDetail.status==3?'拼球失败':(mySpellDataDetail.status==4?'已关闭':'已结束'))) }}</p>
+            <p class="spellMarkPs" *ngIf="mySpellDataDetail.status==1">
+              <i></i>
+              <span *ngIf="mySpellDataDetail.days">{{mySpellDataDetail.days>99?'99':(!mySpellDataDetail.days?'00':mySpellDataDetail.days)}}</span><span class="spellMarkPsSpe" *ngIf="mySpellDataDetail.days">天{{mySpellDataDetail.days>99?'+':' '}}</span>
+              <span *ngIf="!mySpellDataDetail.days">{{signEndTime>3600?(signEndTime/3600).toFixed(0):(signEndTime/60).toFixed(0)}}</span><span class="spellMarkPsSpe" *ngIf="!mySpellDataDetail.days">{{signEndTime>3600?'小时':'分钟'}}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="spellArrow"
+           [class.spellArrowRevise]="spellToggle==true"
+           (click)="mySpellDataDetailToggle()">
+        <i></i>
+      </div>
+    </div>
+
+    <div class="spellLocation">
+      <div class="spellLocationPlace">
+        <p class="spellLocationName">{{mySpellDataDetail.placeTitle?mySpellDataDetail.placeTitle:'未获取到详细地址'}}</p>
+        <p class="spellLocationMap">
+          <i></i>
+          <span>{{mySpellDataDetail.place||'未获取到详细信息'}}</span>
+        </p>
+      </div>
+      <!--<div class="spellLocationNav">-->
+      <!--<span>{{mySpellDataDetail.distance>1000?(mySpellDataDetail.distance/1000+' km'):mySpellDataDetail.distance+' m'}}</span>-->
+      <!--<i></i>-->
+      <!--</div>-->
+    </div>
+
+    <div class="spellTeamPending">
+      <p>待处理 ( {{!mySpellDataDetail.pendSize?'0':mySpellDataDetail.pendSize}}人 )</p>
+      <ul *ngIf="peddingListCheck.length>0">
+        <li *ngFor="let items of mySpellDataDetail.pendList" (click)="goPersonalPage(items.userId)" )>
+          <img src="{{items.iconUrl || defaulticon}}">
+          <p>
+            <span>{{items.nickName}}</span>
+            <img src="{{items.appImgtxtUrl||' '}}" alt="" *ngIf="items.appImgtxtUrl">
+          </p>
+        </li>
+      </ul>
+      <div class="hadJoinMissing" *ngIf="peddingListCheck.length==0">
+        <div class="missingBg">
+          <p></p>
+        </div>
+        <p>暂无人申请，分享给好友，一起运动吧~</p>
+      </div>
+    </div>
+
+    <div class="spellTeamMember">
+      <p>已加入 ( {{!mySpellDataDetail.joinSize?'0':mySpellDataDetail.joinSize}}人 )</p>
+      <ul *ngIf="joinListCheck.length>0">
+        <li *ngFor="let item of joinListCheck" (click)="goPersonalPage(item.userId)">
+          <img src="{{item.iconUrl || defaulticon}}">
+          <p>
+            <span>{{item.nickName}}</span>
+            <img src="{{item.appImgtxtUrl||' '}}" alt="" *ngIf="item.appImgtxtUrl">
+          </p>
+        </li>
+      </ul>
+
+      <div class="hadJoinMissing" *ngIf="joinListCheck.length==0">
+        <div class="missingBg">
+          <p></p>
+        </div>
+        <p>暂无人加入，分享给好友，一起运动吧~</p>
+      </div>
+
+      <!--<p *ngIf="!mySpellDataDetail.joinSize" class="mySpellReserve"></p>-->
+    </div>
+  </div>
+
+  <div class="myLaunchSpellManager">
+    <div class="stopapply" (click)="TipCommon()">终止报名</div>
+    <div class="giveUpSpell" (click)="TipCommon()">退出拼球</div>
+    <div class="LaunghAgain" (click)="TipCommon()">再次发起</div>
+  </div>
+
+</ion-content>

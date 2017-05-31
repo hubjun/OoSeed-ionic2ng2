@@ -1,0 +1,26 @@
+<div class="teamslist">
+  <div class="item"*ngFor="let teamip of teamIpList;let i=index;">
+    <div class="imgavatar"(click)="goteamdetail(teamip.id)">
+      <img [src]="teamip.iconFileUrl">
+    </div>
+    <div class="rightcontent">
+      <div class="left">
+        <div class="teamname">
+          <span>{{teamip.name}}</span>
+          <img [src]="teamip.gradeIconUrl"*ngIf="!teamip.seeIcon">
+        </div>
+        <div class="addr">
+          {{teamip.areaCityName}}&nbsp;{{teamip.areaDistName}}&nbsp;&nbsp;{{teamip.formatName}}
+        </div>
+        <!--<div class="imglogo" ></div>-->
+      </div>
+      <div class="right">
+        <div class="long">{{teamip.distance}}{{teamip.mUnit}}</div>
+        <div class="follow"(click)="ToFollow(i,teamip.orgUser)">
+          <img [src]="teamip.FollowIcon">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<local-default-content [text]="'暂无该类推荐信息，先去看看其它的吧~~'" *ngIf="ifnull"></local-default-content>

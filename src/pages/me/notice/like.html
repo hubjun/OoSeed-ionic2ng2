@@ -1,0 +1,39 @@
+<ion-header id="user-header"  class="sub-header">
+  <ion-navbar>
+    <ion-title>点赞</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="noticePage">
+  <div class="tieZiMissingPage" *ngIf="mesObj?.length == 0">
+    <div class="missingBg">
+      <p></p>
+    </div>
+    <p>还没有你的点赞哦~</p>
+  </div>
+  <div class="gap"></div>
+  <div class="cardWrap" *ngFor="let v of mesObj">
+    <div class="cusCard">
+      <div class="avatarBox">
+        <div class="avatar">
+          <img [src]="v.userInfoBasicRespVO.iconUrl" alt="" [hidden]="!v.userInfoBasicRespVO.iconUrl">
+          <img src="../../assets/icon/concern_default_head.png" alt="" *ngIf="!v.userInfoBasicRespVO.iconUrl">
+        </div>
+        <div class="rightBox">
+          <div class="name">{{v.userInfoBasicRespVO.nickName}}</div>
+          <div class="dateTime">{{v.createDate}}</div>
+        </div>
+      </div>
+      <!--<span class="disc">{{v.feedTitle}}</span>-->
+      <span class="disc">给你的帖子点了赞</span>
+      <div class="postContent">
+        <span>原贴</span>
+        <div class="content">
+          <p>{{v.content}}</p>
+          <!--<p>仿佛兮若青云之碧月，飘摇兮若流风之回雪……阿，好湿好湿好湿好湿好湿好湿好湿好湿</p>-->
+        </div>
+      </div>
+    </div>
+    <div class="gap"></div>
+  </div>
+</ion-content>

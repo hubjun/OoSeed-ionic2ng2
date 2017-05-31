@@ -1,0 +1,202 @@
+.sportIp-home-tab {
+  .segment{
+    .segment-button {
+      border:none;
+      height: auto;
+      line-height:normal;
+      color:color($h5,c2);
+      background-color:color($h5,c10);
+      @include font-dpr(30px);
+      @include remCalc(padding,0px,pxTorem(6px),pxTorem(0px),pxTorem(6px));
+      span{
+        width: auto;
+        height: 100%;
+        display: inline-block;
+        /*line-height: 80px;*/
+        @include remCalc(padding,pxTorem(25px),pxTorem(0px),pxTorem(17px),pxTorem(0px))
+      }
+      &[aria-pressed='true'] {
+        background: none;
+        & span{
+          color: color($h5,c1);
+          border-bottom: pxTorem(2px) solid color($h5,c1);
+        }
+      }
+    }
+  }
+}
+.tvDemand,.tvDemand,.tvShow{
+  background: color($h5,c9);
+}
+//节目点播
+.tvDemand{
+  .tvLive-warp{
+    .banner-slider{
+      .swiper-slide{
+        img{
+          width: 100%;
+          @include remCalc(height,pxTorem(420));
+        }
+      }
+      .swiper-pagination{
+        width: auto;
+        bottom: 0;
+        right: pxTorem(23px);
+        z-index: 9999;
+        text-align: right;
+        span{
+          background: #21CBBF;
+          //position: absolute;
+          @include remCalc(width,pxTorem(18px));
+          @include remCalc(height,pxTorem(18px));
+        }
+      }
+    }
+  }
+  .video-category{
+    background: color($h5,c10);
+    .scroll-content::-webkit-scrollbar{
+      display: none;
+    }
+    min-height: pxTorem(174px);
+    ul.category-ul{
+      display: inline-block;
+      width: 1900px;
+      //overflow: hidden;
+      @include remCalc(padding-top,pxTorem(20px));
+      @include remCalc(padding-left,pxTorem(30px));
+      li{
+        float: left;
+        text-align: center;
+        .select-item{
+          @include remCalc(padding-right,pxTorem(70px));
+          .icon{
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            @include remCalc(width,pxTorem(90px));
+            @include remCalc(height,pxTorem(90px));
+          }
+          i.video_video{
+            background: url("../../assets/icon/video_video.png") no-repeat center center/cover;
+          }
+          .icon{
+            display: block;
+          }
+          span{
+            display: block;
+            color: color($h5,c3);
+            font-size: pxTorem(24px);
+            @include remCalc(padding, pxTorem(17px),0px,pxTorem(20px),0px);
+          }
+        }
+      }
+    }
+  }
+  .wrapper {
+    box-sizing: border-box;
+    .top-gap{
+      @include remCalc(margin-top,pxTorem(15));
+    }
+    .list-item{
+      background: color($h5,c10);
+      @include font-dpr(28px);
+      @include remCalc(padding, 0,pxTorem(15px),0,pxTorem(15px));
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include remCalc(padding, pxTorem(20),pxTorem(5),0,pxTorem(5));
+        .title {
+          color: color($h5, c2);
+          @include font-dpr(28px);
+          label{
+            display: inline-block;
+            margin-right: pxTorem(6px);
+          }
+          img.icon-hot{
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            @include remCalc(margin,0,pxTorem(9),pxTorem(3),0);
+            @include remCalc(width, pxTorem(27px));
+            @include remCalc(height, pxTorem(27px));
+            //background: url("../../assets/icon/icon_hot.png")no-repeat center center/cover;
+          }
+        }
+        .get-more {
+          @include font-dpr(20px);
+          color: color($h5, c4);
+        }
+      }
+      .content{
+        width: 100%;
+        display: inline-block;
+        @include remCalc(padding-top, pxTorem(20px));
+        .col-list{
+          max-width: 50%;
+          padding-bottom: 0;
+        }
+        //.row{
+        //  display: flex;
+        //  justify-content: space-between;
+        img {
+          @include remCalc(width, pxTorem(347px));
+          @include remCalc(height, pxTorem(196px));
+        }
+        .item-info{
+          //text-align: left;
+          @include remCalc(width, pxTorem(347px));
+          @include remCalc(padding,pxTorem(18px),0px,pxTorem(20px),0px);
+          .title{
+            display: flex;
+            flex-direction: row;
+            //@include remCalc(height,pxTorem(74));
+            span.name{
+              @include font-dpr(28px);
+              color: color($h5, c2);
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+          }
+          .detail{
+            display: flex;
+            justify-content: space-between;
+            @include font-dpr(22px);
+            color: color($h5, c5);
+            @include remCalc(padding-top,pxTorem(20px));
+            i{
+              display: inline-block;
+            }
+            .left-item{
+              //float: left;
+              i.icon1{
+                @include remCalc(width, pxTorem(18px));
+                @include remCalc(height, pxTorem(20px));
+                @include icon(18,20,'../../assets/icon/icon_personal_02.png');
+              }
+              span{
+                @include remCalc(padding-left,pxTorem(7px));
+              }
+            }
+            .right-item{
+              display: flex;
+              align-items:center;
+              i.icon2{
+                @include remCalc(margin-right,pxTorem(7));
+                @include remCalc(width, pxTorem(20px));
+                @include remCalc(height, pxTorem(20px));
+                @include icon(20,20,'../../assets/icon/icon_play_02.png');
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .loadMore{
+    @include font-dpr(26px);
+    text-align: center;
+  }
+}

@@ -1,0 +1,54 @@
+<ion-header id="user-header"  class="sub-header">
+  <ion-navbar>
+    <ion-title>我的内容</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="personal myContent">
+  <div class="gap"></div>
+  <div class="itemList">
+    <div class="item">
+      <i class=" icon01">
+      </i>
+      <div class="rightBox" (click)="goToFeed(true)">
+        <h2>我的帖子</h2>
+        <i class="iconRight"></i>
+      </div>
+    </div>
+    <div class="item">
+      <i class=" icon02">
+
+      </i>
+      <div class="rightBox" (click)="goToInfo()">
+        <h2>我的资讯</h2>
+        <i class="iconRight"></i>
+      </div>
+    </div>
+    <div class="item">
+      <i class=" icon03">
+
+      </i>
+      <div class="rightBox" (click)="goToGallery()">
+        <h2>我的相册</h2>
+        <i class="iconRight"></i>
+      </div>
+    </div>
+    <div class="item">
+      <i class=" icon04">
+
+      </i>
+      <div class="rightBox" (click)="goToVideo()">
+        <h2>我的视频</h2>
+        <i class="iconRight"></i>
+      </div>
+    </div>
+    <div class="item">
+      <i class=" icon05">
+      </i>
+      <div class="rightBox" (click)="goToFeed(false)">
+        <h2>我的点赞</h2>
+        <i class="iconRight"></i>
+      </div>
+    </div>
+  </div>
+</ion-content>

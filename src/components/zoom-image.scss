@@ -1,0 +1,75 @@
+zoom-image {
+  width: 100%;
+  height: 100%;
+  ion-scroll {
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    white-space: nowrap;
+
+    .scroll-zoom-wrapper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .image {
+      display: inline-block;
+      vertical-align: top;
+      text-align: left;
+
+      min-width: 100%;
+      min-height: 100%;
+
+      transform-origin: left top;
+
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+
+      img {
+        pointer-events: none;
+        max-width: none;
+        min-width: none;
+        transform-origin: left top;
+      }
+    }
+  }
+}
+
+.gallery-modal {
+  position: relative;
+  background: black;
+
+  .close-button {
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    z-index: 10;
+    background: none;
+
+    &.button-ios {
+      top: 20px;
+    }
+  }
+
+  .slider {
+    .slide-zoom {
+      height: 100%;
+    }
+  }
+
+  .image-on-top {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+
+    display: block;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+  }
+}
